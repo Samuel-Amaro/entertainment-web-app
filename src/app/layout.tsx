@@ -1,3 +1,5 @@
+import Navbar from "@/components/Navbar";
+import Search from "@/components/Search";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -30,7 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>{children}</div>
+        <header>
+          <Navbar />
+          <Search />
+        </header>
+        {children}
       </body>
     </html>
   );
