@@ -34,9 +34,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={outfit.className}>
         <Navbar />
-        <header>
-          <Search />
-        </header>
         {children}
       </body>
     </html>
