@@ -16,9 +16,10 @@ export default function DatasCard({
     <div>
       <p>
         <span>
-          {mediaType === "movie" ? <IconCategoryMovie /> : <IconCategoryTv />}{" "}
+          {mediaType === "movie" ? <IconCategoryMovie /> : <IconCategoryTv />}
           {mediaType}
         </span>
+        <span></span>
         <span>{new Date(releaseDate).getFullYear()}</span>
       </p>
       <h3>{title}</h3>

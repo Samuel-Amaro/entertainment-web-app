@@ -20,10 +20,10 @@ export default function CardMovieTrending({
       <Image
         src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
         alt={`poster ${mediaType} ${title}`}
-        width={500}
-        height={500}
+        width={470}
+        height={280}
         placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimer(500, 500))}`}
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimer(470, 280))}`}
       />
       <DatasCard
         mediaType={mediaType}
