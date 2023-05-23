@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Search from "@/components/Search";
+import "./normalize.css";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"], weight: ["300", "500"] });
 
 export const metadata = {
   title: "Entertainment web app",
@@ -31,9 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={outfit.className}>
+        <Navbar />
         <header>
-          <Navbar />
           <Search />
         </header>
         {children}
