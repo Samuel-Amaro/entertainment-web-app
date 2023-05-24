@@ -3,26 +3,15 @@ import CardMovieTrending from "../CardMovieTrending";
 import Link from "next/link";
 import styles from "./SectionMoviesTrending.module.css";
 import IconEye from "../Icons/IconEye";
-
-async function getTrendingMovies() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_ENDPOINT_API}trending/movie/day?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US`
-  );
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch datas by trending movies");
-  }
-
-  return response.json() as unknown as DataResponseTredingMovies;
-}
+import { getTrendingMovies } from "@/api/tmdb";
+import Section from "../Section";
 
 export default async function SectionMoviesTreding() {
   const datas = await getTrendingMovies();
   return (
-    <section>
-      <h2 className={`headingL ${styles.title}`}>Trending</h2>
-      <ListMoviesTrending movies={datas.results} />
-    </section>
+   <Section title="Trending" mediaType="Movie" hrefToSeeMore="/">
+      <ListMoviesTrending movies={datas.results}/>
+   </Section>
   );
 }
 

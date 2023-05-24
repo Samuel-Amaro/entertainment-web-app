@@ -1,12 +1,47 @@
-.title {
+/*.header {
   margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row nowrap;
 }
+
+.headerContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkSeeMore{
+    text-decoration: none;
+    color: var(--color06);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.linkSeeMore:is(:hover, :focus){
+    text-decoration: underline;
+    color: var(--color01);
+}
+*/
 
 .cardLink {
   display: block;
   text-decoration: none;
   position: relative;
 }
+
+/*.indicator {
+  display: inline-block;
+  border: 2px solid var(--color05);
+  color: var(--color05);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 3px 5px;
+  border-radius: 5px;
+}*/
 
 .containerMovies {
   display: flex;
