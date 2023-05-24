@@ -1,0 +1,37 @@
+.year, .diviser, .mediaType, .icon{
+  display: inline-block;
+}
+
+.mediaType,
+.year {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color07);
+}
+
+.diviser {
+  content: "";
+  width: 3px;
+  height: 3px;
+  background-color: var(--color06);
+  margin: 0 8px;
+  border-radius: 50%;
+}
+
+.container, .wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.container{
+    margin: 0 0 4px 0;
+}
+
+.wrapper{
+    gap: 6px;
+}
+
+
+

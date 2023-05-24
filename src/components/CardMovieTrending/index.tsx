@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Image, { ImageLoader, ImageLoaderProps } from "next/image";
 import DatasCard from "../DatasCard";
 import { shimer, toBase64 } from "@/utils";
+import styles from "./CardMovieTrending.module.css";
 
 interface PropsCardMovieTrending {
   mediaType: string;
@@ -16,19 +17,22 @@ export default function CardMovieTrending({
   posterPath,
 }: PropsCardMovieTrending) {
   return (
-    <div>
+    <div className={styles.card}>
       <Image
         src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
         alt={`poster ${mediaType} ${title}`}
-        width={470}
-        height={280}
+        /*width={240}
+        height={140}*/
         placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimer(470, 280))}`}
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimer(240, 140))}`}
+        className={styles.image}
+        fill={true}
       />
       <DatasCard
         mediaType={mediaType}
         releaseDate={releaseDate}
         title={title}
+        className={styles.datasCard}
       />
     </div>
   );

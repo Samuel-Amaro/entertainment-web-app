@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 8px;
+}
+
+.image {
+  display: block;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.datasCard {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1000;
+}
