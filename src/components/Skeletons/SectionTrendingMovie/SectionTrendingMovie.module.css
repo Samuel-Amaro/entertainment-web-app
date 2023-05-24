@@ -1,0 +1,5 @@
+.section{
+    background-color: var(--color05);
+    max-width: 100%;
+    overflow-x: hidden;
+}

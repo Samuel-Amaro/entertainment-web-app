@@ -1,3 +1,3 @@
 export default function Loading() {
-  return <h2>🌀 Loading Home...</h2>;
+  return <h2 className="headingL">🌀 Loading Home...</h2>;
 }
