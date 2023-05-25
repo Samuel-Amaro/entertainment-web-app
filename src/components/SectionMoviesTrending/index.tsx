@@ -2,7 +2,6 @@ import { DataResponseTredingMovies, Movie } from "@/types";
 import CardMovieTrending from "../CardMovieTrending";
 import Link from "next/link";
 import styles from "./SectionMoviesTrending.module.css";
-import IconEye from "../Icons/IconEye";
 import { getTrendingMovies } from "@/api/tmdb";
 import Section from "../Section";
 import ViewCard from "../ViewCard";
@@ -27,6 +26,7 @@ function ListMoviesTrending({ movies }: { movies: Movie[] }) {
             key={movie.id}
             title="View Movie"
             className={styles.cardLink}
+            rel="next"
           >
             <CardMovieTrending
               mediaType={movie.media_type}
