@@ -1,5 +1,5 @@
 import Search from "@/components/Search";
-import SectionMoviesTreding from "@/components/SectionMoviesTrending";
+import SectionMoviesTreding from "@/components/SectionMovies/SectionMoviesTrending";
 import { Suspense } from "react";
 import styles from "./page.module.css";
 import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrendingMovie";

@@ -4,23 +4,21 @@ import styles from "./DatasCard.module.css";
 
 interface PropsDatasCard {
   mediaType: string;
-  releaseDate: string;
-  title: string;
+  date: string;
+  titleOrName: string;
   className?: string;
 }
 
 export default function DatasCard({
   mediaType,
-  releaseDate,
-  title,
+  date,
+  titleOrName,
   className,
 }: PropsDatasCard) {
   return (
     <div className={className ? className : undefined}>
       <p className={styles.container}>
-        <span className={styles.year}>
-          {new Date(releaseDate).getFullYear()}
-        </span>
+        <span className={styles.year}>{new Date(date).getFullYear()}</span>
         <span className={styles.diviser}></span>
         <span className={styles.wrapper}>
           {mediaType === "movie" ? (
@@ -31,7 +29,7 @@ export default function DatasCard({
           <span className={styles.mediaType}>{mediaType}</span>
         </span>
       </p>
-      <h3 className="headingS">{title}</h3>
+      <h3 className="headingS">{titleOrName}</h3>
     </div>
   );
 }

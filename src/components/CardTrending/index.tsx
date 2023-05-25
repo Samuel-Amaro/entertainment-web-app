@@ -1,26 +1,26 @@
-import Image, { ImageLoader, ImageLoaderProps } from "next/image";
+import Image from "next/image";
 import DatasCard from "../DatasCard";
 import { shimer, toBase64 } from "@/utils";
 import styles from "./CardMovieTrending.module.css";
 
 interface PropsCardMovieTrending {
   mediaType: string;
-  releaseDate: string;
-  title: string;
+  date: string;
+  titleOrName: string;
   posterPath: string;
 }
 
 export default function CardMovieTrending({
   mediaType,
-  releaseDate,
-  title,
+  date,
+  titleOrName,
   posterPath,
 }: PropsCardMovieTrending) {
   return (
     <div className={styles.card}>
       <Image
         src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
-        alt={`poster ${mediaType} ${title}`}
+        alt={`poster ${mediaType} ${titleOrName}`}
         /*width={240}
         height={140}*/
         placeholder="blur"
@@ -30,8 +30,8 @@ export default function CardMovieTrending({
       />
       <DatasCard
         mediaType={mediaType}
-        releaseDate={releaseDate}
-        title={title}
+        date={date}
+        titleOrName={titleOrName}
         className={styles.datasCard}
       />
     </div>
