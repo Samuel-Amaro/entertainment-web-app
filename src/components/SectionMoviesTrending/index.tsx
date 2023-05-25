@@ -5,13 +5,14 @@ import styles from "./SectionMoviesTrending.module.css";
 import IconEye from "../Icons/IconEye";
 import { getTrendingMovies } from "@/api/tmdb";
 import Section from "../Section";
+import ViewCard from "../ViewCard";
 
 export default async function SectionMoviesTreding() {
   const datas = await getTrendingMovies();
   return (
-   <Section title="Trending" mediaType="Movie" hrefToSeeMore="/">
-      <ListMoviesTrending movies={datas.results}/>
-   </Section>
+    <Section title="Trending" mediaType="Movie" hrefToSeeMore="/">
+      <ListMoviesTrending movies={datas.results} />
+    </Section>
   );
 }
 
@@ -33,12 +34,7 @@ function ListMoviesTrending({ movies }: { movies: Movie[] }) {
               title={movie.title}
               posterPath={movie.poster_path}
             />
-            <div className={styles.hoverPoster}>
-              <div className={styles.containerText}>
-                <IconEye className={styles.iconView} />
-                <span className={styles.textHover}>View</span>
-              </div>
-            </div>
+            <ViewCard className={styles.hoverPoster} />
           </Link>
         ))}
     </div>

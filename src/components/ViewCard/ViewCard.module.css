@@ -1,0 +1,36 @@
+.hoverPoster {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  border-radius: 8px;
+  z-index: 10001;
+}
+
+.containerText {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 19px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 28.5px;
+  padding: 9px 24px 9px 9px;
+}
+
+.iconView {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: var(--color05);
+}
+
+.textHover {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--color05);
+}
