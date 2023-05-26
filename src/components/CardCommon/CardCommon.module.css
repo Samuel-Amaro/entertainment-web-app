@@ -1,0 +1,17 @@
+.card {
+  border-radius: 8px;
+  max-width: 164px;
+}
+
+.wrapperImage {
+  position: relative;
+  width: 164px;
+  height: 164px;
+  margin: 0 0 8px 0;
+}
+
+.image {
+  display: block;
+  object-fit: fill;
+  border-radius: 8px;
+}

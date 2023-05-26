@@ -6,6 +6,10 @@
   flex-flow: row nowrap;
 }
 
+.headerModifierMg{
+  margin: 0 0 24px 0;
+}
+
 .headerContainer {
   display: flex;
   flex-flow: row nowrap;
@@ -34,4 +38,8 @@
 .linkSeeMore:is(:hover, :focus) {
   text-decoration: underline;
   color: var(--color01);
+}
+
+.section:not(:last-child){
+  margin: 0 0 24px 0;
 }

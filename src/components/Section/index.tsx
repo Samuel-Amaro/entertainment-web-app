@@ -5,6 +5,7 @@ type PropsSection = {
   title: string;
   mediaType: string;
   hrefToSeeMore: string;
+  type: "trending" | "common";
   children: React.ReactNode;
 };
 
@@ -12,11 +13,18 @@ export default function Section({
   title,
   mediaType,
   hrefToSeeMore,
+  type,
   children,
 }: PropsSection) {
   return (
-    <section>
-      <header className={styles.header}>
+    <section className={styles.section}>
+      <header
+        className={
+          type === "trending"
+            ? `${styles.header}`
+            : `${styles.header} ${styles.headerModifierMg}`
+        }
+      >
         <div className={styles.headerContainer}>
           <h2 className={`headingL ${styles.title}`}>{title}</h2>
           <span className={styles.indicator}>{mediaType}</span>

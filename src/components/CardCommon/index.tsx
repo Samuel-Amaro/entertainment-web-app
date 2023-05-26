@@ -1,3 +1,8 @@
+import Image from "next/image";
+import { shimer, toBase64 } from "@/utils";
+import styles from "./CardCommon.module.css";
+import DatasCard from "../DatasCard";
+
 interface PropsCardCommon {
   mediaType: string;
   date: string;
@@ -11,5 +16,23 @@ export default function CardCommon({
   titleOrName,
   posterPath,
 }: PropsCardCommon) {
-  return <div></div>;
+  return (
+    <div className={styles.card}>
+      <div className={styles.wrapperImage}>
+        <Image
+          src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
+          alt={`poster ${mediaType} ${titleOrName}`}
+          /*width={240}
+        height={140}*/
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimer(240, 140)
+          )}`}
+          className={styles.image}
+          fill={true}
+        />
+      </div>
+      <DatasCard mediaType={mediaType} date={date} titleOrName={titleOrName} />
+    </div>
+  );
 }

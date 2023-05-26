@@ -6,7 +6,12 @@ interface ListProps<T> {
   items: T[];
   limitRenderingItems: number;
   type: "trending" | "common";
-  renderItem: (item: T, typeCard: "trending" | "common") => React.ReactNode;
+  mediaType?: "movie" | "tv" | undefined;
+  renderItem: (
+    item: T,
+    typeCard: "trending" | "common",
+    mediaType?: "movie" | "tv" | undefined
+  ) => React.ReactNode;
 }
 
 export default function List<T extends Movie | TV>({
@@ -14,6 +19,7 @@ export default function List<T extends Movie | TV>({
   limitRenderingItems,
   type,
   renderItem,
+  mediaType
 }: ListProps<T>) {
   const itemsLimited = items.filter(
     (item, index) => index < limitRenderingItems
@@ -23,9 +29,8 @@ export default function List<T extends Movie | TV>({
       className={type === "trending" ? styles.listTrending : styles.listCommon}
     >
       {itemsLimited.map((item, index) => (
-        <Fragment key={index}>{renderItem(item, type)}</Fragment>
+        <Fragment key={index}>{renderItem(item, type, mediaType)}</Fragment>
       ))}
     </div>
   );
 }
-

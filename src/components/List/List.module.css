@@ -6,3 +6,11 @@
   max-width: 100%;
   overflow-x: auto;
 }
+
+.listCommon {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}

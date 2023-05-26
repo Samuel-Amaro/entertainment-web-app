@@ -6,7 +6,12 @@ import { renderCardMovie } from "..";
 export default async function SectionMoviesTreding() {
   const datas = await getTrendingMovies();
   return (
-    <Section title="Trending" mediaType="Movie" hrefToSeeMore="/">
+    <Section
+      title="Trending"
+      mediaType="Movie"
+      hrefToSeeMore="/"
+      type="trending"
+    >
       <List
         items={datas.results}
         limitRenderingItems={5}

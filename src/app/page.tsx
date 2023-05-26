@@ -3,6 +3,7 @@ import SectionMoviesTreding from "@/components/SectionMovies/SectionMoviesTrendi
 import { Suspense } from "react";
 import styles from "./page.module.css";
 import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrendingMovie";
+import SectionMoviesNowPlaying from "@/components/SectionMovies/SectionMoviesNowPlaying";
 
 export default function Home() {
   return (
@@ -14,6 +15,10 @@ export default function Home() {
         <Suspense fallback={<SkeletonSectionTrendingMovie />}>
           {/* @ts-expect-error Async Server Component */}
           <SectionMoviesTreding />
+        </Suspense>
+        <Suspense fallback={<p>Loading movies Now Playing...</p>}>
+          {/* @ts-expect-error Async Server Component */}
+          <SectionMoviesNowPlaying />
         </Suspense>
       </main>
     </>
