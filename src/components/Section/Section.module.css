@@ -6,6 +6,15 @@
   flex-flow: row nowrap;
 }
 
+.description{
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 300;
+  margin: 0 0 16px 0;
+  text-align: left;
+  color: var(--color07);
+}
+
 .headerModifierMg{
   margin: 0 0 24px 0;
 }

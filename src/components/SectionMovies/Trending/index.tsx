@@ -11,6 +11,7 @@ export default async function SectionMoviesTreding() {
       mediaType="Movie"
       hrefToSeeMore="/"
       type="trending"
+      description="The trending movies"
     >
       <List
         items={datas.results}

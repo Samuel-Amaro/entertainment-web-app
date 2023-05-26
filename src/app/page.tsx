@@ -1,12 +1,13 @@
 import Search from "@/components/Search";
-import SectionMoviesTreding from "@/components/SectionMovies/SectionMoviesTrending";
+import SectionMoviesTreding from "@/components/SectionMovies/Trending";
 import { Suspense } from "react";
 import styles from "./page.module.css";
 import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrending";
-import SectionMoviesNowPlaying from "@/components/SectionMovies/SectionMoviesNowPlaying";
+import SectionMoviesNowPlaying from "@/components/SectionMovies/NowPlaying";
 import SkeletonSectionCommon from "@/components/Skeletons/SectionCommon";
-import SectionPopularMovies from "@/components/SectionMovies/SectionMoviesPopular";
-import SectionMoviesTopRated from "@/components/SectionMovies/SectionMoviesTopRated";
+import SectionPopularMovies from "@/components/SectionMovies/Popular";
+import SectionMoviesTopRated from "@/components/SectionMovies/TopRated";
+import SectionMoviesUpcoming from "@/components/SectionMovies/Upcoming";
 
 export default function Home() {
   return (
@@ -32,6 +33,10 @@ export default function Home() {
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
           {/* @ts-expect-error Async Server Component */}
           <SectionMoviesTopRated />
+        </Suspense>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+          {/* @ts-expect-error Async Server Component */}
+          <SectionMoviesUpcoming />
         </Suspense>
       </main>
     </>

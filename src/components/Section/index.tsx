@@ -7,6 +7,7 @@ type PropsSection = {
   hrefToSeeMore: string;
   type: "trending" | "common";
   children: React.ReactNode;
+  description: string;
 };
 
 export default function Section({
@@ -14,6 +15,7 @@ export default function Section({
   mediaType,
   hrefToSeeMore,
   type,
+  description,
   children,
 }: PropsSection) {
   return (
@@ -37,6 +39,15 @@ export default function Section({
           See more
         </Link>
       </header>
+      <p
+        className={
+          type === "trending"
+            ? `${styles.description}`
+            : `${styles.description} ${styles.headerModifierMg}`
+        }
+      >
+        {description}
+      </p>
       {children}
     </section>
   );

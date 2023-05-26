@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMovies, DataResponseMovies } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -42,7 +42,7 @@ export async function getNowPlayingMovies() {
 
   return response.json() as unknown as DataResponseNowPlayingMovies;
   */
-  return await fetcher<DataResponseNowPlayingMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/now_playing?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by now playing movies");
+  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/now_playing?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by now playing movies");
 }
 
 export async function getPopularMovies() {
@@ -51,4 +51,8 @@ export async function getPopularMovies() {
 
 export async function getTopRatedMovies() {
   return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/top_rated?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by top rated movies");
+}
+
+export async function getUpcomingMovies() {
+  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/upcoming?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by upcoming movies");
 }

@@ -7,7 +7,13 @@ export default async function SectionPopularMovies() {
   const datas = await getPopularMovies();
 
   return (
-    <Section title="Popular" mediaType="Movie" hrefToSeeMore="/" type="common">
+    <Section
+      title="Popular"
+      mediaType="Movie"
+      hrefToSeeMore="/"
+      type="common"
+      description="A list of movies ordered by popularity."
+    >
       <List
         items={datas.results}
         limitRenderingItems={6}

@@ -1,8 +1,6 @@
 import { getTopRatedMovies } from "@/api/tmdb";
 import List from "@/components/List";
 import Section from "@/components/Section";
-import { Movie, TV } from "@/types";
-import { ReactNode } from "react";
 import { renderCardMovie } from "..";
 
 export default async function SectionMoviesTopRated() {
@@ -14,6 +12,7 @@ export default async function SectionMoviesTopRated() {
       mediaType="Movie"
       hrefToSeeMore="/"
       type="common"
+      description="A list of movies ordered by rating."
     >
       <List
         items={datas.results}

@@ -6,7 +6,13 @@ import { renderCardMovie } from "..";
 export default async function SectionMoviesNowPlaying() {
   const datas = await getNowPlayingMovies();
   return (
-    <Section title="Now Playing" mediaType="Movie" hrefToSeeMore="/" type="common">
+    <Section
+      title="Now Playing"
+      mediaType="Movie"
+      hrefToSeeMore="/"
+      type="common"
+      description="A list of movies that are currently in theatres."
+    >
       <List
         mediaType="movie"
         items={datas.results}

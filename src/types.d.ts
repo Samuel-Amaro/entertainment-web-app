@@ -45,7 +45,7 @@ export type DataResponseMovies = {
     total_results: number;
 };
 
-export type DataResponseNowPlayingMovies = {
+export type DataResponseNowPlayingMoviesOrUpcoming = {
     dates: {
         maximum: string;
         minimum: string;
