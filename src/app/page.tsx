@@ -6,6 +6,7 @@ import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrending
 import SectionMoviesNowPlaying from "@/components/SectionMovies/SectionMoviesNowPlaying";
 import SkeletonSectionCommon from "@/components/Skeletons/SectionCommon";
 import SectionPopularMovies from "@/components/SectionMovies/SectionMoviesPopular";
+import SectionMoviesTopRated from "@/components/SectionMovies/SectionMoviesTopRated";
 
 export default function Home() {
   return (
@@ -27,6 +28,10 @@ export default function Home() {
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
           {/* @ts-expect-error Async Server Component */}
           <SectionPopularMovies />
+        </Suspense>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+          {/* @ts-expect-error Async Server Component */}
+          <SectionMoviesTopRated />
         </Suspense>
       </main>
     </>
