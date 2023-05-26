@@ -11,12 +11,15 @@ interface PropsCardMovieTrending {
   posterPath: string;
 }
 
+//TODO: add um custom hook de media query para simular o blur antes da imagem carregar do tamnho certo
+
 export default function CardMovieTrending({
   mediaType,
   date,
   titleOrName,
   posterPath,
 }: PropsCardMovieTrending) {
+  console.log(date);
   return (
     <div className={styles.card}>
       <Image

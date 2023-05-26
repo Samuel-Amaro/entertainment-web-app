@@ -45,6 +45,13 @@ export type DataResponseMovies = {
     total_results: number;
 };
 
+export type DataResponseTV = {
+    page: number;
+    results: TV[];
+    total_pages: number;
+    total_results: number;
+};
+
 export type DataResponseNowPlayingMoviesOrUpcoming = {
     dates: {
         maximum: string;

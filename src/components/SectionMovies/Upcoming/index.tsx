@@ -9,7 +9,7 @@ export default async function SectionMoviesUpcoming() {
   return (
     <Section
       title="Upcoming"
-      mediaType="movie"
+      mediaType="Movie"
       hrefToSeeMore="/"
       type="common"
       description="A list of movies that are being released soon."

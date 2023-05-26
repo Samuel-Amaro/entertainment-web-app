@@ -1,54 +1,54 @@
-.section{
-    margin: 0 0 24px 0;
-    background-color: var(--color04);
+.section {
+  margin: 0 0 24px 0;
+  background-color: var(--color04);
 }
 
-.title{
-    content: "";
-    display: block;
-    width: 200px;
-    height: 25px;
-    background-color: var(--color06);
-    border-radius: 15px;
-    margin: 0 0 24px 0;
-    animation: skeleton-loading 1s linear infinite alternate;
+.title {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 25px;
+  background-color: var(--color06);
+  border-radius: 15px;
+  margin: 0 0 24px 0;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.list{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: center;
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.cardImage{
-    content: "";
-    width: 164px;
-    height: 164px;
-    margin: 0 0 8px 0;
-    border-radius: 8px;
-    background-color: var(--color06);
-    animation: skeleton-loading 1s linear infinite alternate;
+.cardImage {
+  content: "";
+  width: 164px;
+  height: 164px;
+  margin: 0 0 8px 0;
+  border-radius: 8px;
+  background-color: var(--color06);
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.cardInfo{
-    content: "";
-    width: 150px;
-    height: 14px;
-    margin: 0 0 4px 0;
-    background-color: var(--color06);
-    border-radius: 15px;
-    animation: skeleton-loading 1s linear infinite alternate;
+.cardInfo {
+  content: "";
+  width: 150px;
+  height: 14px;
+  margin: 0 0 4px 0;
+  background-color: var(--color06);
+  border-radius: 15px;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.cardTitle{
-    content: "";
-    width: 100px;
-    height: 18px;
-    background-color: var(--color06);
-    border-radius: 15px;
-    animation: skeleton-loading 1s linear infinite alternate;
+.cardTitle {
+  content: "";
+  width: 100px;
+  height: 18px;
+  background-color: var(--color06);
+  border-radius: 15px;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .skeleton {
