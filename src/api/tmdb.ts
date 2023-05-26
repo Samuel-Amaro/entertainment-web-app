@@ -28,3 +28,5 @@ export async function getNowPlayingMovies() {
 
   return response.json() as unknown as DataResponseNowPlayingMovies;
 }
+
+//TODO: criar metodo para buscar filmes na lista de popular

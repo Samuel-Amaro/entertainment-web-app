@@ -1,6 +1,5 @@
 import Link from "next/link";
 import CardTrending from "../CardTrending";
-import ViewCard from "../ViewCard";
 import CardCommon from "../CardCommon";
 import styles from "./Card.module.css";
 

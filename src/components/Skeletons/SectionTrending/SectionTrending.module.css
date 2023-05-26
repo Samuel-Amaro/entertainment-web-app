@@ -1,7 +1,31 @@
+.section {
+}
+
+.title {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 25px;
+  background-color: var(--color06);
+  border-radius: 15px;
+  margin: 0 0 24px 0;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.list {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: var(--color04);
+  overflow-x: scroll;
+}
+
 .cardTrendingMovie {
   content: "";
   width: 240px;
   height: 240px;
+  flex: 0 0 240px;
   background-color: #f5f8fc;
   box-shadow: 0 0 transparent, 0 0 transparent,
     0 0.375rem 0.375rem -0.125rem rgba(168, 179, 207, 0.4);

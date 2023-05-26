@@ -2,8 +2,9 @@ import Search from "@/components/Search";
 import SectionMoviesTreding from "@/components/SectionMovies/SectionMoviesTrending";
 import { Suspense } from "react";
 import styles from "./page.module.css";
-import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrendingMovie";
+import SkeletonSectionTrendingMovie from "@/components/Skeletons/SectionTrending";
 import SectionMoviesNowPlaying from "@/components/SectionMovies/SectionMoviesNowPlaying";
+import SkeletonSectionCommon from "@/components/Skeletons/SectionCommon";
 
 export default function Home() {
   return (
@@ -12,11 +13,11 @@ export default function Home() {
         <Search placeholder="Search for movies or TV Series" />
       </header>
       <main className={styles.main}>
-        <Suspense fallback={<SkeletonSectionTrendingMovie />}>
+        <Suspense fallback={<SkeletonSectionTrendingMovie limitRenderingItems={5}/>}>
           {/* @ts-expect-error Async Server Component */}
           <SectionMoviesTreding />
         </Suspense>
-        <Suspense fallback={<p>Loading movies Now Playing...</p>}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
           {/* @ts-expect-error Async Server Component */}
           <SectionMoviesNowPlaying />
         </Suspense>
