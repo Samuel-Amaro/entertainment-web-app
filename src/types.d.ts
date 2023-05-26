@@ -38,7 +38,7 @@ export type TV = {
     original_country: string[];
 };
 
-export type DataResponseTredingMovies = {
+export type DataResponseMovies = {
     page: number;
     results: Movie[];
     total_pages: number;
