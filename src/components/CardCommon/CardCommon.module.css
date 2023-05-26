@@ -10,6 +10,13 @@
   margin: 0 0 8px 0;
 }
 
+.wrapperImage:is(:hover, :focus) .hoverPoster {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
 .image {
   display: block;
   object-fit: fill;

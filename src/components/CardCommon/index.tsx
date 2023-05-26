@@ -2,6 +2,7 @@ import Image from "next/image";
 import { shimer, toBase64 } from "@/utils";
 import styles from "./CardCommon.module.css";
 import DatasCard from "../DatasCard";
+import ViewCard from "../ViewCard";
 
 interface PropsCardCommon {
   mediaType: string;
@@ -31,6 +32,7 @@ export default function CardCommon({
           className={styles.image}
           fill={true}
         />
+        <ViewCard className={styles.hoverPoster} />
       </div>
       <DatasCard mediaType={mediaType} date={date} titleOrName={titleOrName} />
     </div>

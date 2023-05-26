@@ -29,25 +29,19 @@ export default function Card({
       className={styles.cardLink}
     >
       {typeCard === "trending" ? (
-        <>
-          <CardTrending
-            mediaType={mediaType}
-            date={date}
-            titleOrName={titleOrName}
-            posterPath={posterPath}
-          />
-          <ViewCard className={styles.hoverPoster} />
-        </>
+        <CardTrending
+          mediaType={mediaType}
+          date={date}
+          titleOrName={titleOrName}
+          posterPath={posterPath}
+        />
       ) : (
-        <>
-          <CardCommon
-            mediaType={mediaType}
-            date={date}
-            titleOrName={titleOrName}
-            posterPath={posterPath}
-          />
-          <ViewCard className={styles.hoverPoster} />
-        </>
+        <CardCommon
+          mediaType={mediaType}
+          date={date}
+          titleOrName={titleOrName}
+          posterPath={posterPath}
+        />
       )}
     </Link>
   );

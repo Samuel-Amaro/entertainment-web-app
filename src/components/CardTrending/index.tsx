@@ -2,6 +2,7 @@ import Image from "next/image";
 import DatasCard from "../DatasCard";
 import { shimer, toBase64 } from "@/utils";
 import styles from "./CardMovieTrending.module.css";
+import ViewCard from "../ViewCard";
 
 interface PropsCardMovieTrending {
   mediaType: string;
@@ -34,6 +35,7 @@ export default function CardMovieTrending({
         titleOrName={titleOrName}
         className={styles.datasCard}
       />
+      <ViewCard className={styles.hoverPoster} />
     </div>
   );
 }
