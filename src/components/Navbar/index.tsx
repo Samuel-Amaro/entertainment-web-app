@@ -23,12 +23,12 @@ const navLinks: DataLinkNav[] = [
     title: "Home",
   },
   {
-    href: "/movies",
+    href: "/movie",
     name: "movies",
     title: "Movies",
   },
   {
-    href: "/tvseries",
+    href: "/tv",
     name: "tvseries",
     title: "Tv Series",
   },

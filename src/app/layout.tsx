@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Search from "@/components/Search";
 import "./normalize.css";
 import "./globals.css";
 import { Outfit } from "next/font/google";
