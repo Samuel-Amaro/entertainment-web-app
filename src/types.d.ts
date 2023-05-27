@@ -35,7 +35,7 @@ export type TV = {
     first_air_date: string;
     vote_average: number;
     vote_count: number;
-    original_country: string[];
+    origin_country: string[];
 };
 
 export type DataResponseMovies = {

@@ -10,11 +10,14 @@ import SectionMoviesTopRated from "@/components/SectionMovies/TopRated";
 import SectionMoviesUpcoming from "@/components/SectionMovies/Upcoming";
 import SectionTrendingTv from "@/components/SectionTVSeries/Trending";
 import SkeletonSectionTrending from "@/components/Skeletons/SectionTrending";
+import SectionAiringToday from "@/components/SectionTVSeries/AiringToday";
 
 //TODO: pensar em uma forma de usar as datas retornadas por algumas listas
 //TODO: ver se vale a pena adicionar H1 na page home
 //TODO: adicionar espaçamento no bottom entre skeletons na page home
 //TODO: começar a buscar listas de tvseries, trending, etc...
+//TODO: criar page para visualizar filme ou programa de tv selecionado
+//TODO: criar paginas para mostrar generos de movies ou tv e listar com paginação
 
 export default function Home() {
   return (
@@ -45,9 +48,15 @@ export default function Home() {
           {/* @ts-expect-error Async Server Component */}
           <SectionMoviesUpcoming />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionTrending limitRenderingItems={6} />}>
+        <Suspense
+          fallback={<SkeletonSectionTrending limitRenderingItems={5} />}
+        >
           {/* @ts-expect-error Async Server Component */}
           <SectionTrendingTv />
+        </Suspense>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+          {/* @ts-expect-error Async Server Component */}
+          <SectionAiringToday />
         </Suspense>
       </main>
     </>

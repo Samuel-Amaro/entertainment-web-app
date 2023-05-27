@@ -19,7 +19,6 @@ export default function CardMovieTrending({
   titleOrName,
   posterPath,
 }: PropsCardMovieTrending) {
-  console.log(date);
   return (
     <div className={styles.card}>
       <Image
