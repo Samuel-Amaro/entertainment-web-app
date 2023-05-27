@@ -11,6 +11,7 @@ import SectionMoviesUpcoming from "@/components/SectionMovies/Upcoming";
 import SectionTrendingTv from "@/components/SectionTVSeries/Trending";
 import SkeletonSectionTrending from "@/components/Skeletons/SectionTrending";
 import SectionAiringToday from "@/components/SectionTVSeries/AiringToday";
+import SectionOnTheAirTv from "@/components/SectionTVSeries/OnTheAir";
 
 //TODO: pensar em uma forma de usar as datas retornadas por algumas listas
 //TODO: ver se vale a pena adicionar H1 na page home
@@ -57,6 +58,10 @@ export default function Home() {
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
           {/* @ts-expect-error Async Server Component */}
           <SectionAiringToday />
+        </Suspense>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+          {/* @ts-expect-error Async Server Component */}
+          <SectionOnTheAirTv />
         </Suspense>
       </main>
     </>

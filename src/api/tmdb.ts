@@ -64,3 +64,7 @@ export async function getTrendingTv() {
 export async function getAiringTodayTv() {
   return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/airing_today?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by airing today tv");
 }
+
+export async function getOnTheAirTv() {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/on_the_air?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by on the air tv");
+}
