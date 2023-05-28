@@ -1,4 +1,4 @@
-import { getDetailsMovie } from "@/api/tmdb";
+import { getCreditsMovie, getDetailsMovie } from "@/api/tmdb";
 import { convertMinutesInHours, shimer, toBase64 } from "@/utils";
 import Image from "next/image";
 import styles from "./movie.module.css";
@@ -11,6 +11,7 @@ export default async function Page({
   };
 }) {
   const detailsMovie = await getDetailsMovie(params.id);
+  const creditsMovie = await getCreditsMovie(params.id);
 
   return (
     <main>
@@ -73,6 +74,30 @@ export default async function Page({
             <span>{detailsMovie.revenue}</span>
           </p>
         </div>
+      </section>
+      <section>
+        <h3>Casts</h3>
+        <ul>
+          {creditsMovie.cast.map((cast) => (
+            <li key={cast.id}>
+              <div className={styles.wrapperProfile}>
+                {cast.profile_path && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
+                    alt={`profile ${cast.original_name}`}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimer(240, 140)
+                    )}`}
+                    fill={true}
+                  />
+                )}
+              </div>
+              <p>{cast.original_name}</p>
+              <p>{cast.character}</p>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );
