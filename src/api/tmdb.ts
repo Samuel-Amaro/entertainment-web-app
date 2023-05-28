@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -75,4 +75,8 @@ export async function getPopularTv() {
 
 export async function getTopRatedTv() {
   return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/top_rated?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US&page=1`, "Failed to fetch datas by top rated tv");
+}
+
+export async function getDetailsMovie(id: number) {
+  return await fetcher<DatasDetailsMovie>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/${id}?api_key=${process.env.NEXT_PUBLIC_KEY_API}&language=en-US`, "Failed to fetch datas by details movie");
 }

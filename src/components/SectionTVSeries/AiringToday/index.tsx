@@ -9,7 +9,7 @@ export default async function SectionAiringToday() {
   return (
     <Section
       title="Airing Today"
-      mediaType="tv"
+      mediaType="Tv"
       hrefToSeeMore="/"
       type="common"
       description="A list of TV shows airing today."

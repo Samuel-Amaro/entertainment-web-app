@@ -20,3 +20,10 @@ export function toBase64(str: string) {
     : window.btoa(str);
 }
 
+export function convertMinutesInHours(minutes: number) {
+  const hou = minutes / 60;
+  const min = minutes % 60;
+  const txtHour = `${Math.trunc(hou)}`.slice(-2);
+  const txtMinutes = `${min}`.slice(-2);
+  return `${txtHour}h ${txtMinutes}m`;
+}
