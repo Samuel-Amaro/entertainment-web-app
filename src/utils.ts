@@ -1,4 +1,4 @@
-import { Language, ReleaseDate, ResponseLanguages } from "./types";
+import { Language, ResponseLanguages } from "./types";
 
 export function shimer(w: number, h: number) {
   return `
@@ -45,13 +45,3 @@ export function getLanguage(tagLanguage: string, listLanguages: ResponseLanguage
     return l.english_name;
   return "Unspecified language";
 } 
-
-export function getCertificationMovie(iso_3166_1: string, listReleaseDates: ReleaseDate[]) {
-  const releaseDate = listReleaseDates.find((rd: ReleaseDate) => rd.iso_3166_1 === iso_3166_1);
-  if(releaseDate) {
-    const allCertifications: string[] = [];
-    releaseDate.release_dates.forEach((rd) => allCertifications.push(rd.certification));
-    return allCertifications.join(",");
-  }
-  return "Unspecified certification"
-}

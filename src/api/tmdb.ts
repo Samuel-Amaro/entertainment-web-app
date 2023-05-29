@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseReleaseDates } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -62,8 +62,4 @@ export async function getCreditsMovie(movieId: number) {
 
 export async function getListOfLanguages() {
   return await fetcher<ResponseLanguages>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}configuration/languages?api_key=${process.env.NEXT_PUBLIC_KEY_API}`, "Failed to fetch datas by configuration de languages de tmdb api");
-}
-
-export async function getReleaseDates(movieId: number) {
-  return await fetcher<ResponseReleaseDates>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/${movieId}/release_dates?api_key=${process.env.NEXT_PUBLIC_KEY_API}`, "Failed to fetch datas by release dates de movie de tmdb api");
 }
