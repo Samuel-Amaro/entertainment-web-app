@@ -15,13 +15,6 @@ import SectionOnTheAirTv from "@/components/SectionTVSeries/OnTheAir";
 import SectionPopularTv from "@/components/SectionTVSeries/Popular";
 import SectionTopRatedTv from "@/components/SectionTVSeries/TopRated";
 
-//TODO: pensar em uma forma de usar as datas retornadas por algumas listas
-//TODO: ver se vale a pena adicionar H1 na page home
-//TODO: adicionar espaçamento no bottom entre skeletons na page home
-//TODO: começar a buscar listas de tvseries, trending, etc...
-//TODO: criar page para visualizar filme ou programa de tv selecionado
-//TODO: criar paginas para mostrar generos de movies ou tv e listar com paginação
-
 export default function Home() {
   return (
     <>

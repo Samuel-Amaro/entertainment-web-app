@@ -13,6 +13,57 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./movie.module.css";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { id: number };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const detailsMovie = await getDetailsMovie(params.id);
+
+  return {
+    title: `${detailsMovie.title} (${new Date(
+      detailsMovie.release_date
+    ).getFullYear()}) - Entertainment web app`,
+    description: detailsMovie.overview,
+    keywords: [
+      "Movies",
+      "TV Shows",
+      "Streaming",
+      "Reviews",
+      "API",
+      "Actors",
+      "Actresses",
+      "Photos",
+      "User Ratings",
+      "Synopsis",
+      "Trailers",
+      "Teasers",
+      "Credits",
+      "Cast",
+    ],
+    icons: {
+      icon: "/favicon.png",
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
+    },
+    openGraph: {
+      title: detailsMovie.title,
+      description: detailsMovie.overview,
+      type: "video.movie",
+      url: `/movie/${params.id}`,
+      siteName: "Entertainment web app",
+      images: [
+        `https://image.tmdb.org/t/p/w500${detailsMovie.poster_path}`,
+        `https://image.tmdb.org/t/p/w780${detailsMovie.poster_path}`,
+      ],
+    },
+  };
+}
 
 export default async function Page({
   params,
