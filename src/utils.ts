@@ -1,3 +1,5 @@
+import { Language, ResponseLanguages } from "./types";
+
 export function shimer(w: number, h: number) {
   return `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -34,3 +36,12 @@ export function formatNumber(n: number) {
     currency: "USD",
   }).format(n);
 }
+
+export function getLanguage(tagLanguage: string, listLanguages: ResponseLanguages) {
+  const l = listLanguages.find((language: Language) =>
+    language.iso_639_1 === tagLanguage
+  );
+  if(l)
+    return l.english_name;
+  return "Unspecified language";
+} 

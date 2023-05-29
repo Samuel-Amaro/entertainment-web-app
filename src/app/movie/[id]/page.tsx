@@ -1,5 +1,15 @@
-import { getCreditsMovie, getDetailsMovie } from "@/api/tmdb";
-import { convertMinutesInHours, formatNumber, shimer, toBase64 } from "@/utils";
+import {
+  getCreditsMovie,
+  getDetailsMovie,
+  getListOfLanguages,
+} from "@/api/tmdb";
+import {
+  convertMinutesInHours,
+  formatNumber,
+  getLanguage,
+  shimer,
+  toBase64,
+} from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./movie.module.css";
@@ -13,6 +23,7 @@ export default async function Page({
 }) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
+  const listOfLanguages = await getListOfLanguages();
 
   return (
     <main>
@@ -60,7 +71,9 @@ export default async function Page({
           </p>
           <p>
             <span>Original Language</span>
-            <span>{detailsMovie.original_language}</span>
+            <span>
+              {getLanguage(detailsMovie.original_language, listOfLanguages)}
+            </span>
           </p>
           <p>
             <span>Original title</span>

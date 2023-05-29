@@ -132,8 +132,10 @@ export type ResponseCredits = {
     crew: [];
 };
 
-export type ResponseLanguages = {
+export type Language = {
     iso_639_1: string;
     english_name: string;
     name: string;
-}[];
+};
+
+export type ResponseLanguages = Language[];
