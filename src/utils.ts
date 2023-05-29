@@ -27,3 +27,10 @@ export function convertMinutesInHours(minutes: number) {
   const txtMinutes = `${min}`.slice(-2);
   return `${txtHour}h ${txtMinutes}m`;
 }
+
+export function formatNumber(n: number) {
+  return new Intl.NumberFormat('en-US', {
+    style: "currency",
+    currency: "USD",
+  }).format(n);
+}

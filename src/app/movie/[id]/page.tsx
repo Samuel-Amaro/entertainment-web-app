@@ -1,6 +1,7 @@
 import { getCreditsMovie, getDetailsMovie } from "@/api/tmdb";
-import { convertMinutesInHours, shimer, toBase64 } from "@/utils";
+import { convertMinutesInHours, formatNumber, shimer, toBase64 } from "@/utils";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./movie.module.css";
 
 export default async function Page({
@@ -67,13 +68,21 @@ export default async function Page({
           </p>
           <p>
             <span>Budget</span>
-            <span>{detailsMovie.budget}</span>
+            <span>{formatNumber(detailsMovie.budget)}</span>
           </p>
           <p>
             <span>Revenue</span>
-            <span>{detailsMovie.revenue}</span>
+            <span>{formatNumber(detailsMovie.revenue)}</span>
           </p>
         </div>
+        <Link
+          href={detailsMovie.homepage}
+          target="_blank"
+          rel="external"
+          title="Visit Home Page"
+        >
+          Home Page
+        </Link>
       </section>
       <section>
         <h3>Casts</h3>
