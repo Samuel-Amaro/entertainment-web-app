@@ -162,3 +162,36 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.btnPlay {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+  appearance: none;
+  font-family: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--color05);
+}
+
+.textBtn,
+.iconBtnPlay {
+  display: inline-block;
+}
+
+.iconBtnPlay {
+  fill: var(--color05);
+}
+
+.btnPlay:is(:hover, :focus) {
+  color: var(--color01);
+}
+
+.btnPlay:is(:hover, :focus) .iconBtnPlay {
+  fill: var(--color01);
+}

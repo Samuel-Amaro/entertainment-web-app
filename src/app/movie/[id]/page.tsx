@@ -2,6 +2,7 @@ import {
   getCreditsMovie,
   getDetailsMovie,
   getListOfLanguages,
+  getVideosMovie,
 } from "@/api/tmdb";
 import {
   convertMinutesInHours,
@@ -15,6 +16,7 @@ import Link from "next/link";
 import styles from "./movie.module.css";
 import { Metadata, ResolvingMetadata } from "next";
 import IconLink from "@/components/Icons/IconLink";
+import IconPlay from "@/components/Icons/IconPlay";
 
 type Props = {
   params: { id: number };
@@ -70,17 +72,20 @@ export async function generateMetadata(
 //TODO: ver se vale a pena componentizar pedaços desta UI, para pedaços menores
 //TODO: estilização mobile-first
 //TODO: apos estilização criar um skeleton de UI para a loading page
+//TODO: adicionar trailer de um movie aqui, obter videos
 
 export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
+  //TODO: podemos realizar essa busca em um componente de servidor e renderizar em um cliete, so precisamos do id para realziar a busca, pode ser feita no modal
+  //const listOfVideos = await getVideosMovie(params.id);
 
   return (
     <main className={styles.main}>
       <section className={styles.sectionSummary}>
         <div className={styles.wrapperImagePoster}>
-          {/*adicionar o hook de useMediaQuery para ter o tamnho do espaço reservado da image corretamente*/}
+          {/*//TODO: adicionar o hook de useMediaQuery para ter o tamnho do espaço reservado da image corretamente, ver se consegue tornar a imagem responsiva e mais escalavel sem a prop fill colocando um width, e height inicial e depois alterando com css*/}
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
             alt={`poster movie ${detailsMovie.title}`}
@@ -112,6 +117,16 @@ export default async function Page({ params }: Props) {
               {convertMinutesInHours(detailsMovie.runtime)}
             </span>
           </p>
+          {/*//TODO: criar um modal para abrir um iframe de embed do you tube que seja responsive para reproduzir o trailer do filme, ao clicar fora do modal fechar o player e para de reproduzir ou então ter um buttton para fechar, o modal deve receber o url, id, e dados para buscar video e carregar e reproduzir*/}
+          <button
+            type="button"
+            title="Play Trailer"
+            aria-label="Play Trailer"
+            className={styles.btnPlay}
+          >
+            <IconPlay className={styles.iconBtnPlay} />
+            <span className={styles.textBtn}>Play Trailer</span>
+          </button>
           <div>
             <em className={styles.tagline}>{detailsMovie.tagline}</em>
             <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>
