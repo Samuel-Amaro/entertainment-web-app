@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./movie.module.css";
 import { Metadata, ResolvingMetadata } from "next";
+import IconLink from "@/components/Icons/IconLink";
 
 type Props = {
   params: { id: number };
@@ -65,21 +66,20 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    id: number;
-  };
-}) {
+//TODO: adicionar estilizacação a esta page
+//TODO: ver se vale a pena componentizar pedaços desta UI, para pedaços menores
+//TODO: estilização mobile-first
+//TODO: apos estilização criar um skeleton de UI para a loading page
+
+export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
 
   return (
-    <main>
-      <section>
-        <div className={styles.wrapperImage}>
+    <main className={styles.main}>
+      <section className={styles.sectionSummary}>
+        <div className={styles.wrapperImagePoster}>
           {/*adicionar o hook de useMediaQuery para ter o tamnho do espaço reservado da image corretamente*/}
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
@@ -89,54 +89,65 @@ export default async function Page({
               shimer(240, 140)
             )}`}
             fill={true}
+            className={styles.posterImage}
+            title={`poster movie ${detailsMovie.title}`}
           />
         </div>
         <div>
-          <h1>
-            <span>{detailsMovie.title}</span>{" "}
-            <span>{new Date(detailsMovie.release_date).getFullYear()}</span>
+          <h1 className={`headingL ${styles.title}`}>
+            <span className={styles.titleText}>{detailsMovie.title}</span>{" "}
+            <span className={styles.titleYear}>{`(${new Date(
+              detailsMovie.release_date
+            ).getFullYear()})`}</span>
           </h1>
+          <p className={styles.metadatas}>
+            <span className={styles.metadataDate}>
+              {detailsMovie.release_date}
+            </span>
+            <span className={styles.diviser}></span>
+            <span className={styles.metadataGenres}></span>
+            {detailsMovie.genres.map((genre) => genre.name).join(",")}
+            <span className={styles.diviser}></span>
+            <span className={styles.metadataRuntime}>
+              {convertMinutesInHours(detailsMovie.runtime)}
+            </span>
+          </p>
           <div>
-            <span>{detailsMovie.release_date}</span>
-            <span></span>
-            <ul>
-              {detailsMovie.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
-            <span></span>
-            <span>{convertMinutesInHours(detailsMovie.runtime)}</span>
-          </div>
-          <div>
-            <p>{detailsMovie.tagline}</p>
-            <h2>Overview</h2>
-            <p>{detailsMovie.overview}</p>
+            <em className={styles.tagline}>{detailsMovie.tagline}</em>
+            <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>
+            <p className={styles.overview}>{detailsMovie.overview}</p>
           </div>
         </div>
       </section>
-      <section>
-        <div>
-          <p>
-            <span>Status</span>
-            <span>{detailsMovie.status}</span>
+      <section className={styles.sectionInfo}>
+        <div className={styles.containerInfo}>
+          <p className={styles.info}>
+            <span className={styles.data}>Status</span>
+            <span className={styles.valueData}>{detailsMovie.status}</span>
           </p>
-          <p>
-            <span>Original Language</span>
-            <span>
+          <p className={styles.info}>
+            <span className={styles.data}>Original Language</span>
+            <span className={styles.valueData}>
               {getLanguage(detailsMovie.original_language, listOfLanguages)}
             </span>
           </p>
-          <p>
-            <span>Original title</span>
-            <span>{detailsMovie.original_title}</span>
+          <p className={styles.info}>
+            <span className={styles.data}>Original title</span>
+            <span className={styles.valueData}>
+              {detailsMovie.original_title}
+            </span>
           </p>
-          <p>
-            <span>Budget</span>
-            <span>{formatNumber(detailsMovie.budget)}</span>
+          <p className={styles.info}>
+            <span className={styles.data}>Budget</span>
+            <span className={styles.valueData}>
+              {formatNumber(detailsMovie.budget)}
+            </span>
           </p>
-          <p>
-            <span>Revenue</span>
-            <span>{formatNumber(detailsMovie.revenue)}</span>
+          <p className={styles.info}>
+            <span className={styles.data}>Revenue</span>
+            <span className={styles.valueData}>
+              {formatNumber(detailsMovie.revenue)}
+            </span>
           </p>
         </div>
         <Link
@@ -144,30 +155,36 @@ export default async function Page({
           target="_blank"
           rel="external"
           title="Visit Home Page"
+          className={styles.linkHomePage}
         >
-          Home Page
+          <IconLink className={styles.iconLink} />
         </Link>
       </section>
       <section>
-        <h3>Casts</h3>
-        <ul>
+        <h2 className={`headingM ${styles.subtitle}`}>Casts</h2>
+        <ul className={styles.list}>
           {creditsMovie.cast.map((cast) => (
-            <li key={cast.id}>
+            <li key={cast.id} className={styles.card}>
               <div className={styles.wrapperProfile}>
                 {cast.profile_path && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
-                    alt={`profile ${cast.original_name}`}
+                    alt={`Profile ${cast.original_name} with character ${cast.character}`}
                     placeholder="blur"
                     blurDataURL={`data:image/svg+xml;base64,${toBase64(
                       shimer(240, 140)
                     )}`}
-                    fill={true}
+                    width={150}
+                    height={150}
+                    title={`Profile ${cast.original_name} with character ${cast.character}`}
+                    className={styles.profileImg}
                   />
                 )}
               </div>
-              <p>{cast.original_name}</p>
-              <p>{cast.character}</p>
+              <div className={styles.datasCard}>
+                <p className={styles.originalName}>{cast.original_name}</p>
+                <p className={styles.character}>{cast.character}</p>
+              </div>
             </li>
           ))}
         </ul>
