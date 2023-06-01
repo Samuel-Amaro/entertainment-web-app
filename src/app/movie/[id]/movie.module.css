@@ -1,18 +1,24 @@
 .wrapperImagePoster {
-  position: relative;
+  /*position: relative;
   max-width: 300px;
   max-height: 450px;
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 300px;
-  margin: 0 auto 24px auto;
+  margin: 0 auto 24px auto;*/
+  margin: 0 0 24px 0;
   border-radius: 8px;
 }
 
 .posterImage {
   display: block;
+  max-width: 330px;
+  max-height: 480px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
   border-radius: 8px;
-  object-fit: fill;
+  /*object-fit: fill;*/
 }
 
 .main {

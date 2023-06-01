@@ -69,11 +69,8 @@ export async function generateMetadata(
   };
 }
 
-//TODO: adicionar estilizacação a esta page
-//TODO: ver se vale a pena componentizar pedaços desta UI, para pedaços menores
-//TODO: estilização mobile-first
+
 //TODO: apos estilização criar um skeleton de UI para a loading page
-//TODO: adicionar trailer de um movie aqui, obter videos
 
 export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
@@ -84,7 +81,6 @@ export default async function Page({ params }: Props) {
     <main className={styles.main}>
       <section className={styles.sectionSummary}>
         <div className={styles.wrapperImagePoster}>
-          {/*//TODO: adicionar o hook de useMediaQuery para ter o tamnho do espaço reservado da image corretamente, ver se consegue tornar a imagem responsiva e mais escalavel sem a prop fill colocando um width, e height inicial e depois alterando com css*/}
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
             alt={`poster movie ${detailsMovie.title}`}
@@ -92,7 +88,9 @@ export default async function Page({ params }: Props) {
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimer(240, 140)
             )}`}
-            fill={true}
+            width={300}
+            height={300}
+            /*fill={true}*/
             className={styles.posterImage}
             title={`poster movie ${detailsMovie.title}`}
           />
