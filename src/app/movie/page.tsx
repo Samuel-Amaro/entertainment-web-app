@@ -1,5 +1,13 @@
+import { getGenresMovie } from "@/api/tmdb";
 
+export default async function Page() {
+  const datas = await getGenresMovie();
 
-export default function Page() {
-  return <h1>Page Movies Geners</h1>;
+  return (
+    <ul>
+      {datas.genres.map((genre) => (
+        <li key={genre.id}>{genre.name}</li>
+      ))}
+    </ul>
+  );
 }

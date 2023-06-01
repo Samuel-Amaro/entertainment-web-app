@@ -2,13 +2,11 @@ import {
   getCreditsMovie,
   getDetailsMovie,
   getListOfLanguages,
-  getVideosMovie,
 } from "@/api/tmdb";
 import {
   convertMinutesInHours,
   formatNumber,
   getLanguage,
-  getTrailerMovie,
   shimer,
   toBase64,
 } from "@/utils";
@@ -18,7 +16,6 @@ import styles from "./movie.module.css";
 import { Metadata, ResolvingMetadata } from "next";
 import IconLink from "@/components/Icons/IconLink";
 import PlayerVideo from "@/components/PlayerVideo";
-import SkeletonPageMovie from "@/components/Skeletons/PageMovie";
 
 type Props = {
   params: { id: number };

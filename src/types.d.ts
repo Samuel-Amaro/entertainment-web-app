@@ -156,4 +156,14 @@ export type Video = {
 export type ResponseVideo = {
     id: number;
     results: Video[];
-}
+};
+
+export type Genre = {
+    id: number;
+    name: string;
+};
+
+export type ResponseGenres = {
+    genres: Genre[];
+};
+
