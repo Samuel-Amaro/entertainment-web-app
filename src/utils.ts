@@ -1,4 +1,4 @@
-import { Language, ResponseLanguages } from "./types";
+import { Language, ResponseLanguages, Video } from "./types";
 
 export function shimer(w: number, h: number) {
   return `
@@ -45,3 +45,10 @@ export function getLanguage(tagLanguage: string, listLanguages: ResponseLanguage
     return l.english_name;
   return "Unspecified language";
 } 
+
+export function getTrailerMovie(listOfVideos: Video[]) {
+  const trailer = listOfVideos.find((video: Video) => video.site === "YouTube" && video.type === "Trailer" && video.official === true && video.key);
+  if(trailer) 
+    return trailer;
+  return null;
+}

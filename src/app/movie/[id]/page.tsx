@@ -8,6 +8,7 @@ import {
   convertMinutesInHours,
   formatNumber,
   getLanguage,
+  getTrailerMovie,
   shimer,
   toBase64,
 } from "@/utils";
@@ -16,7 +17,7 @@ import Link from "next/link";
 import styles from "./movie.module.css";
 import { Metadata, ResolvingMetadata } from "next";
 import IconLink from "@/components/Icons/IconLink";
-import IconPlay from "@/components/Icons/IconPlay";
+import PlayerVideo from "@/components/PlayerVideo";
 
 type Props = {
   params: { id: number };
@@ -78,8 +79,6 @@ export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
-  //TODO: podemos realizar essa busca em um componente de servidor e renderizar em um cliete, so precisamos do id para realziar a busca, pode ser feita no modal
-  //const listOfVideos = await getVideosMovie(params.id);
 
   return (
     <main className={styles.main}>
@@ -117,16 +116,7 @@ export default async function Page({ params }: Props) {
               {convertMinutesInHours(detailsMovie.runtime)}
             </span>
           </p>
-          {/*//TODO: criar um modal para abrir um iframe de embed do you tube que seja responsive para reproduzir o trailer do filme, ao clicar fora do modal fechar o player e para de reproduzir ou então ter um buttton para fechar, o modal deve receber o url, id, e dados para buscar video e carregar e reproduzir*/}
-          <button
-            type="button"
-            title="Play Trailer"
-            aria-label="Play Trailer"
-            className={styles.btnPlay}
-          >
-            <IconPlay className={styles.iconBtnPlay} />
-            <span className={styles.textBtn}>Play Trailer</span>
-          </button>
+          <PlayerVideo idMovie={params.id} />
           <div>
             <em className={styles.tagline}>{detailsMovie.tagline}</em>
             <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>
