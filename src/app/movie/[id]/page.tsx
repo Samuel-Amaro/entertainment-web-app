@@ -70,8 +70,6 @@ export async function generateMetadata(
   };
 }
 
-//TODO: apos estilização criar um skeleton de UI para a loading page
-
 export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);

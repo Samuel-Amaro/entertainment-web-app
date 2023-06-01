@@ -4,6 +4,7 @@ import { useState, KeyboardEvent, Suspense, useCallback } from "react";
 import IconPlay from "../Icons/IconPlay";
 import styles from "./styles.module.css";
 import ModalVideo from "../ModalVideo";
+import SkeletonPlayerVideo from "../Skeletons/PlayerVideo";
 
 export default function PlayerVideo({ idMovie }: { idMovie: number }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -35,7 +36,7 @@ export default function PlayerVideo({ idMovie }: { idMovie: number }) {
         <span className={styles.textBtn}>Play Trailer</span>
       </button>
       {isClicked && (
-        <Suspense fallback="Loading Trailer Movie...">
+        <Suspense fallback={<SkeletonPlayerVideo />}>
           {/* @ts-expect-error Async Server Component */}
           <ModalVideo
             idMovie={idMovie}

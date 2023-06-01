@@ -3,6 +3,7 @@
   background-color: var(--color04);
   margin: 0 16px;
   padding: 16px 0 16px 0;
+  border-radius: 8px;
 }
 
 .containerIframe {
