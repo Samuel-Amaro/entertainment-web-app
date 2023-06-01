@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, KeyboardEvent, Suspense } from "react";
+import { useState, KeyboardEvent, Suspense, useCallback } from "react";
 import IconPlay from "../Icons/IconPlay";
 import styles from "./styles.module.css";
 import ModalVideo from "../ModalVideo";
@@ -8,15 +8,18 @@ import ModalVideo from "../ModalVideo";
 export default function PlayerVideo({ idMovie }: { idMovie: number }) {
   const [isClicked, setIsClicked] = useState(false);
 
-  function handleClick() {
+  const handleClick = useCallback(() => {
     setIsClicked(!isClicked);
-  }
+  }, [isClicked]);
 
-  function handleKeydown(event: KeyboardEvent<HTMLButtonElement>) {
-    if (event.key === "Enter" || event.key === "") {
-      setIsClicked(!isClicked);
-    }
-  }
+  const handleKeydown = useCallback(
+    (event: KeyboardEvent<HTMLButtonElement>) => {
+      if (event.key === "Enter" || event.key === "") {
+        setIsClicked(!isClicked);
+      }
+    },
+    [isClicked]
+  );
 
   return (
     <>
@@ -34,7 +37,10 @@ export default function PlayerVideo({ idMovie }: { idMovie: number }) {
       {isClicked && (
         <Suspense fallback="Loading Trailer Movie...">
           {/* @ts-expect-error Async Server Component */}
-          <ModalVideo idMovie={idMovie} />
+          <ModalVideo
+            idMovie={idMovie}
+            onHandleModal={(isOppen: boolean) => setIsClicked(isOppen)}
+          />
         </Suspense>
       )}
     </>

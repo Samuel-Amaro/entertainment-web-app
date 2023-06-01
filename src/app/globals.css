@@ -23,7 +23,7 @@
   color: var(--color05);
 }
 
-.headingM{
+.headingM {
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
@@ -37,6 +37,10 @@
   font-size: 15px;
   line-height: 19px;
   color: var(--color05);
+}
+
+.has-dialog {
+  overflow: hidden;
 }
 
 body {
