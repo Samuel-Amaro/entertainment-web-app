@@ -167,3 +167,9 @@ export type ResponseGenres = {
     genres: Genre[];
 };
 
+export type ResponsePaginationMoviesByGenre = {
+    page: number;
+    results: Movie[];
+    total_pages: number;
+    total_results: number;
+};
