@@ -1,0 +1,50 @@
+.header,
+.main {
+  padding: 0 16px 0 16px;
+}
+
+.main {
+  padding: 0 16px 24px 16px;
+}
+
+.header {
+  margin: 0 0 24px 0;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.title {
+  margin: 24px 0 0 0;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: var(--color06);
+  font-size: 1.1rem;
+  font-weight: 300;
+  background-color: var(--color04);
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.textLink {
+  display: block;
+  width: 130px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.link:is(:hover, :focus) {
+  color: var(--color01);
+}
