@@ -24,25 +24,24 @@
 }
 
 .link {
-  display: block;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: var(--color06);
   font-size: 1.1rem;
   font-weight: 300;
   background-color: var(--color04);
-  padding: 50px;
+  width: 140px;
+  height: 140px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   border-radius: 5px;
 }
 
 .card {
   border-radius: 5px;
-}
-
-.textLink {
-  display: block;
-  width: 130px;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .link:is(:hover, :focus) {

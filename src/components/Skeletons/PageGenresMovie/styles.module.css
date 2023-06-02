@@ -1,0 +1,50 @@
+.container {
+  padding: 24px 16px 16px 16px;
+  background-color: var(--color04);
+}
+
+.title {
+  content: "";
+  height: 25px;
+  width: 60%;
+  margin: 0 0 24px 0;
+  background-color: var(--color06);
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 8px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card {
+  content: "";
+  display: block;
+  background-color: var(--color06);
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 8px;
+  width: 130px;
+  height: 130px;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: #c2cfd6;
+  }
+  100% {
+    background-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #c2cfd6;
+  }
+  100% {
+    background-color: #f0f3f5;
+  }
+}

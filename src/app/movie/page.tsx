@@ -8,6 +8,33 @@ import Link from "next/link";
 //TODO: cada card de movie filtrado por genre deve levar ao segmento de movie/id para mostrar page de details de um filme
 //TODO: pensar em uma forma de como implementar uma paginação no cliente ou server ver qual e o ideal para a necessidade, aqui. ao clicar em um card de genre deve levar a uma page com films de acordo com aquele genre e ter uma forma de carregar os movies dinamicamente de acordo com a necessidade
 
+export const metadata = {
+  title: "Genres Movies",
+  description:
+    "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+  keywords: [
+    "Movies",
+    "Series",
+    "TV",
+    "entertainment",
+    "Genres",
+    "Genres Movies",
+  ],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Entertainment web app",
+    description:
+      "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+    url: "/movie",
+    type: "website",
+    siteName: "Entertainment web app",
+  },
+};
+
 export default async function Page() {
   const datas = await getGenresMovie();
 
@@ -27,7 +54,7 @@ export default async function Page() {
                 rel="next"
                 className={styles.link}
               >
-                <span className={styles.textLink}>{genre.name}</span>
+                {genre.name}
               </Link>
             </li>
           ))}
