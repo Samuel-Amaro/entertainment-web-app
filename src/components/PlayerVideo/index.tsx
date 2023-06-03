@@ -5,8 +5,10 @@ import IconPlay from "../Icons/IconPlay";
 import styles from "./styles.module.css";
 import ModalVideo from "../ModalVideo";
 import SkeletonPlayerVideo from "../Skeletons/PlayerVideo";
+import Overlay from "../Overlay";
+import { Video } from "@/types";
 
-export default function PlayerVideo({ idMovie }: { idMovie: number }) {
+export default function PlayerVideo({ video }: { video: Video | null }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -35,14 +37,10 @@ export default function PlayerVideo({ idMovie }: { idMovie: number }) {
         <IconPlay className={styles.iconBtnPlay} />
         <span className={styles.textBtn}>Play Trailer</span>
       </button>
-      {isClicked && (
-        <Suspense fallback={<SkeletonPlayerVideo />}>
-          {/* @ts-expect-error Async Server Component */}
-          <ModalVideo
-            idMovie={idMovie}
-            onHandleModal={(isOppen: boolean) => setIsClicked(isOppen)}
-          />
-        </Suspense>
+      {isClicked && video && (
+        <Overlay onHandle={(isOppen: boolean) => setIsClicked(isOppen)}>
+          <ModalVideo video={video} />
+        </Overlay>
       )}
     </>
   );

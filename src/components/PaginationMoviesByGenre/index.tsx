@@ -1,6 +1,7 @@
 "use client";
 
 import { ResponsePaginationMoviesByGenre } from "@/types";
+import { TMDB_API_KEY, TMDB_ENDPOINT } from "@/utils";
 import { useState } from "react";
 import useSWR from "swr";
 
@@ -36,6 +37,18 @@ export default function PaginationMoviesByGenre({ idGenre }: Props) {
     return <h1>Loading datas pagination movies by genres....</h1>;
   }
 
+  function handleClickBtnPrevious() {
+    if (pageIndex > 1) setPageIndex(pageIndex - 1);
+    return;
+  }
+
+  function handleClickBtnNext() {
+    if (data) {
+      if (pageIndex < data.total_pages) setPageIndex(pageIndex + 1);
+    }
+    return;
+  }
+
   return (
     <>
       <h2>Pagination</h2>
@@ -44,6 +57,15 @@ export default function PaginationMoviesByGenre({ idGenre }: Props) {
           <li key={movie.id}>{movie.title}</li>
         ))}
       </ul>
+      <button type="button" onClick={handleClickBtnPrevious}>
+        Previos
+      </button>
+      <p>
+        {data.page} of {data.total_pages}
+      </p>
+      <button type="button" onClick={handleClickBtnNext}>
+        Next
+      </button>
     </>
   );
 }

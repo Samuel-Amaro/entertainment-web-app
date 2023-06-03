@@ -2,6 +2,7 @@
 
 import { MouseEvent, useCallback, useEffect, useRef } from "react";
 import styles from "./overlay.module.css";
+import { createPortal } from "react-dom";
 
 export default function Overlay({
   children,
@@ -44,11 +45,13 @@ export default function Overlay({
     };
   }, []);
 
-  return (
+  const ui = (
     <div className={styles.overlay} ref={overlay} onClick={handleClick}>
       <div className={styles.wrapper} ref={wrapper}>
         {children}
       </div>
     </div>
   );
+
+  return createPortal(ui, document.body);
 }

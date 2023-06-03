@@ -2,11 +2,13 @@ import {
   getCreditsMovie,
   getDetailsMovie,
   getListOfLanguages,
+  getVideosMovie,
 } from "@/api/tmdb";
 import {
   convertMinutesInHours,
   formatNumber,
   getLanguage,
+  getTrailerMovie,
   shimer,
   toBase64,
 } from "@/utils";
@@ -71,6 +73,8 @@ export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
+  const listOfVideos = await getVideosMovie(params.id);
+  const trailer = getTrailerMovie(listOfVideos.results);
 
   return (
     <>
@@ -110,7 +114,7 @@ export default async function Page({ params }: Props) {
                 {convertMinutesInHours(detailsMovie.runtime)}
               </span>
             </p>
-            <PlayerVideo idMovie={params.id} />
+            <PlayerVideo video={trailer} />
             <div>
               <em className={styles.tagline}>{detailsMovie.tagline}</em>
               <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>
