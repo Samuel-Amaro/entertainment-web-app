@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -70,4 +70,8 @@ export async function getVideosMovie(idMovie: number) {
 
 export async function getGenresMovie() {
   return await fetcher<ResponseGenres>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}genre/movie/list?api_key=${process.env.KEY_API}&language=en`, "Failed to fetch datas by genres by movie from tmdb api");
+}
+
+export async function getPageMoviesByGenre(idGenre: number, indexPage: number) {
+   return await fetcher<ResponsePaginationMoviesByGenre>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/movie?api_key=${process.env.KEY_API}&with_genres=${idGenre}&page=${indexPage}`, "Failed to fetch datas from page by movies from a genre by movie from tmdb api");
 }

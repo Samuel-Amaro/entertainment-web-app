@@ -1,71 +1,59 @@
-"use client";
-
-import { ResponsePaginationMoviesByGenre } from "@/types";
-import { TMDB_API_KEY, TMDB_ENDPOINT } from "@/utils";
-import { useState } from "react";
-import useSWR from "swr";
+import { getPageMoviesByGenre } from "@/api/tmdb";
+import Link from "next/link";
+import List from "../List";
+import { renderCardMovie } from "../SectionMovies";
 
 type Props = {
   idGenre: number;
+  pageIndex: number;
+  nameGenre: string;
 };
 
-async function fetcher(url: string) {
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(
-      "Error in fecht datas to pagination from movies from a genre"
-    );
-  }
-
-  return response.json() as unknown as ResponsePaginationMoviesByGenre;
-}
-
-export default function PaginationMoviesByGenre({ idGenre }: Props) {
-  const [pageIndex, setPageIndex] = useState(1);
-
-  const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/movie?api_key=${process.env.NEXT_PUBLIC_KEY_API}&with_genres=${idGenre}&page=${pageIndex}`,
-    fetcher
-  );
-
-  if (error) {
-    return <p>Error in fetch datas pagination movies</p>;
-  }
-
-  if (isLoading || !data) {
-    return <h1>Loading datas pagination movies by genres....</h1>;
-  }
-
-  function handleClickBtnPrevious() {
-    if (pageIndex > 1) setPageIndex(pageIndex - 1);
-    return;
-  }
-
-  function handleClickBtnNext() {
-    if (data) {
-      if (pageIndex < data.total_pages) setPageIndex(pageIndex + 1);
-    }
-    return;
-  }
+export default async function PaginationMoviesByGenre({
+  idGenre,
+  pageIndex,
+  nameGenre,
+}: Props) {
+  const datasPagination = await getPageMoviesByGenre(idGenre, pageIndex);
 
   return (
     <>
-      <h2>Pagination</h2>
-      <ul>
-        {data.results.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
-      <button type="button" onClick={handleClickBtnPrevious}>
-        Previos
-      </button>
-      <p>
-        {data.page} of {data.total_pages}
-      </p>
-      <button type="button" onClick={handleClickBtnNext}>
-        Next
-      </button>
+      {
+        <List
+          mediaType="movie"
+          items={datasPagination.results}
+          limitRenderingItems={20}
+          type="common"
+          renderItem={renderCardMovie}
+        />
+      }
+      <div>
+        {pageIndex > 1 && (
+          <Link
+            href={`/movie/genre/${idGenre}?page=${
+              pageIndex - 1
+            }&name=${nameGenre}`}
+            rel="next"
+            title="Visit page previous movies"
+          >
+            Previous
+          </Link>
+        )}
+        <p>
+          {datasPagination.page} of {datasPagination.total_pages}
+        </p>
+        {pageIndex < datasPagination.total_pages && (
+          <Link
+            href={`/movie/genre/${idGenre}?page=${
+              pageIndex + 1
+            }&name=${nameGenre}`}
+            rel="next"
+            title="Visit page next movies"
+          >
+            Next
+          </Link>
+        )}
+      </div>
     </>
   );
 }
