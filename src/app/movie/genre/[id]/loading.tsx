@@ -1,3 +1,5 @@
+import SkeletonPagination from "@/components/Skeletons/Pagination";
+
 export default function Loading() {
-  return <h1>Loading datas pagination movies by genre</h1>;
+  return <SkeletonPagination limitRenderingItems={20} />;
 }

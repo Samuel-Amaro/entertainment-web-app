@@ -1,0 +1,46 @@
+.main {
+  padding: 16px;
+  background-color: var(--color04);
+}
+
+.containerButtons {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0 24px 0;
+}
+
+.button,
+.indicator {
+  content: "";
+  display: inline-block;
+  width: 90px;
+  text-align: center;
+  height: 48px;
+  background-color: var(--color05);
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton {
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: #c2cfd6;
+  }
+  100% {
+    background-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #c2cfd6;
+  }
+  100% {
+    background-color: #f0f3f5;
+  }
+}
