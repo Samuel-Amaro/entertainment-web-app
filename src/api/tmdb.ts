@@ -1,8 +1,8 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
-      cache: "no-store",
+    cache: "no-store",
   });
 
   if(!response.ok) {
@@ -73,5 +73,9 @@ export async function getGenresMovie() {
 }
 
 export async function getPageMoviesByGenre(idGenre: number, indexPage: number) {
-   return await fetcher<ResponsePaginationMoviesByGenre>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/movie?api_key=${process.env.KEY_API}&with_genres=${idGenre}&page=${indexPage}`, "Failed to fetch datas from page by movies from a genre by movie from tmdb api");
+  return await fetcher<ResponsePaginationMoviesByGenre>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/movie?api_key=${process.env.KEY_API}&with_genres=${idGenre}&page=${indexPage}`, "Failed to fetch datas from page by movies from a genre by movie from tmdb api");
+}
+
+export async function getDetailsTvSeries(id: number) {
+  return await fetcher<DetailsTvSeries>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${id}?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by details tv series");
 }

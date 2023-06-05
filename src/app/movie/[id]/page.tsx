@@ -107,8 +107,9 @@ export default async function Page({ params }: Props) {
                 {detailsMovie.release_date}
               </span>
               <span className={styles.diviser}></span>
-              <span className={styles.metadataGenres}></span>
-              {detailsMovie.genres.map((genre) => genre.name).join(",")}
+              <span className={styles.metadataGenres}>
+                {detailsMovie.genres.map((genre) => genre.name).join(",")}
+              </span>
               <span className={styles.diviser}></span>
               <span className={styles.metadataRuntime}>
                 {convertMinutesInHours(detailsMovie.runtime)}
