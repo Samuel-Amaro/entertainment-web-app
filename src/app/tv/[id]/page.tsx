@@ -1,4 +1,8 @@
-import { getDetailsTvSeries, getListOfLanguages } from "@/api/tmdb";
+import {
+  getCreditsTvSeries,
+  getDetailsTvSeries,
+  getListOfLanguages,
+} from "@/api/tmdb";
 import IconLink from "@/components/Icons/IconLink";
 import { getLanguage, shimer, toBase64 } from "@/utils";
 import Image from "next/image";
@@ -16,6 +20,8 @@ type Props = {
 export default async function Page({ params }: Props) {
   const detailsTvSeries = await getDetailsTvSeries(params.id);
   const listOfLanguages = await getListOfLanguages();
+  const creditsTvSeries = await getCreditsTvSeries(params.id);
+
   return (
     <main>
       <section>
@@ -106,7 +112,57 @@ export default async function Page({ params }: Props) {
         </Link>
       </section>
       <section>
+        <h2>Seasons</h2>
+        {detailsTvSeries.seasons.map((season) => (
+          <div key={season.id}>
+            <div>
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
+                alt={`poster season ${season.name}`}
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimer(240, 140)
+                )}`}
+                width={130}
+                height={195}
+                title={`poster season ${season.name}`}
+              />
+            </div>
+            <div>
+                <h3>Season {season.season_number}</h3>
+                <h4>{}</h4>
+            </div>
+          </div>
+        ))}
+      </section>
+      <section>
         <h2>Casts</h2>
+        <ul>
+          {creditsTvSeries.cast.map((cast) => (
+            <li key={cast.id}>
+              <div>
+                {cast.profile_path && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
+                    alt={`Profile ${cast.original_name} with character ${cast.character}`}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimer(240, 140)
+                    )}`}
+                    width={150}
+                    height={150}
+                    title={`Profile ${cast.original_name} with character ${cast.character}`}
+                  />
+                )}
+              </div>
+              <div>
+                <p>{cast.original_name}</p>
+                <p>{cast.character}</p>
+                <p>{`(${detailsTvSeries.number_of_episodes}) Episodes`}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

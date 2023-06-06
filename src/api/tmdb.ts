@@ -79,3 +79,7 @@ export async function getPageMoviesByGenre(idGenre: number, indexPage: number) {
 export async function getDetailsTvSeries(id: number) {
   return await fetcher<DetailsTvSeries>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${id}?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by details tv series");
 }
+
+export async function getCreditsTvSeries(id: number) {
+  return await fetcher<ResponseCredits>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${id}/credits?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by credits tv series");
+}
