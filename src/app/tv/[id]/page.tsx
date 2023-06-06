@@ -2,9 +2,11 @@ import {
   getCreditsTvSeries,
   getDetailsTvSeries,
   getListOfLanguages,
+  getVideosTvSeries,
 } from "@/api/tmdb";
 import IconLink from "@/components/Icons/IconLink";
-import { getLanguage, shimer, toBase64 } from "@/utils";
+import PlayerVideo from "@/components/PlayerVideo";
+import { getLanguage, getVideoTrailer, shimer, toBase64 } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,6 +23,8 @@ export default async function Page({ params }: Props) {
   const detailsTvSeries = await getDetailsTvSeries(params.id);
   const listOfLanguages = await getListOfLanguages();
   const creditsTvSeries = await getCreditsTvSeries(params.id);
+  const listOfVideos = await getVideosTvSeries(params.id);
+  const trailer = getVideoTrailer(listOfVideos.results);
 
   return (
     <main>
@@ -50,6 +54,7 @@ export default async function Page({ params }: Props) {
               {detailsTvSeries.genres.map((genre) => genre.name).join(",")}
             </span>
           </p>
+          {trailer && <PlayerVideo video={trailer} />}
           <div>
             <em>{detailsTvSeries.tagline}</em>
             <h2>Overview</h2>
@@ -113,27 +118,40 @@ export default async function Page({ params }: Props) {
       </section>
       <section>
         <h2>Seasons</h2>
-        {detailsTvSeries.seasons.map((season) => (
-          <div key={season.id}>
-            <div>
-              <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
-                alt={`poster season ${season.name}`}
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimer(240, 140)
-                )}`}
-                width={130}
-                height={195}
-                title={`poster season ${season.name}`}
-              />
+        {detailsTvSeries.seasons.map((season) => {
+          const date = new Date(season.air_date);
+          const monthTextLong = new Intl.DateTimeFormat("en-US", {
+            month: "long",
+          }).format(date);
+          return (
+            <div key={season.id}>
+              <div>
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
+                  alt={`poster season ${season.name}`}
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    shimer(240, 140)
+                  )}`}
+                  width={130}
+                  height={195}
+                  title={`poster season ${season.name}`}
+                />
+              </div>
+              <div>
+                <h3>{season.name}</h3>
+                <h4>
+                  {date.getFullYear()} | {season.episode_count} Episodes
+                </h4>
+                <p>
+                  {season.name} of {detailsTvSeries.name} premiered on{" "}
+                  {monthTextLong} {date.getDate()}, {date.getFullYear()}
+                </p>
+                <p>{season.overview}</p>
+              </div>
             </div>
-            <div>
-                <h3>Season {season.season_number}</h3>
-                <h4>{}</h4>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
       <section>
         <h2>Casts</h2>

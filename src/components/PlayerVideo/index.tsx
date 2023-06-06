@@ -4,7 +4,6 @@ import { useState, KeyboardEvent, Suspense, useCallback } from "react";
 import IconPlay from "../Icons/IconPlay";
 import styles from "./styles.module.css";
 import ModalVideo from "../ModalVideo";
-import SkeletonPlayerVideo from "../Skeletons/PlayerVideo";
 import Overlay from "../Overlay";
 import { Video } from "@/types";
 

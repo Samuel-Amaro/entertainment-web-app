@@ -8,7 +8,7 @@ import {
   convertMinutesInHours,
   formatNumber,
   getLanguage,
-  getTrailerMovie,
+  getVideoTrailer,
   shimer,
   toBase64,
 } from "@/utils";
@@ -74,7 +74,7 @@ export default async function Page({ params }: Props) {
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
   const listOfVideos = await getVideosMovie(params.id);
-  const trailer = getTrailerMovie(listOfVideos.results);
+  const trailer = getVideoTrailer(listOfVideos.results);
 
   return (
     <>
@@ -115,7 +115,7 @@ export default async function Page({ params }: Props) {
                 {convertMinutesInHours(detailsMovie.runtime)}
               </span>
             </p>
-            <PlayerVideo video={trailer} />
+            {trailer && <PlayerVideo video={trailer} />}
             <div>
               <em className={styles.tagline}>{detailsMovie.tagline}</em>
               <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>

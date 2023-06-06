@@ -1,9 +1,5 @@
 import { Language, ResponseLanguages, Video } from "./types";
 
-export const TMDB_ENDPOINT = process.env.ENDPOINT_API;
-export const TMDB_API_KEY = process.env.KEY_API;
-export const TMDB_URL_IMAGE = process.env.BASE_URL_IMAGE;
-
 export function shimer(w: number, h: number) {
   return `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -50,7 +46,7 @@ export function getLanguage(tagLanguage: string, listLanguages: ResponseLanguage
   return "Unspecified language";
 } 
 
-export function getTrailerMovie(listOfVideos: Video[]) {
+export function getVideoTrailer(listOfVideos: Video[]) {
   const trailer = listOfVideos.find((video: Video) => video.site === "YouTube" && video.type === "Trailer" && video.official === true && video.key);
   if(trailer) 
     return trailer;
