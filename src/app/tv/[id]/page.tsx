@@ -7,6 +7,7 @@ import {
 import IconLink from "@/components/Icons/IconLink";
 import PlayerVideo from "@/components/PlayerVideo";
 import { getLanguage, getVideoTrailer, shimer, toBase64 } from "@/utils";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,10 +15,51 @@ type Props = {
   params: { id: number };
 };
 
-//TODO: mostrar seasons
-//TODO: mostrar casts
-//TODO: metadads da page
-//TODO: estilos mobile-first
+export async function generateMetadata(
+  { params }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const detailsTvSeries = await getDetailsTvSeries(params.id);
+
+  return {
+    title: `${detailsTvSeries.name} (TV Series ${new Date(
+      detailsTvSeries.first_air_date
+    ).getFullYear()}) - Entertainment web app`,
+    description: detailsTvSeries.overview,
+    keywords: [
+      "Movies",
+      "TV Shows",
+      "Streaming",
+      "Reviews",
+      "API",
+      "Actors",
+      "Actresses",
+      "Photos",
+      "User Ratings",
+      "Synopsis",
+      "Trailers",
+      "Teasers",
+      "Credits",
+      "Cast",
+    ],
+    icons: {
+      icon: "/favicon.png",
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
+    },
+    openGraph: {
+      title: detailsTvSeries.name,
+      description: detailsTvSeries.overview,
+      type: "video.tv_show",
+      url: `/tv/${params.id}`,
+      siteName: "Entertainment web app",
+      images: [
+        `https://image.tmdb.org/t/p/w500${detailsTvSeries.poster_path}`,
+        `https://image.tmdb.org/t/p/w780${detailsTvSeries.poster_path}`,
+      ],
+    },
+  };
+}
 
 export default async function Page({ params }: Props) {
   const detailsTvSeries = await getDetailsTvSeries(params.id);
@@ -176,7 +218,6 @@ export default async function Page({ params }: Props) {
               <div>
                 <p>{cast.original_name}</p>
                 <p>{cast.character}</p>
-                <p>{`(${detailsTvSeries.number_of_episodes}) Episodes`}</p>
               </div>
             </li>
           ))}
