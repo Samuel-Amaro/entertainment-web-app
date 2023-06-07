@@ -1,0 +1,53 @@
+.header {
+  margin: 0 0 24px 0;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 16px 24px 16px;
+}
+
+.wrapperList {
+  margin: 0 0 24px 0;
+}
+
+.btnLink {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--color01);
+  color: var(--color05);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  width: 90px;
+  text-align: center;
+  padding: 14px 0 15px 0;
+}
+
+.btnLink:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.btnLink:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.indicator {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px;
+  padding: 14px 15px 15px 15px;
+  background-color: var(--color04);
+  color: var(--color05);
+}
+
+.containerButtons {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
