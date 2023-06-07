@@ -3,6 +3,7 @@ import styles from "./pagetrending.module.css";
 import Link from "next/link";
 import { renderCardMovie } from "@/components/SectionMovies";
 import List from "@/components/List";
+import Search from "@/components/Search";
 
 type Props = {
   params: { id: number };
@@ -56,6 +57,7 @@ export default async function Page({ searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
+        <Search placeholder="Search for movies" />
         <h1 className={`headingL ${styles.title}`}>Trending Movies</h1>
       </header>
       <main

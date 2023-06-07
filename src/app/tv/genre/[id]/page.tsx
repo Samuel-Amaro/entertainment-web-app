@@ -3,6 +3,7 @@ import styles from "./pagepaginationtv.module.css";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
 import PaginationTvSeriesByGenre from "@/components/PaginationTvSeriesByGenre";
 import { Metadata, ResolvingMetadata } from "next";
+import Search from "@/components/Search";
 
 type Props = {
   params: { id: number };
@@ -79,6 +80,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
+        <Search placeholder="Search for TV Series" />
         <h1 className={`headingL ${styles.title}`}>
           TV Series genre {nameGenre}
         </h1>

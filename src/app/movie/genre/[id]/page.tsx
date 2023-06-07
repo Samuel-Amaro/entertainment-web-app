@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import styles from "./styles.module.css";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
 import { Metadata, ResolvingMetadata } from "next";
+import Search from "@/components/Search";
 
 type Props = {
   params: { id: number };
@@ -79,6 +80,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
+        <Search placeholder="Search for movies" />
         <h1 className={`headingL ${styles.title}`}>Movies genre {nameGenre}</h1>
       </header>
       <Suspense fallback={<SkeletonPagination limitRenderingItems={20} />}>
