@@ -9,7 +9,7 @@ export default async function SectionMoviesTreding() {
     <Section
       title="Trending"
       mediaType="Movie"
-      hrefToSeeMore="/"
+      hrefToSeeMore="/movie/trending?page=1"
       type="trending"
       description="The trending movies"
     >

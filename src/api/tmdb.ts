@@ -12,8 +12,12 @@ async function fetcher<TypeResponse>(url: string, messageError: string) {
   return response.json() as unknown as TypeResponse;
 }
 
-export async function getTrendingMovies() {
- return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}trending/movie/day?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by trending movies");
+export async function getTrendingMovies(indexPage: number = 1) {
+  let url = `${process.env.NEXT_PUBLIC_ENDPOINT_API}trending/movie/day?api_key=${process.env.KEY_API}&language=en-US`;
+  if (typeof indexPage === "number" && indexPage >= 1) {
+    url = url + `&page=${indexPage}`;
+  }
+  return await fetcher<DataResponseMovies>(url, "Failed to fetch datas by trending movies");
 }
 
 export async function getNowPlayingMovies() {

@@ -51,7 +51,7 @@ export async function generateMetadata(
       title: `Movies by Genre ${nameGenre} - Entertainment web app`,
       description: `Genre-based ${nameGenre} movies`,
       type: "video.movie",
-      url: `/movie/${params.id}`,
+      url: `/movie/genre/${params.id}`,
       siteName: "Entertainment web app",
     },
   };
