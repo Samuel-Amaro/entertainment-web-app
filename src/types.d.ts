@@ -268,3 +268,10 @@ export type ResponsePaginationMoviesByGenre = {
     total_pages: number;
     total_results: number;
 };
+
+export type ResponsePaginationTVSeriesByGenre = {
+    page: number;
+    results: TV[];
+    total_pages: number;
+    total_results: number;
+};
