@@ -87,3 +87,7 @@ export async function getCreditsTvSeries(idTvSerie: number) {
 export async function getVideosTvSeries(idTv: number) {
   return await fetcher<ResponseVideo>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${idTv}/videos?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by videos to tv series from tmdb api");
 }
+
+export async function getGenresTvSeries() {
+  return await fetcher<ResponseGenres>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}genre/tv/list?api_key=${process.env.KEY_API}&language=en`, "Failed to fetch datas by genres by tv series from tmdb api");
+}

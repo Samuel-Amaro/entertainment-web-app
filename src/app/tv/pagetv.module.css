@@ -1,0 +1,50 @@
+.header,
+.main {
+  padding: 0 16px 0 16px;
+}
+
+.main {
+  padding: 0 16px 24px 16px;
+}
+
+.header {
+  margin: 0 0 24px 0;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.title {
+  margin: 24px 0 0 0;
+}
+
+.link {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color06);
+  font-size: 1.1rem;
+  font-weight: 300;
+  background-color: var(--color04);
+  width: 140px;
+  height: 140px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.link:is(:hover, :focus) {
+  color: var(--color01);
+}

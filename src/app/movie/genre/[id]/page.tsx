@@ -4,9 +4,6 @@ import styles from "./styles.module.css";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
 import { Metadata, ResolvingMetadata } from "next";
 
-//TODO: add styles mobile-first
-//TODO: add metadados da page
-
 type Props = {
   params: { id: number };
   searchParams: {

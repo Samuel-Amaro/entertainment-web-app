@@ -3,7 +3,6 @@ import Link from "next/link";
 import List from "../List";
 import { renderCardMovie } from "../SectionMovies";
 import styles from "./styles.module.css";
-import SkeletonPagination from "../Skeletons/Pagination";
 
 type Props = {
   idGenre: number;
