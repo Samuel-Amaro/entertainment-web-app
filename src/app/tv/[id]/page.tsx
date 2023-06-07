@@ -75,18 +75,20 @@ export default async function Page({ params }: Props) {
     <main className={styles.main}>
       <section className={styles.sectionSummary}>
         <div className={styles.wrapperImagePoster}>
-          <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsTvSeries.poster_path}`}
-            alt={`poster tv series ${detailsTvSeries.original_name}`}
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${toBase64(
-              shimer(240, 140)
-            )}`}
-            width={300}
-            height={300}
-            title={`poster tv series ${detailsTvSeries.original_name}`}
-            className={styles.posterImage}
-          />
+          {detailsTvSeries.poster_path && (
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsTvSeries.poster_path}`}
+              alt={`poster tv series ${detailsTvSeries.original_name}`}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimer(240, 140)
+              )}`}
+              width={300}
+              height={300}
+              title={`poster tv series ${detailsTvSeries.original_name}`}
+              className={styles.posterImage}
+            />
+          )}
         </div>
         <div>
           <h1 className={`headingL ${styles.title}`}>
@@ -149,18 +151,20 @@ export default async function Page({ params }: Props) {
           <ul className={styles.listNetworks}>
             {detailsTvSeries.networks.map((network) => (
               <li key={network.id} className={styles.itemNetwork}>
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${network.logo_path}`}
-                  alt={`logo nextwork ${network.name}`}
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    shimer(240, 140)
-                  )}`}
-                  width={80}
-                  height={30}
-                  title={`logo nextwork ${network.name}`}
-                  className={styles.logoNetwork}
-                />
+                {network.logo_path && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${network.logo_path}`}
+                    alt={`logo nextwork ${network.name}`}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimer(240, 140)
+                    )}`}
+                    width={80}
+                    height={30}
+                    title={`logo nextwork ${network.name}`}
+                    className={styles.logoNetwork}
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -186,18 +190,20 @@ export default async function Page({ params }: Props) {
             return (
               <div key={season.id} className={styles.cardSeason}>
                 <div>
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
-                    alt={`poster season ${season.name}`}
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      shimer(240, 140)
-                    )}`}
-                    width={130}
-                    height={195}
-                    title={`poster season ${season.name}`}
-                    className={styles.posterSeason}
-                  />
+                  {season.poster_path && (
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
+                      alt={`poster season ${season.name}`}
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimer(240, 140)
+                      )}`}
+                      width={130}
+                      height={195}
+                      title={`poster season ${season.name}`}
+                      className={styles.posterSeason}
+                    />
+                  )}
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={`headingS ${styles.nameSeason}`}>

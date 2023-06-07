@@ -76,12 +76,12 @@ export async function getPageMoviesByGenre(idGenre: number, indexPage: number) {
   return await fetcher<ResponsePaginationMoviesByGenre>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/movie?api_key=${process.env.KEY_API}&with_genres=${idGenre}&page=${indexPage}`, "Failed to fetch datas from page by movies from a genre by movie from tmdb api");
 }
 
-export async function getDetailsTvSeries(id: number) {
-  return await fetcher<DetailsTvSeries>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${id}?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by details tv series");
+export async function getDetailsTvSeries(idTvSerie: number) {
+  return await fetcher<DetailsTvSeries>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${idTvSerie}?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by details tv series");
 }
 
-export async function getCreditsTvSeries(id: number) {
-  return await fetcher<ResponseCredits>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${id}/credits?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by credits tv series");
+export async function getCreditsTvSeries(idTvSerie: number) {
+  return await fetcher<ResponseCredits>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${idTvSerie}/credits?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by credits tv series");
 }
 
 export async function getVideosTvSeries(idTv: number) {

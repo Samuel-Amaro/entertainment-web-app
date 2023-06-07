@@ -1,3 +1,5 @@
+import SkeletonPageMovie from "@/components/Skeletons/PageMovie";
+
 export default function Loading() {
-  return <h1>Loading datas from details by tv series...</h1>;
+  return <SkeletonPageMovie />;
 }
