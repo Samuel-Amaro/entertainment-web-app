@@ -4,6 +4,7 @@ import Link from "next/link";
 import { renderCardMovie } from "@/components/SectionMovies";
 import List from "@/components/List";
 import Search from "@/components/Search";
+import { Suspense } from "react";
 
 type Props = {
   params: { id: number };
@@ -41,6 +42,9 @@ export const metadata = {
   },
 };
 
+//TODO: add segmento de list para lists de movies, top rated, popular etc...
+//TODO: ver como add uma loading para paginação para cada novos dados buscados
+
 export default async function Page({ searchParams }: Props) {
   let pageIndex = 1;
   if (
@@ -65,12 +69,14 @@ export default async function Page({ searchParams }: Props) {
         aria-live="polite"
         aria-atomic="true"
       >
-        <List
-          items={datas.results}
-          limitRenderingItems={20}
-          type="common"
-          renderItem={renderCardMovie}
-        />
+        <Suspense fallback={<h1>Loading datas pagination trending...</h1>}>
+          <List
+            items={datas.results}
+            limitRenderingItems={20}
+            type="common"
+            renderItem={renderCardMovie}
+          />
+        </Suspense>
       </main>
       <footer className={styles.containerButtons}>
         {pageIndex > 1 && (

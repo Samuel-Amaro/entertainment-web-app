@@ -86,7 +86,6 @@ export default function Page({ params, searchParams }: Props) {
         </h1>
       </header>
       <Suspense fallback={<SkeletonPagination limitRenderingItems={20} />}>
-        {/* @ts-expect-error Async Server Component */}
         <PaginationTvSeriesByGenre
           idGenre={params.id}
           pageIndex={pageIndex}
