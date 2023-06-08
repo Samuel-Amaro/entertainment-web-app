@@ -31,9 +31,10 @@ export default async function PaginationMoviesByGenre({
       <div className={styles.containerButtons}>
         {pageIndex > 1 && (
           <Link
-            href={`/movie/genre/${idGenre}?page=${
-              pageIndex - 1
-            }&name=${nameGenre}`}
+            href={{
+              pathname: `/movie/genre/${idGenre}`,
+              query: { page: `${pageIndex - 1}`, name: `${nameGenre}` },
+            }}
             rel="next"
             title="Visit page previous movies"
             className={styles.btnLink}
@@ -46,9 +47,10 @@ export default async function PaginationMoviesByGenre({
         </p>
         {pageIndex < datasPagination.total_pages && (
           <Link
-            href={`/movie/genre/${idGenre}?page=${
-              pageIndex + 1
-            }&name=${nameGenre}`}
+            href={{
+              pathname: `/movie/genre/${idGenre}`,
+              query: { page: `${pageIndex + 1}`, name: `${nameGenre}` },
+            }}
             rel="next"
             title="Visit page next movies"
             className={styles.btnLink}

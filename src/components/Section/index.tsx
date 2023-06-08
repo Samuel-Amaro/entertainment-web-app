@@ -1,10 +1,11 @@
 import Link from "next/link";
 import styles from "./Section.module.css";
+import { Url } from "next/dist/shared/lib/router/router";
 
 type PropsSection = {
   title: string;
   mediaType: string;
-  hrefToSeeMore: string;
+  hrefToSeeMore: Url;
   type: "trending" | "common";
   children: React.ReactNode;
   description: string;

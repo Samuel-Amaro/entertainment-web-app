@@ -81,7 +81,10 @@ export default async function Page({ searchParams }: Props) {
       <footer className={styles.containerButtons}>
         {pageIndex > 1 && (
           <Link
-            href={`/movie/trending?page=${pageIndex - 1}`}
+            href={{
+              pathname: "/movie/trending",
+              query: { page: `${pageIndex - 1}` },
+            }}
             rel="next"
             title="Visit page previous movies"
             className={styles.btnLink}
@@ -94,7 +97,10 @@ export default async function Page({ searchParams }: Props) {
         </p>
         {pageIndex < datas.total_pages && (
           <Link
-            href={`/movie/trending?page=${pageIndex + 1}`}
+            href={{
+              pathname: "/movie/trending",
+              query: { page: `${pageIndex + 1}` },
+            }}
             rel="next"
             title="Visit page next movies"
             className={styles.btnLink}

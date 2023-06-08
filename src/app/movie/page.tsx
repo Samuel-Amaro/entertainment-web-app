@@ -44,7 +44,10 @@ export default async function Page() {
           {datas.genres.map((genre) => (
             <li key={genre.id} className={styles.card}>
               <Link
-                href={`/movie/genre/${genre.id}?page=1&name=${genre.name}`}
+                href={{
+                  pathname: `/movie/genre/${genre.id}`,
+                  query: { page: 1, name: `${genre.name}` },
+                }}
                 title={`View Movies With genre ${genre.name}`}
                 rel="next"
                 className={styles.link}
