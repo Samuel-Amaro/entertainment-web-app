@@ -7,10 +7,7 @@ import Search from "@/components/Search";
 import { Suspense } from "react";
 
 type Props = {
-  params: { id: number };
-  searchParams: {
-    [key: string]: string | string[] | undefined;
-  };
+  params: { page: number };
 };
 
 export const metadata = {
@@ -45,15 +42,24 @@ export const metadata = {
 //TODO: add segmento de list para lists de movies, top rated, popular etc...
 //TODO: ver como add uma loading para paginação para cada novos dados buscados
 
-export default async function Page({ searchParams }: Props) {
+export default async function Page({ params }: Props) {
   let pageIndex = 1;
+
   if (
-    searchParams["page"] &&
-    typeof searchParams["page"] === "string" &&
-    Number(searchParams["page"]) > 0 &&
-    Number(searchParams["page"]) < 500 //http 422 page must be less than or equal to 500
+    params.page &&
+    typeof params.page === "string" &&
+    Number(params.page) > 0 &&
+    Number(params.page) < 500 //api tmdb return http 422 page must be less than or equal to 500 if page < 0 and > 500
   ) {
-    pageIndex = Number(searchParams["page"]);
+    pageIndex = Number(params.page);
+  }
+
+  function getIndexNextPage() {
+    return Number(pageIndex) + 1;
+  }
+
+  function getIndexPreviousPage() {
+    return Number(pageIndex) - 1;
   }
 
   const datas = await getTrendingMovies(pageIndex);
@@ -69,22 +75,17 @@ export default async function Page({ searchParams }: Props) {
         aria-live="polite"
         aria-atomic="true"
       >
-        <Suspense fallback={<h1>Loading datas pagination trending...</h1>}>
-          <List
-            items={datas.results}
-            limitRenderingItems={20}
-            type="common"
-            renderItem={renderCardMovie}
-          />
-        </Suspense>
+        <List
+          items={datas.results}
+          limitRenderingItems={20}
+          type="common"
+          renderItem={renderCardMovie}
+        />
       </main>
       <footer className={styles.containerButtons}>
         {pageIndex > 1 && (
           <Link
-            href={{
-              pathname: "/movie/trending",
-              query: { page: `${pageIndex - 1}` },
-            }}
+            href={`/movie/trending/${getIndexPreviousPage()}`}
             rel="next"
             title="Visit page previous movies"
             className={styles.btnLink}
@@ -97,10 +98,7 @@ export default async function Page({ searchParams }: Props) {
         </p>
         {pageIndex < datas.total_pages && (
           <Link
-            href={{
-              pathname: "/movie/trending",
-              query: { page: `${pageIndex + 1}` },
-            }}
+            href={`/movie/trending/${getIndexNextPage()}`}
             rel="next"
             title="Visit page next movies"
             className={styles.btnLink}

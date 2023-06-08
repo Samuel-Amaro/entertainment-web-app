@@ -9,10 +9,7 @@ export default async function SectionMoviesTreding() {
     <Section
       title="Trending"
       mediaType="Movie"
-      hrefToSeeMore={{
-        pathname: "/movie/trending",
-        query: { page: 1 },
-      }}
+      hrefToSeeMore="movie/trending/1"
       type="trending"
       description="The trending movies"
     >
