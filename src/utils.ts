@@ -52,3 +52,11 @@ export function getVideoTrailer(listOfVideos: Video[]) {
     return trailer;
   return null;
 }
+
+export function getIndexNextPage(indexPage: number) {
+  return indexPage + 1;
+}
+
+export function getIndexPreviousPage(indexPage: number) {
+  return indexPage - 1;
+}

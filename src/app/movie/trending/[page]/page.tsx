@@ -4,7 +4,7 @@ import Link from "next/link";
 import { renderCardMovie } from "@/components/SectionMovies";
 import List from "@/components/List";
 import Search from "@/components/Search";
-import { Suspense } from "react";
+import { getIndexNextPage, getIndexPreviousPage } from "@/utils";
 
 type Props = {
   params: { page: number };
@@ -41,6 +41,7 @@ export const metadata = {
 
 //TODO: add segmento de list para lists de movies, top rated, popular etc...
 //TODO: ver como add uma loading para paginação para cada novos dados buscados
+//TODO: refatorar outras pages de paginação para igual a essa para ter um load de carregamento a cada nova page carregada na paginação
 
 export default async function Page({ params }: Props) {
   let pageIndex = 1;
@@ -52,14 +53,6 @@ export default async function Page({ params }: Props) {
     Number(params.page) < 500 //api tmdb return http 422 page must be less than or equal to 500 if page < 0 and > 500
   ) {
     pageIndex = Number(params.page);
-  }
-
-  function getIndexNextPage() {
-    return Number(pageIndex) + 1;
-  }
-
-  function getIndexPreviousPage() {
-    return Number(pageIndex) - 1;
   }
 
   const datas = await getTrendingMovies(pageIndex);
@@ -85,7 +78,7 @@ export default async function Page({ params }: Props) {
       <footer className={styles.containerButtons}>
         {pageIndex > 1 && (
           <Link
-            href={`/movie/trending/${getIndexPreviousPage()}`}
+            href={`/movie/trending/${getIndexPreviousPage(pageIndex)}`}
             rel="next"
             title="Visit page previous movies"
             className={styles.btnLink}
@@ -98,7 +91,7 @@ export default async function Page({ params }: Props) {
         </p>
         {pageIndex < datas.total_pages && (
           <Link
-            href={`/movie/trending/${getIndexNextPage()}`}
+            href={`/movie/trending/${getIndexNextPage(pageIndex)}`}
             rel="next"
             title="Visit page next movies"
             className={styles.btnLink}
