@@ -25,45 +25,35 @@ export default function Home() {
         <Suspense
           fallback={<SkeletonSectionTrendingMovie limitRenderingItems={5} />}
         >
-          {/* @ts-expect-error Async Server Component */}
           <SectionMoviesTreding />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionMoviesNowPlaying />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionPopularMovies />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionMoviesTopRated />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionMoviesUpcoming />
         </Suspense>
         <Suspense
           fallback={<SkeletonSectionTrending limitRenderingItems={5} />}
         >
-          {/* @ts-expect-error Async Server Component */}
           <SectionTrendingTv />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionAiringToday />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionOnTheAirTv />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionPopularTv />
         </Suspense>
         <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
-          {/* @ts-expect-error Async Server Component */}
           <SectionTopRatedTv />
         </Suspense>
       </main>
