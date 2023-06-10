@@ -36,8 +36,12 @@ export async function getUpcomingMovies() {
   return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/upcoming?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by upcoming movies");
 }
 
-export async function getTrendingTv() {
-  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}trending/tv/day?api_key=${process.env.KEY_API}&language=en-US`, "Failed to fetch datas by trending tv");
+export async function getTrendingTv(indexPage: number = 1) {
+  let url = `${process.env.NEXT_PUBLIC_ENDPOINT_API}trending/tv/day?api_key=${process.env.KEY_API}&language=en-US`;
+  if (typeof indexPage === "number" && indexPage >= 1) {
+    url = url + `&page=${indexPage}`;
+  }
+  return await fetcher<DataResponseTV>(url, "Failed to fetch datas by trending tv");
 }
 
 export async function getAiringTodayTv() {

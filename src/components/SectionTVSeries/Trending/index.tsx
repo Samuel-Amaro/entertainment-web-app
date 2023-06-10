@@ -11,7 +11,7 @@ export default async function SectionTrendingTv() {
     <Section
       title="Trending"
       mediaType="Tv"
-      hrefToSeeMore="/"
+      hrefToSeeMore="/tv/trending/1"
       type="trending"
       description="The trending TV shows"
     >
