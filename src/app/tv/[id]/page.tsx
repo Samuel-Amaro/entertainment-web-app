@@ -16,8 +16,6 @@ type Props = {
   params: { id: number };
 };
 
-//TODO: add styles mobile-first
-
 export async function generateMetadata(
   { params }: Props,
   parent?: ResolvingMetadata
