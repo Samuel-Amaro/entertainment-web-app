@@ -1,8 +1,12 @@
+"use client";
 import { getPageTvSeriesByGenre } from "@/api/tmdb";
 import Link from "next/link";
 import List from "../List";
 import styles from "./styles.module.css";
 import { renderCardTv } from "../SectionTVSeries";
+import { ResponsePaginationTVSeriesByGenre } from "@/types";
+import useSWR from "swr";
+import SkeletonPagination from "../Skeletons/Pagination";
 
 type Props = {
   idGenre: number;
@@ -10,19 +14,45 @@ type Props = {
   nameGenre: string;
 };
 
-export default async function PaginationMoviesByGenre({
+async function fetcher(url: string) {
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to fetch datas by tv series from genre, datas pagination"
+    );
+  }
+
+  const datas: Promise<ResponsePaginationTVSeriesByGenre> = response.json();
+
+  return datas;
+}
+
+export default /*async*/ function PaginationTvSeriesByGenre({
   idGenre,
   pageIndex,
   nameGenre,
 }: Props) {
-  const datasPagination = await getPageTvSeriesByGenre(idGenre, pageIndex);
+  //const datasPagination = await getPageTvSeriesByGenre(idGenre, pageIndex);
+
+  const { data, error, isLoading } = useSWR(
+    `/api/tv/genre/${idGenre}?page=${pageIndex}`,
+    fetcher
+  );
+
+  if (isLoading) {
+    return <SkeletonPagination limitRenderingItems={20} />;
+  }
+
+  if (!data)
+    throw new Error("Failed Fetch datas pagination tv from genre para view");
 
   return (
     <>
       <div className={styles.wrapperList} aria-live="polite" aria-atomic="true">
         <List
           mediaType="tv"
-          items={datasPagination.results}
+          items={data.results /*datasPagination.results*/}
           limitRenderingItems={20}
           type="common"
           renderItem={renderCardTv}
@@ -43,9 +73,10 @@ export default async function PaginationMoviesByGenre({
           </Link>
         )}
         <p className={styles.indicator} aria-live="polite" aria-atomic="true">
-          {datasPagination.page} of {datasPagination.total_pages}
+          {data.page /*datasPagination.page*/} of{" "}
+          {data.total_pages /*datasPagination.total_pages*/}
         </p>
-        {pageIndex < datasPagination.total_pages && (
+        {pageIndex < data.total_pages /*datasPagination.total_pages*/ && (
           <Link
             href={{
               pathname: `/tv/genre/${idGenre}`,
