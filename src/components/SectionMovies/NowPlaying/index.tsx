@@ -9,7 +9,7 @@ export default async function SectionMoviesNowPlaying() {
     <Section
       title="Now Playing"
       mediaType="Movie"
-      hrefToSeeMore="/"
+      hrefToSeeMore="/movie/list/now-playing/1"
       type="common"
       description="A list of movies that are currently in theatres."
     >

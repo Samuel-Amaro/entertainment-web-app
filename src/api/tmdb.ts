@@ -20,8 +20,8 @@ export async function getTrendingMovies(indexPage: number = 1) {
   return await fetcher<DataResponseMovies>(url, "Failed to fetch datas by trending movies");
 }
 
-export async function getNowPlayingMovies() {
-  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/now_playing?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by now playing movies");
+export async function getNowPlayingMovies(indexPage: number = 1) {
+  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/now_playing?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by now playing movies");
 }
 
 export async function getPopularMovies() {

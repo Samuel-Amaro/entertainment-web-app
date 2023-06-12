@@ -39,10 +39,6 @@ export const metadata = {
   },
 };
 
-//TODO: add segmento de list para lists de movies, top rated, popular etc...
-//TODO: ver como add uma loading para paginação para cada novos dados buscados
-//TODO: refatorar outras pages de paginação para igual a essa para ter um load de carregamento a cada nova page carregada na paginação
-
 export default async function Page({ params }: Props) {
   let pageIndex = 1;
 

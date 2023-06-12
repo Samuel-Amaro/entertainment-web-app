@@ -1,7 +1,3 @@
-//TODO: criar mais handle route para tv/genre/[id] dados de paginação
-//TODO: usar swr para busca de dados em componente pagination by genre tv series
-//TODO: criar page de erros quando haver erros
-
 import {  getPageTvSeriesByGenre} from "@/api/tmdb";
 import { NextResponse } from "next/server";
 
