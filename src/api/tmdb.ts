@@ -24,16 +24,16 @@ export async function getNowPlayingMovies(indexPage: number = 1) {
   return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/now_playing?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by now playing movies");
 }
 
-export async function getPopularMovies() {
-  return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/popular?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by popular movies");
+export async function getPopularMovies(indexPage: number = 1) {
+  return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/popular?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by popular movies");
 }
 
-export async function getTopRatedMovies() {
-  return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/top_rated?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by top rated movies");
+export async function getTopRatedMovies(indexPage: number = 1) {
+  return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/top_rated?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by top rated movies");
 }
 
-export async function getUpcomingMovies() {
-  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/upcoming?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by upcoming movies");
+export async function getUpcomingMovies(indexPage: number = 1) {
+  return await fetcher<DataResponseNowPlayingMoviesOrUpcoming>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/upcoming?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by upcoming movies");
 }
 
 export async function getTrendingTv(indexPage: number = 1) {

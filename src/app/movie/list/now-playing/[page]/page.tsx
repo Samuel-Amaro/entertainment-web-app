@@ -10,6 +10,35 @@ type Props = {
   params: { page: number };
 };
 
+export const metadata = {
+  title: "Now Playing Movies - Entertainment web app",
+  description:
+    "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+  keywords: [
+    "Movies",
+    "Series",
+    "TV",
+    "entertainment",
+    "Genres",
+    "Genres Movies",
+    "Now Playing Movies",
+    "Now Playing Movies",
+  ],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Now Playing Movies - Entertainment web app",
+    description:
+      "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+    url: "/movie/list/now-playing/1",
+    type: "video.movie",
+    siteName: "Entertainment web app",
+  },
+};
+
 export default async function Page({ params }: Props) {
   let pageIndex = 1;
 
@@ -41,6 +70,7 @@ export default async function Page({ params }: Props) {
       >
         <main className={styles.wrapperList}>
           <List
+            mediaType="movie"
             items={datas.results}
             limitRenderingItems={20}
             type="common"
