@@ -5,21 +5,28 @@ export default function SkeletonSectionCommon({
 }: {
   limitRenderingItems: number;
 }) {
-  const card = (
+  const cards = new Array(limitRenderingItems).fill(<Card />);
+
+  return (
+    <div className={styles.section}>
+      <span className={styles.title}></span>
+      <div className={styles.list}>
+        {cards.map((card, index) => (
+          <Card key={index} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Card() {
+  return (
     <div className={styles.card}>
       <div className={styles.cardImage}></div>
       <div className={styles.cardDatas}>
         <p className={styles.cardInfo}></p>
         <p className={styles.cardTitle}></p>
       </div>
-    </div>
-  );
-  const cards = new Array(limitRenderingItems).fill(card);
-
-  return (
-    <div className={styles.section}>
-      <span className={styles.title}></span>
-      <div className={styles.list}>{cards}</div>
     </div>
   );
 }
