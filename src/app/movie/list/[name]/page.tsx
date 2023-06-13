@@ -32,8 +32,12 @@ export async function generateMetadata(
       "entertainment",
       "Genres",
       "Genres Movies",
+      "Pagination Movies",
+      "Lists Movies",
       "Now Playing Movies",
-      "Now Playing Movies",
+      "Popular Movies",
+      "Top Rated Movies",
+      "Upcoming Movies",
     ],
     icons: {
       icon: "/favicon.png",
