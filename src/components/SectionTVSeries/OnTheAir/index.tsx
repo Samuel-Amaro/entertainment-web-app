@@ -10,7 +10,12 @@ export default async function SectionOnTheAirTv() {
     <Section
       title="On The Air"
       mediaType="Tv"
-      hrefToSeeMore="/"
+      hrefToSeeMore={{
+        pathname: "/tv/list/on-the-air",
+        query: {
+          page: 1,
+        },
+      }}
       type="common"
       description="A list of TV shows that air in the next 7 days."
     >

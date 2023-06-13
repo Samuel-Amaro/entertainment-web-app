@@ -1,11 +1,10 @@
 "use client";
 
 import useSWR from "swr";
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseTV } from "@/types";
+import { DataResponseTV } from "@/types";
 import SkeletonPagination from "../Skeletons/Pagination";
 import { getIndexNextPage, getIndexPreviousPage } from "@/utils";
 import Pagination from "../Pagination";
-import { renderCardMovie } from "../SectionMovies";
 import List from "../List";
 import { renderCardTv } from "../SectionTVSeries";
 
@@ -23,8 +22,7 @@ async function fetcher(url: string) {
     );
   }
 
-  const datas: Promise<DataResponseTV> =
-    response.json();
+  const datas: Promise<DataResponseTV> = response.json();
 
   return datas;
 }

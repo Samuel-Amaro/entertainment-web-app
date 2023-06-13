@@ -10,7 +10,12 @@ export default async function SectionAiringToday() {
     <Section
       title="Airing Today"
       mediaType="Tv"
-      hrefToSeeMore="/"
+      hrefToSeeMore={{
+        pathname: "/tv/list/airing-today",
+        query: {
+          page: 1,
+        },
+      }}
       type="common"
       description="A list of TV shows airing today."
     >
