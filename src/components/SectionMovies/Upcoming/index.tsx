@@ -10,7 +10,12 @@ export default async function SectionMoviesUpcoming() {
     <Section
       title="Upcoming"
       mediaType="Movie"
-      hrefToSeeMore="/"
+      hrefToSeeMore={{
+        pathname: "/movie/list/upcoming",
+        query: {
+          page: 1,
+        },
+      }}
       type="common"
       description="A list of movies that are being released soon."
     >

@@ -10,7 +10,12 @@ export default async function SectionMoviesTopRated() {
     <Section
       title="Top Rated"
       mediaType="Movie"
-      hrefToSeeMore="/"
+      hrefToSeeMore={{
+        pathname: "/movie/list/top-rated",
+        query: {
+          page: 1,
+        },
+      }}
       type="common"
       description="A list of movies ordered by rating."
     >

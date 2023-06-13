@@ -10,7 +10,12 @@ export default async function SectionPopularMovies() {
     <Section
       title="Popular"
       mediaType="Movie"
-      hrefToSeeMore="/"
+      hrefToSeeMore={{
+        pathname: "/movie/list/popular",
+        query: {
+          page: 1,
+        },
+      }}
       type="common"
       description="A list of movies ordered by popularity."
     >
