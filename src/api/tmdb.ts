@@ -44,20 +44,20 @@ export async function getTrendingTv(indexPage: number = 1) {
   return await fetcher<DataResponseTV>(url, "Failed to fetch datas by trending tv");
 }
 
-export async function getAiringTodayTv() {
-  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/airing_today?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by airing today tv");
+export async function getAiringTodayTv(indexPage: number = 1) {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/airing_today?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by airing today tv");
 }
 
-export async function getOnTheAirTv() {
-  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/on_the_air?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by on the air tv");
+export async function getOnTheAirTv(indexPage: number = 1) {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/on_the_air?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by on the air tv");
 }
 
-export async function getPopularTv() {
-  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/popular?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by popular tv");
+export async function getPopularTv(indexPage: number = 1) {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/popular?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by popular tv");
 }
 
-export async function getTopRatedTv() {
-  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/top_rated?api_key=${process.env.KEY_API}&language=en-US&page=1`, "Failed to fetch datas by top rated tv");
+export async function getTopRatedTv(indexPage: number = 1) {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/top_rated?api_key=${process.env.KEY_API}&language=en-US&page=${indexPage}`, "Failed to fetch datas by top rated tv");
 }
 
 export async function getDetailsMovie(id: number) {

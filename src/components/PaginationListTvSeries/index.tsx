@@ -1,12 +1,13 @@
 "use client";
 
 import useSWR from "swr";
-import { DataResponseNowPlayingMoviesOrUpcoming } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseTV } from "@/types";
 import SkeletonPagination from "../Skeletons/Pagination";
 import { getIndexNextPage, getIndexPreviousPage } from "@/utils";
 import Pagination from "../Pagination";
 import { renderCardMovie } from "../SectionMovies";
 import List from "../List";
+import { renderCardTv } from "../SectionTVSeries";
 
 type Props = {
   nameList: string;
@@ -22,18 +23,18 @@ async function fetcher(url: string) {
     );
   }
 
-  const datas: Promise<DataResponseNowPlayingMoviesOrUpcoming> =
+  const datas: Promise<DataResponseTV> =
     response.json();
 
   return datas;
 }
 
-export default async function PaginationListMovies({
+export default async function PaginationListTvSeries({
   nameList,
   pageIndex,
 }: Props) {
   const { data, error, isLoading } = useSWR(
-    `/api/movie/list/${nameList}?page=${pageIndex}`,
+    `/api/tv/list/${nameList}?page=${pageIndex}`,
     fetcher
   );
 
@@ -43,7 +44,7 @@ export default async function PaginationListMovies({
 
   if (!data)
     throw new Error(
-      "Failed Fetch datas pagination movies from list movies to pagination, with error: " +
+      "Failed Fetch datas pagination tv series from list tv to pagination, with error: " +
         error?.message
     );
 
@@ -53,22 +54,22 @@ export default async function PaginationListMovies({
       currentPage={data.page}
       totalPages={data.total_pages}
       hrefPagePrevious={{
-        pathname: `/movie/list/${nameList}`,
+        pathname: `/tv/list/${nameList}`,
         query: {
           page: getIndexPreviousPage(pageIndex),
         },
       }}
       hrefPageNext={{
-        pathname: `/movie/list/${nameList}`,
+        pathname: `/tv/list/${nameList}`,
         query: { page: getIndexNextPage(pageIndex) },
       }}
     >
       <List
-        mediaType="movie"
+        mediaType="tv"
         items={data.results}
         limitRenderingItems={20}
         type="common"
-        renderItem={renderCardMovie}
+        renderItem={renderCardTv}
       />
     </Pagination>
   );
