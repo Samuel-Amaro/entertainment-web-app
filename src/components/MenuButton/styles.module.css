@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+}
+
+.menuButton {
+  display: block;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  background-color: var(--color05);
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  top: 16px;
+  padding: 7px 4px;
+  border: 2px solid var(--color03);
+  border-radius: 5px;
+}
+
+.container:is(:hover, :focus) .menu {
+  display: block;
+}
+
+.menuOpen {
+  display: block;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  width: 150px;
+  color: var(--color03);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.link:is(:hover, :focus) {
+  color: var(--color01);
+  background-color: var(--color02);
+}
+
+.item:not(:last-child) {
+  margin: 0 0 5px 0;
+  width: 100%;
+}

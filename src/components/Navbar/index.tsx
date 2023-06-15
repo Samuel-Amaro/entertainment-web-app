@@ -7,6 +7,8 @@ import IconNavMovies from "../Icons/IconNavMovies";
 import IconNavTvSeries from "../Icons/IconNavTvseries";
 import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
+import { Url } from "next/dist/shared/lib/router/router";
+import MenuButton from "../MenuButton";
 
 type NamesPagNav = "home" | "movies" | "tvseries";
 
@@ -34,6 +36,88 @@ const navLinks: DataLinkNav[] = [
   },
 ];
 
+const navLinksMovies: { label: string; url: Url }[] = [
+  {
+    label: "Movies Genres",
+    url: { pathname: "/movie" },
+  },
+  {
+    label: "Trending Movies",
+    url: {
+      pathname: "/movie/trending/1",
+    },
+  },
+  {
+    label: "Now Playing",
+    url: {
+      pathname: "/movie/list/now-playing",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "Popular",
+    url: {
+      pathname: "/movie/list/popular",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "Top Rated",
+    url: {
+      pathname: "/movie/list/top-rated",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "Upcoming",
+    url: {
+      pathname: "/movie/list/upcoming",
+      query: { page: 1 },
+    },
+  },
+];
+
+const navLinksTvSeries: { label: string; url: Url }[] = [
+  {
+    label: "Tv Series Genres",
+    url: { pathname: "/tv" },
+  },
+  {
+    label: "Trending Tv Series",
+    url: {
+      pathname: "/tv/trending/1",
+    },
+  },
+  {
+    label: "Airing Today",
+    url: {
+      pathname: "/tv/list/airing-today",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "On The Air",
+    url: {
+      pathname: "/tv/list/on-the-air",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "Popular",
+    url: {
+      pathname: "/tv/list/popular",
+      query: { page: 1 },
+    },
+  },
+  {
+    label: "Top Rated",
+    url: {
+      pathname: "/tv/list/top-rated",
+      query: { page: 1 },
+    },
+  },
+];
+
 export default function Navbar() {
   return (
     <aside className={styles.navbar}>
@@ -47,7 +131,26 @@ export default function Navbar() {
         />
       </div>
       <nav>
-        <Navigation navLinks={navLinks} />
+        {
+          /*<Navigation navLinks={navLinks} />*/
+          <>
+            <Link
+              href="/"
+              title="Home"
+              target="_self"
+              rel="next"
+              className={styles.linkWrapper}
+            >
+              <IconNavHome className={`${styles.iconNav}`} />
+            </Link>
+            <MenuButton labelButton="Movie" menuItems={navLinksMovies} classNameMenuButton={styles.menuButtonMovie}>
+              <IconNavMovies className={`${styles.iconNav}`} />
+            </MenuButton>
+            <MenuButton labelButton="Tv Series" menuItems={navLinksTvSeries} classNameMenuButton={styles.menuButtonTv}>
+              <IconNavTvSeries className={`${styles.iconNav}`} />
+            </MenuButton>
+          </>
+        }
       </nav>
       <div className={styles.wrapperProfile}>
         <Image
@@ -62,6 +165,7 @@ export default function Navbar() {
   );
 }
 
+/*
 function Navigation({
   navLinks,
 }: {
@@ -131,3 +235,4 @@ function getIconNav(name: NamesPagNav, isActive: boolean) {
       break;
   }
 }
+*/
