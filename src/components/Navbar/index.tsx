@@ -9,8 +9,10 @@ import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
 import { Url } from "next/dist/shared/lib/router/router";
 import MenuButton from "../MenuButton";
+import { parseUrl } from "next/dist/shared/lib/router/utils/parse-url";
+import { getURL } from "next/dist/shared/lib/utils";
 
-type NamesPagNav = "home" | "movies" | "tvseries";
+/*type NamesPagNav = "home" | "movies" | "tvseries";
 
 type DataLinkNav = {
   href: string;
@@ -35,17 +37,20 @@ const navLinks: DataLinkNav[] = [
     title: "Tv Series",
   },
 ];
+*/
 
-const navLinksMovies: { label: string; url: Url }[] = [
+const navLinksMovies: { label: string; url: Url; hrefText: string }[] = [
   {
     label: "Movies Genres",
     url: { pathname: "/movie" },
+    hrefText: "/movie",
   },
   {
     label: "Trending Movies",
     url: {
       pathname: "/movie/trending/1",
     },
+    hrefText: "/movie/trending/1",
   },
   {
     label: "Now Playing",
@@ -53,6 +58,7 @@ const navLinksMovies: { label: string; url: Url }[] = [
       pathname: "/movie/list/now-playing",
       query: { page: 1 },
     },
+    hrefText: "/movie/list/now-playing?page=1",
   },
   {
     label: "Popular",
@@ -60,6 +66,7 @@ const navLinksMovies: { label: string; url: Url }[] = [
       pathname: "/movie/list/popular",
       query: { page: 1 },
     },
+    hrefText: "/movie/list/popular?page=1",
   },
   {
     label: "Top Rated",
@@ -67,6 +74,7 @@ const navLinksMovies: { label: string; url: Url }[] = [
       pathname: "/movie/list/top-rated",
       query: { page: 1 },
     },
+    hrefText: "/movie/list/top-rated?page=1",
   },
   {
     label: "Upcoming",
@@ -74,19 +82,22 @@ const navLinksMovies: { label: string; url: Url }[] = [
       pathname: "/movie/list/upcoming",
       query: { page: 1 },
     },
+    hrefText: "/movie/list/upcoming?page=1",
   },
 ];
 
-const navLinksTvSeries: { label: string; url: Url }[] = [
+const navLinksTvSeries: { label: string; url: Url; hrefText: string }[] = [
   {
     label: "Tv Series Genres",
     url: { pathname: "/tv" },
+    hrefText: "/tv",
   },
   {
     label: "Trending Tv Series",
     url: {
       pathname: "/tv/trending/1",
     },
+    hrefText: "/tv/trending/1",
   },
   {
     label: "Airing Today",
@@ -94,6 +105,7 @@ const navLinksTvSeries: { label: string; url: Url }[] = [
       pathname: "/tv/list/airing-today",
       query: { page: 1 },
     },
+    hrefText: "/tv/list/airing-today?page=1",
   },
   {
     label: "On The Air",
@@ -101,6 +113,7 @@ const navLinksTvSeries: { label: string; url: Url }[] = [
       pathname: "/tv/list/on-the-air",
       query: { page: 1 },
     },
+    hrefText: "/tv/list/on-the-air?page=1",
   },
   {
     label: "Popular",
@@ -108,6 +121,7 @@ const navLinksTvSeries: { label: string; url: Url }[] = [
       pathname: "/tv/list/popular",
       query: { page: 1 },
     },
+    hrefText: "/tv/list/popular?page=1",
   },
   {
     label: "Top Rated",
@@ -115,10 +129,19 @@ const navLinksTvSeries: { label: string; url: Url }[] = [
       pathname: "/tv/list/top-rated",
       query: { page: 1 },
     },
+    hrefText: "/tv/list/top-rated?page=1",
   },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isActiveSegmentMovie = navLinksMovies.find((nav) =>
+    pathname.startsWith(nav.hrefText)
+  );
+  const isActiveSegmentTvSeries = navLinksTvSeries.find((nav) =>
+    pathname.startsWith(nav.hrefText)
+  );
+
   return (
     <aside className={styles.navbar}>
       <div>
@@ -130,7 +153,7 @@ export default function Navbar() {
           className={styles.logo}
         />
       </div>
-      <nav>
+      <nav className={styles.nav}>
         {
           /*<Navigation navLinks={navLinks} />*/
           <>
@@ -141,13 +164,41 @@ export default function Navbar() {
               rel="next"
               className={styles.linkWrapper}
             >
-              <IconNavHome className={`${styles.iconNav}`} />
+              <IconNavHome
+                className={
+                  isActiveSegmentMovie === undefined &&
+                  isActiveSegmentMovie === undefined &&
+                  pathname.startsWith("/")
+                    ? `${styles.iconNav} ${styles.iconNavActive}`
+                    : styles.iconNav
+                }
+              />
             </Link>
-            <MenuButton labelButton="Movie" menuItems={navLinksMovies} classNameMenuButton={styles.menuButtonMovie}>
-              <IconNavMovies className={`${styles.iconNav}`} />
+            <MenuButton
+              labelButton="Movie"
+              menuItems={navLinksMovies}
+              classNameMenuButton={styles.menuButtonMovie}
+            >
+              <IconNavMovies
+                className={
+                  isActiveSegmentMovie
+                    ? `${styles.iconNav} ${styles.iconNavActive}`
+                    : styles.iconNav
+                }
+              />
             </MenuButton>
-            <MenuButton labelButton="Tv Series" menuItems={navLinksTvSeries} classNameMenuButton={styles.menuButtonTv}>
-              <IconNavTvSeries className={`${styles.iconNav}`} />
+            <MenuButton
+              labelButton="Tv Series"
+              menuItems={navLinksTvSeries}
+              classNameMenuButton={styles.menuButtonTv}
+            >
+              <IconNavTvSeries
+                className={
+                  isActiveSegmentTvSeries
+                    ? `${styles.iconNav} ${styles.iconNavActive}`
+                    : styles.iconNav
+                }
+              />
             </MenuButton>
           </>
         }

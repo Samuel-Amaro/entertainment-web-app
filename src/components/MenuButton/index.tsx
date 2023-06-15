@@ -4,11 +4,11 @@ import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import { StrictMode, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
-import { getFocusableElements, nextFocusable } from "@/utils";
 
 type MenuItem = {
   label: string;
   url: Url;
+  hrefText: string;
 };
 
 type PropsMenuButton = {

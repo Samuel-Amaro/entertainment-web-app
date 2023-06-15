@@ -14,7 +14,7 @@
   height: 20px;
 }
 
-.list {
+.list, .nav {
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
