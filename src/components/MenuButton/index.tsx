@@ -2,8 +2,9 @@
 
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { StrictMode, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
+import { getFocusableElements, nextFocusable } from "@/utils";
 
 type MenuItem = {
   label: string;
@@ -35,111 +36,91 @@ export default function MenuButton({
     return itemsRef.current;
   }
 
-  /*function handleButtonClick() {
-    setIsOpen(!isOpen);
-  }*/
-
-  function setFocusToMenuItem(newMenuItem: HTMLAnchorElement) {
-    const items = getItemsRef();
-    items.map((item) => {
-      if (item === newMenuItem) {
-        item.tabIndex = 0;
-        newMenuItem.focus();
-      } else {
-        item.tabIndex = -1;
-      }
-      return item;
-    });
-  }
-
   function handleKeydownButton(event: React.KeyboardEvent<HTMLButtonElement>) {
-    if (event.key === "Tab") {
-      return;
-    }
-    event.preventDefault();
-    switch (event.key) {
-      case " ":
-      case "Enter":
-      case "ArrowDown":
-      case "Down": {
-        setIsOpen(true);
-        const items = getItemsRef();
-        console.log(items[0]);
-        setFocusToMenuItem(items[0]);
-        break;
-      }
-      case "Esc":
-      case "Escape":
-        setIsOpen(false);
-        buttonRef.current?.focus();
-        break;
-      case "Up":
-      case "ArrowUp": {
-        setIsOpen(true);
-        const items = getItemsRef();
-        setFocusToMenuItem(items[items.length - 1]);
-        break;
-      }
-      default:
-        break;
+    if (event.key === "Tab" && !event.shiftKey) {
+      setIsOpen(true);
+    } else if (event.key === "Esc" || event.key === "Escape") {
+      setIsOpen(false);
+      buttonRef.current?.focus();
+    } else if (event.key === "Enter" || event.key === " ") {
+      setIsOpen(true);
     }
   }
 
-  function handleBlur() {
-    if (!containerRef.current?.contains(document.activeElement)) {
+  function handleKeydownOption(
+    event: React.KeyboardEvent<HTMLAnchorElement>,
+    index: number
+  ) {
+    if (event.key === "Esc" || event.key === "Escape") {
+      setIsOpen(false);
+      buttonRef.current?.focus();
+    }
+    if (index === getItemsRef().length - 1) {
       setIsOpen(false);
     }
   }
 
+  //TODO: arrumar para quando estiver aberto via teclado clicar fora da area para fechar
+  /*function handleBlur() {
+    if (!buttonRef.current?.contains(document.activeElement)) {
+      console.log("blur");
+    }
+  }*/
+
   return (
-    <div onBlur={handleBlur} className={styles.container} ref={containerRef}>
-      <button
-        ref={buttonRef}
-        type="button"
-        id="menubutton"
-        aria-haspopup="true"
-        aria-controls="menu2"
-        aria-label={labelButton}
-        title={labelButton}
-        aria-expanded={isOpen}
-        /*onClick={handleButtonClick}*/
-        onKeyDown={handleKeydownButton}
-        className={
-          classNameMenuButton
-            ? `${styles.menuButton} ${classNameMenuButton}`
-            : styles.menuButton
-        }
+    <StrictMode>
+      <div
+        /*onBlur={handleBlur}*/ className={styles.container}
+        ref={containerRef}
       >
-        {children}
-      </button>
-      <ul
-        id="menu2"
-        role="menu"
-        aria-labelledby="menubutton"
-        className={isOpen ? `${styles.menu} ${styles.menuOpen}` : styles.menu}
-      >
-        {menuItems.map((item, index) => (
-          <li key={index} role="none" className={styles.item}>
-            <Link
-              href={item.url}
-              rel="next"
-              role="menuitem"
-              title={item.label}
-              ref={(node) => {
-                const items = getItemsRef();
-                if (node) {
-                  items[index] = node;
-                } else {
-                  items.splice(index, 1);
-                }
-              }}
-              className={styles.link}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <button
+          ref={buttonRef}
+          type="button"
+          id="menubutton"
+          aria-haspopup="true"
+          aria-controls="menu2"
+          aria-label={labelButton}
+          title={labelButton}
+          aria-expanded={isOpen}
+          onKeyDown={handleKeydownButton}
+          className={
+            classNameMenuButton
+              ? `${styles.menuButton} ${classNameMenuButton}`
+              : styles.menuButton
+          }
+        >
+          {children}
+        </button>
+        <ul
+          id="menu2"
+          role="menu"
+          aria-labelledby="menubutton"
+          className={isOpen ? `${styles.menu} ${styles.menuOpen}` : styles.menu}
+        >
+          {menuItems.map((item, index) => (
+            <li key={index} role="none" className={styles.item}>
+              <Link
+                href={item.url}
+                rel="next"
+                role="menuitem"
+                title={item.label}
+                ref={(node) => {
+                  const items = getItemsRef();
+                  if (node) {
+                    items[index] = node;
+                  } else {
+                    items.splice(index, 1);
+                  }
+                }}
+                onKeyDown={(event) => handleKeydownOption(event, index)}
+                className={styles.link}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </StrictMode>
   );
 }
