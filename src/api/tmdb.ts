@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre, DataResponseSearchMulti } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -102,4 +102,16 @@ export async function getGenresTvSeries() {
 
 export async function getPageTvSeriesByGenre(idGenre: number, indexPage: number) {
   return await fetcher<ResponsePaginationTVSeriesByGenre>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}discover/tv?api_key=${process.env.KEY_API}&with_genres=${idGenre}&page=${indexPage}`, "Failed to fetch datas from page by movies from a genre by tv series from tmdb api");
+}
+
+export async function searchFromMovie(query: string, indexPage: number) {
+  return await fetcher<DataResponseMovies>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}search/movie?api_key=${process.env.KEY_API}&query=${query}&page=${indexPage}`, "Failed to fetch datas from search by movies.");
+}
+
+export async function searchFromTv(query: string, indexPage: number) {
+  return await fetcher<DataResponseTV>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}search/tv?api_key=${process.env.KEY_API}&query=${query}&page=${indexPage}`, "Failed to fetch datas from search by tv series.");
+}
+
+export async function searchMulti(query: string, indexPage: number) {
+  return await fetcher<DataResponseSearchMulti>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}search/multi?api_key=${process.env.KEY_API}&query=${query}&page=${indexPage}`, "Failed to fetch datas from search multipla from tv series and movies.");
 }
