@@ -15,7 +15,7 @@ export default function Search({
 
   function handleSubmitFormSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(searchText);
+    console.log(searchText + " search for: " + searchFor);
   }
 
   function handleChangeInput(event: ChangeEvent<HTMLInputElement>) {
