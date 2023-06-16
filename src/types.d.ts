@@ -282,3 +282,5 @@ export type ResponsePaginationTVSeriesByGenre = {
     total_pages: number;
     total_results: number;
 };
+
+export type TypeSearchFor = "movie" | "tv" | "multi";

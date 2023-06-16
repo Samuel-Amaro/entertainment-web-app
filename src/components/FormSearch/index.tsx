@@ -4,13 +4,14 @@ import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Search.module.css";
 import { useRouter } from "next/navigation";
+import { TypeSearchFor } from "@/types";
 
 export default function FormSearch({
   placeholder,
   searchFor = "multi",
 }: {
   placeholder: string;
-  searchFor: "movie" | "tv" | "multi";
+  searchFor: TypeSearchFor;
 }) {
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
