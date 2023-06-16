@@ -29,6 +29,22 @@ export default function MenuButton({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemsRef = useRef<HTMLAnchorElement[] | null>(null);
 
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener("click", handleClickOutsideWindow);
+    }
+
+    return () => {
+      window.removeEventListener("click", handleClickOutsideWindow);
+    };
+  }, [isOpen]);
+
+  function handleClickOutsideWindow(ev: MouseEvent) {
+    if (!containerRef.current?.contains(ev.target as Node)) {
+      setIsOpen(false);
+    }
+  }
+
   function getItemsRef() {
     if (!itemsRef.current) {
       itemsRef.current = [];
@@ -60,17 +76,10 @@ export default function MenuButton({
     }
   }
 
-  //TODO: arrumar para quando estiver aberto via teclado clicar fora da area para fechar
-  /*function handleBlur() {
-    if (!buttonRef.current?.contains(document.activeElement)) {
-      console.log("blur");
-    }
-  }*/
-
   return (
     <StrictMode>
       <div
-        /*onBlur={handleBlur}*/ className={styles.container}
+        className={styles.container}
         ref={containerRef}
       >
         <button

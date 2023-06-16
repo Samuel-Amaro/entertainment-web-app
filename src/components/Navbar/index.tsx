@@ -9,35 +9,6 @@ import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
 import { Url } from "next/dist/shared/lib/router/router";
 import MenuButton from "../MenuButton";
-import { parseUrl } from "next/dist/shared/lib/router/utils/parse-url";
-import { getURL } from "next/dist/shared/lib/utils";
-
-/*type NamesPagNav = "home" | "movies" | "tvseries";
-
-type DataLinkNav = {
-  href: string;
-  name: NamesPagNav;
-  title: string;
-};
-
-const navLinks: DataLinkNav[] = [
-  {
-    href: "/",
-    name: "home",
-    title: "Home",
-  },
-  {
-    href: "/movie",
-    name: "movies",
-    title: "Movies",
-  },
-  {
-    href: "/tv",
-    name: "tvseries",
-    title: "Tv Series",
-  },
-];
-*/
 
 const navLinksMovies: { label: string; url: Url; hrefText: string }[] = [
   {
@@ -155,7 +126,6 @@ export default function Navbar() {
       </div>
       <nav className={styles.nav}>
         {
-          /*<Navigation navLinks={navLinks} />*/
           <>
             <Link
               href="/"
@@ -215,75 +185,3 @@ export default function Navbar() {
     </aside>
   );
 }
-
-/*
-function Navigation({
-  navLinks,
-}: {
-  navLinks: {
-    href: string;
-    name: NamesPagNav;
-    title: string;
-  }[];
-}) {
-  const pathname = usePathname();
-
-  return (
-    <ul className={styles.list}>
-      {navLinks.map((link) => {
-        const isActive = pathname.startsWith(link.href);
-        return (
-          <li key={link.name}>
-            <Link
-              href={link.href}
-              title={link.title}
-              target="_self"
-              rel="next"
-              className={styles.linkWrapper}
-            >
-              {getIconNav(link.name, isActive)}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-function getIconNav(name: NamesPagNav, isActive: boolean) {
-  switch (name) {
-    case "home":
-      return (
-        <IconNavHome
-          className={
-            isActive
-              ? `${styles.iconNavActive} ${styles.iconNav}`
-              : styles.iconNav
-          }
-        />
-      );
-    case "movies":
-      return (
-        <IconNavMovies
-          className={
-            isActive
-              ? `${styles.iconNavActive} ${styles.iconNav}`
-              : styles.iconNav
-          }
-        />
-      );
-    case "tvseries":
-      return (
-        <IconNavTvSeries
-          className={
-            isActive
-              ? `${styles.iconNavActive} ${styles.iconNav}`
-              : styles.iconNav
-          }
-        />
-      );
-    default:
-      break;
-  }
-}
-*/
