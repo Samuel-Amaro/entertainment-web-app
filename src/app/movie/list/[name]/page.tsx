@@ -84,7 +84,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for movies" />
+        <Search placeholder="Search for movies" searchFor="movie" />
         <h1 className={`headingL ${styles.title}`}>
           {params.name
             .split("-")

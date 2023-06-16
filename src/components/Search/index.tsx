@@ -1,12 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Search.module.css";
 
-export default function Search({ placeholder }: { placeholder: string }) {
+export default function Search({
+  placeholder,
+  searchFor = "multi",
+}: {
+  placeholder: string;
+  searchFor: "movie" | "tv" | "multi";
+}) {
+  const [searchText, setSearchText] = useState("");
+
   function handleSubmitFormSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    console.log(searchText);
+  }
+
+  function handleChangeInput(event: ChangeEvent<HTMLInputElement>) {
+    setSearchText(event.target.value);
   }
 
   return (
@@ -26,9 +39,16 @@ export default function Search({ placeholder }: { placeholder: string }) {
           name="search"
           aria-label={placeholder}
           className={styles.input}
+          onChange={handleChangeInput}
+          value={searchText}
         />
       </div>
-      <button type="submit" title="Submit Search" aria-label="Search" className={styles.btn}>
+      <button
+        type="submit"
+        title="Submit Search"
+        aria-label="Search"
+        className={styles.btn}
+      >
         Search
       </button>
     </form>

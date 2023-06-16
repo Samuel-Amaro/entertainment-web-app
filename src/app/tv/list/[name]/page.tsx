@@ -82,7 +82,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for Tv Series" />
+        <Search placeholder="Search for Tv Series" searchFor="tv"/>
         <h1 className={`headingL ${styles.title}`}>
           {params.name
             .split("-")

@@ -36,7 +36,7 @@ export default async function Page() {
   return (
     <>
       <header className={styles.header}>
-        <Search placeholder="Search for movies" />
+        <Search placeholder="Search for movies" searchFor="movie" />
         <h1 className={`headingL ${styles.title}`}>Genres Movies</h1>
       </header>
       <main className={styles.main}>

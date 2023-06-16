@@ -80,7 +80,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for TV Series" />
+        <Search placeholder="Search for TV Series" searchFor="tv" />
         <h1 className={`headingL ${styles.title}`}>
           TV Series genre {nameGenre}
         </h1>

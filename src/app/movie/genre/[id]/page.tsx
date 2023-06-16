@@ -80,7 +80,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for movies" />
+        <Search placeholder="Search for movies" searchFor="movie" />
         <h1 className={`headingL ${styles.title}`}>Movies genre {nameGenre}</h1>
       </header>
       <Suspense fallback={<SkeletonPagination limitRenderingItems={20} />}>

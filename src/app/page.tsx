@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <Search placeholder="Search for movies or TV Series" />
+        <Search placeholder="Search for movies or TV Series" searchFor="multi" />
       </header>
       <main className={styles.main}>
         <Suspense

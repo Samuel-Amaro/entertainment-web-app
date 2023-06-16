@@ -56,7 +56,7 @@ export default async function Page({ params }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for movies" />
+        <Search placeholder="Search for movies" searchFor="movie" />
         <h1 className={`headingL ${styles.title}`}>Trending Movies</h1>
       </header>
       <main
