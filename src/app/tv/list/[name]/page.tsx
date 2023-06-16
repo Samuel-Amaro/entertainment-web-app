@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import Search from "@/components/Search";
+import FormSearch from "@/components/FormSearch";
 import { Suspense } from "react";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
 import { Metadata, ResolvingMetadata } from "next";
@@ -82,7 +82,7 @@ export default function Page({ params, searchParams }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for Tv Series" searchFor="tv"/>
+        <FormSearch placeholder="Search for Tv Series" searchFor="tv" />
         <h1 className={`headingL ${styles.title}`}>
           {params.name
             .split("-")

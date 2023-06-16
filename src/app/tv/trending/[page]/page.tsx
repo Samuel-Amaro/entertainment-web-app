@@ -1,6 +1,6 @@
 import { getTrendingTv } from "@/api/tmdb";
 import styles from "./styles.module.css";
-import Search from "@/components/Search";
+import FormSearch from "@/components/FormSearch";
 import List from "@/components/List";
 import { renderCardTv } from "@/components/SectionTVSeries";
 import Link from "next/link";
@@ -27,7 +27,7 @@ export default async function Page({ params }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Search placeholder="Search for Tv Series" searchFor="tv" />
+        <FormSearch placeholder="Search for Tv Series" searchFor="tv" />
         <h1 className={`headingL ${styles.title}`}>Trending TV Series</h1>
       </header>
       <main

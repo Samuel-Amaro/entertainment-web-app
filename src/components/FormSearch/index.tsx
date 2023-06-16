@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Search.module.css";
+import { useRouter } from "next/navigation";
 
-export default function Search({
+export default function FormSearch({
   placeholder,
   searchFor = "multi",
 }: {
@@ -12,10 +13,12 @@ export default function Search({
   searchFor: "movie" | "tv" | "multi";
 }) {
   const [searchText, setSearchText] = useState("");
+  const router = useRouter();
 
   function handleSubmitFormSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(searchText + " search for: " + searchFor);
+    const encodeSearchText = encodeURI(searchText);
+    router.push(`/search/${searchFor}?query=${encodeSearchText}&page=${1}`);
   }
 
   function handleChangeInput(event: ChangeEvent<HTMLInputElement>) {

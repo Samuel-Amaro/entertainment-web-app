@@ -1,4 +1,4 @@
-import Search from "@/components/Search";
+import FormSearch from "@/components/FormSearch";
 import SectionMoviesTreding from "@/components/SectionMovies/Trending";
 import { Suspense } from "react";
 import styles from "./page.module.css";
@@ -19,7 +19,10 @@ export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <Search placeholder="Search for movies or TV Series" searchFor="multi" />
+        <FormSearch
+          placeholder="Search for movies or TV Series"
+          searchFor="multi"
+        />
       </header>
       <main className={styles.main}>
         <Suspense

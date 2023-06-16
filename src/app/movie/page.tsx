@@ -1,5 +1,5 @@
 import { getGenresMovie } from "@/api/tmdb";
-import Search from "@/components/Search";
+import FormSearch from "@/components/FormSearch";
 import styles from "./styles.module.css";
 import Link from "next/link";
 
@@ -36,7 +36,7 @@ export default async function Page() {
   return (
     <>
       <header className={styles.header}>
-        <Search placeholder="Search for movies" searchFor="movie" />
+        <FormSearch placeholder="Search for movies" searchFor="movie" />
         <h1 className={`headingL ${styles.title}`}>Genres Movies</h1>
       </header>
       <main className={styles.main}>
