@@ -1,11 +1,18 @@
+import Search from "@/components/Search";
+import { TypeSearchFor } from "@/types";
+
 type Props = {
-  params: { from: string };
+  params: { from: TypeSearchFor };
   searchParams: {
     [key: string]: string | string[] | undefined;
   };
 };
 
 export default function Page({ params, searchParams }: Props) {
+  const query =
+    searchParams["query"] && typeof searchParams["query"] === "string"
+      ? searchParams["query"]
+      : "";
   let pageIndex =
     searchParams["page"] && typeof searchParams["page"] === "string"
       ? Number(searchParams["page"])
@@ -25,6 +32,7 @@ export default function Page({ params, searchParams }: Props) {
       <h2>Query: {searchParams["query"]}</h2>
       <h2>Page: {searchParams["page"]}</h2>
       <h2>From: {params.from}</h2>
+      <Search searchFor={params.from} query={query} pageIndex={pageIndex} />
     </>
   );
 }

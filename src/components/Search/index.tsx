@@ -1,4 +1,12 @@
-import { TypeSearchFor } from "@/types";
+"use client";
+
+import { DataResponseSearchMulti, Movie, TV, TypeSearchFor } from "@/types";
+import useSWR from "swr";
+import SkeletonPagination from "../Skeletons/Pagination";
+import Pagination from "../Pagination";
+import { getIndexNextPage, getIndexPreviousPage } from "@/utils";
+import List from "../List";
+import Card from "../Card";
 
 type PropsSearch = {
   searchFor: TypeSearchFor;
@@ -6,6 +14,93 @@ type PropsSearch = {
   pageIndex: number;
 };
 
+async function fetcher(url: string) {
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to fetch datas from search de movies, or tv ou multiple, to pagination results"
+    );
+  }
+
+  const datas: Promise<DataResponseSearchMulti> = response.json();
+
+  return datas;
+}
+
+export function renderCardMultiple(
+  datas: Movie | TV,
+  typeCard: "trending" | "common",
+  mediaType?: "movie" | "tv" | undefined
+) {
+  if (typeof datas === "object" && "title" in datas) {
+    return (
+      <Card
+        typeCard={typeCard}
+        id={datas.id}
+        mediaType={mediaType ? mediaType : datas.media_type}
+        date={datas.release_date}
+        titleOrName={datas.title}
+        posterPath={datas.poster_path}
+      />
+    );
+  }
+  return (
+    <Card
+      typeCard={typeCard}
+      id={datas.id}
+      mediaType={mediaType ? mediaType : datas.media_type}
+      date={datas.first_air_date}
+      titleOrName={datas.name}
+      posterPath={datas.poster_path}
+    />
+  );
+}
+
 export default function Search({ searchFor, query, pageIndex }: PropsSearch) {
-    //TODO: criar este componente para receber os dados de search, realizar uma busca de dados via cliente consumindo o endpoint criado em /search/[from], usando swr, criar uma loading ui otimista para user, tratamento de error, paginar os resultados do user aqui de acordo com o searchFor informado, cada um tem um tipo de card de renderização ver como fazer isso
+  const { data, error, isLoading } = useSWR(
+    `/api/search/${searchFor}?query=${query}&page=${pageIndex}`,
+    fetcher
+  );
+
+  if (isLoading) {
+    return <SkeletonPagination limitRenderingItems={20} />;
+  }
+
+  if (!data)
+    throw new Error(
+      "Failed Fetch datas search to pagination, with error: " + error?.message
+    );
+
+  return (
+    <>
+      <Pagination
+        pageIndex={pageIndex}
+        currentPage={data.page}
+        totalPages={data.total_pages}
+        hrefPagePrevious={{
+          pathname: `/search/${searchFor}`,
+          query: {
+            query: query,
+            page: getIndexPreviousPage(pageIndex),
+          },
+        }}
+        hrefPageNext={{
+          pathname: `/search/${searchFor}`,
+          query: {
+            query: query,
+            page: getIndexNextPage(pageIndex),
+          },
+        }}
+      >
+        <List
+          mediaType={searchFor === "multi" ? undefined : searchFor}
+          items={data.results}
+          limitRenderingItems={20}
+          type="common"
+          renderItem={renderCardMultiple}
+        />
+      </Pagination>
+    </>
+  );
 }
