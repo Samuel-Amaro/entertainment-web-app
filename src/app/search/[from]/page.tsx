@@ -1,5 +1,7 @@
 import Search from "@/components/Search";
 import { TypeSearchFor } from "@/types";
+import styles from "./styles.module.css";
+import { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
   params: { from: TypeSearchFor };
@@ -7,6 +9,53 @@ type Props = {
     [key: string]: string | string[] | undefined;
   };
 };
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  return {
+    title: `${searchParams["query"]} - Entertainment web app`,
+    description:
+      "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+    keywords: [
+      "Movies",
+      "Series",
+      "TV",
+      "entertainment",
+      "Genres",
+      "Genres Movies",
+      "Pagination Movies",
+      "Lists Movies",
+      "Now Playing Movies",
+      "Popular Movies",
+      "Top Rated Movies",
+      "Upcoming Movies",
+      "Search Movies",
+      "Search TV Series",
+      "Multiple Search",
+    ],
+    icons: {
+      icon: "/favicon.png",
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
+    },
+    openGraph: {
+      title: `${searchParams["query"]} - Entertainment web app`,
+      description:
+        "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+      url: `/search/${params.from}?query=${searchParams["query"]}&page=${
+        searchParams["page"] &&
+        typeof searchParams["page"] === "string" &&
+        !isNaN(Number(searchParams["page"]))
+          ? Number(searchParams["page"])
+          : 1
+      }`,
+      type: "video.movie",
+      siteName: "Entertainment web app",
+    },
+  };
+}
 
 export default function Page({ params, searchParams }: Props) {
   const query =
@@ -28,11 +77,13 @@ export default function Page({ params, searchParams }: Props) {
   }
 
   return (
-    <>
-      <h2>Query: {searchParams["query"]}</h2>
-      <h2>Page: {searchParams["page"]}</h2>
-      <h2>From: {params.from}</h2>
-      <Search searchFor={params.from} query={query} pageIndex={pageIndex} />
-    </>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={`headingL ${styles.title}`}>{query}</h1>
+      </header>
+      <main className={styles.wrapperList}>
+        <Search searchFor={params.from} query={query} pageIndex={pageIndex} />
+      </main>
+    </div>
   );
 }
