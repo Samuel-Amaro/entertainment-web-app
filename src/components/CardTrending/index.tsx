@@ -11,8 +11,6 @@ interface PropsCardMovieTrending {
   posterPath: string;
 }
 
-//TODO: add um custom hook de media query para simular o blur antes da imagem carregar do tamnho certo
-
 export default function CardMovieTrending({
   mediaType,
   date,
@@ -25,14 +23,14 @@ export default function CardMovieTrending({
         <Image
           src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
           alt={`poster ${mediaType} ${titleOrName}`}
-          /*width={240}
-        height={140}*/
+          width={240}
+        height={140}
           placeholder="blur"
           blurDataURL={`data:image/svg+xml;base64,${toBase64(
             shimer(240, 140)
           )}`}
           className={styles.image}
-          fill={true}
+          /*fill={true}*/
         />
       )}
       <DatasCard
