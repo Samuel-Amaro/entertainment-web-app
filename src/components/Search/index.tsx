@@ -75,7 +75,9 @@ export default function Search({ searchFor, query, pageIndex }: PropsSearch) {
 
   return (
     <>
-      <h2 className={`headingM ${styles.title}`}>Found {data.total_results}</h2>
+      <h2 className={`headingM ${styles.title}`}>
+        Found {data.total_results} Results
+      </h2>
       <Pagination
         pageIndex={pageIndex}
         currentPage={data.page}

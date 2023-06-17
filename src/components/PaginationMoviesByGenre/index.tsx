@@ -28,12 +28,11 @@ async function fetcher(url: string) {
   return datas;
 }
 
-export default /*async*/ function PaginationMoviesByGenre({
+export default function PaginationMoviesByGenre({
   idGenre,
   pageIndex,
   nameGenre,
 }: Props) {
-  /*const datasPagination = await getPageMoviesByGenre(idGenre, pageIndex);*/
   const { data, error, isLoading } = useSWR(
     `/api/movie/genre/${idGenre}?page=${pageIndex}`,
     fetcher
@@ -50,7 +49,7 @@ export default /*async*/ function PaginationMoviesByGenre({
       <div className={styles.wrapperList} aria-live="polite" aria-atomic="true">
         <List
           mediaType="movie"
-          items={data.results /*datasPagination.results*/}
+          items={data.results}
           limitRenderingItems={20}
           type="common"
           renderItem={renderCardMovie}
@@ -71,10 +70,10 @@ export default /*async*/ function PaginationMoviesByGenre({
           </Link>
         )}
         <p className={styles.indicator} aria-live="polite" aria-atomic="true">
-          {/*datasPagination.page*/ data.page} of{" "}
-          {data.total_pages /*datasPagination.total_pages*/}
+          {data.page} of{" "}
+          {data.total_pages}
         </p>
-        {pageIndex < data.total_pages /*datasPagination.total_pages*/ && (
+        {pageIndex < data.total_pages && (
           <Link
             href={{
               pathname: `/movie/genre/${idGenre}`,
