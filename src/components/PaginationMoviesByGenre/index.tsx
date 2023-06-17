@@ -1,5 +1,4 @@
 "use client";
-import { getPageMoviesByGenre } from "@/api/tmdb";
 import Link from "next/link";
 import List from "../List";
 import { renderCardMovie } from "../SectionMovies";
