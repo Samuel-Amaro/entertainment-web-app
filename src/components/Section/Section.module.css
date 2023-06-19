@@ -58,8 +58,17 @@
     gap: 15px;
   }
 
-  .header,
   .description {
+    font-size: 15px;
+    line-height: 19px;
     margin: 0 0 25px 0;
+  }
+
+  .header {
+    margin: 0 0 25px 0;
+  }
+
+  .section:not(:last-child) {
+    margin: 0 0 39px 0;
   }
 }

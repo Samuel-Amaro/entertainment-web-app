@@ -21,7 +21,7 @@ export default async function SectionOnTheAirTv() {
     >
       <List
         items={datas.results}
-        limitRenderingItems={6}
+        limitRenderingItems={10}
         type="common"
         renderItem={renderCardTv}
         mediaType="tv"

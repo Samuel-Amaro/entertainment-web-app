@@ -15,7 +15,7 @@ export default async function SectionMoviesTreding() {
     >
       <List
         items={datas.results}
-        limitRenderingItems={5}
+        limitRenderingItems={20}
         type="trending"
         renderItem={renderCardMovie}
       />

@@ -21,7 +21,7 @@ export default async function SectionMoviesTopRated() {
     >
       <List
         items={datas.results}
-        limitRenderingItems={6}
+        limitRenderingItems={10}
         type="common"
         mediaType="movie"
         renderItem={renderCardMovie}

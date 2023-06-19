@@ -29,7 +29,7 @@ export default function DatasCard({
           <span className={styles.mediaType}>{mediaType}</span>
         </span>
       </p>
-      <h3 className="headingS">{titleOrName}</h3>
+      <h3 className="headingXS">{titleOrName}</h3>
     </div>
   );
 }

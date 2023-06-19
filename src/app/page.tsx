@@ -26,37 +26,37 @@ export default function Home() {
       </header>
       <main className={styles.main}>
         <Suspense
-          fallback={<SkeletonSectionTrendingMovie limitRenderingItems={5} />}
+          fallback={<SkeletonSectionTrendingMovie limitRenderingItems={20} />}
         >
           <SectionMoviesTreding />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionMoviesNowPlaying />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionPopularMovies />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionMoviesTopRated />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionMoviesUpcoming />
         </Suspense>
         <Suspense
-          fallback={<SkeletonSectionTrending limitRenderingItems={5} />}
+          fallback={<SkeletonSectionTrending limitRenderingItems={20} />}
         >
           <SectionTrendingTv />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionAiringToday />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionOnTheAirTv />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionPopularTv />
         </Suspense>
-        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={6} />}>
+        <Suspense fallback={<SkeletonSectionCommon limitRenderingItems={10} />}>
           <SectionTopRatedTv />
         </Suspense>
       </main>

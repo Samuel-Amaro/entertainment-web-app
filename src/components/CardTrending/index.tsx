@@ -19,27 +19,29 @@ export default function CardMovieTrending({
 }: PropsCardMovieTrending) {
   return (
     <div className={styles.card}>
-      {posterPath && (
-        <Image
-          src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
-          alt={`poster ${mediaType} ${titleOrName}`}
-          width={240}
-        height={140}
-          placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(
-            shimer(240, 140)
-          )}`}
-          className={styles.image}
-          /*fill={true}*/
-        />
-      )}
+      <div className={styles.wrapperImage}>
+        {posterPath && (
+          <Image
+            src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
+            alt={`poster ${mediaType} ${titleOrName}`}
+            width={240}
+            height={140}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              shimer(240, 140)
+            )}`}
+            className={styles.image}
+            /*fill={true}*/
+          />
+        )}
+        <ViewCard className={styles.hoverPoster} />
+      </div>
       <DatasCard
         mediaType={mediaType}
         date={date}
         titleOrName={titleOrName}
         className={styles.datasCard}
       />
-      <ViewCard className={styles.hoverPoster} />
     </div>
   );
 }

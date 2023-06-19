@@ -21,7 +21,7 @@ export default async function SectionMoviesNowPlaying() {
       <List
         mediaType="movie"
         items={datas.results}
-        limitRenderingItems={6}
+        limitRenderingItems={10}
         type="common"
         renderItem={renderCardMovie}
       />

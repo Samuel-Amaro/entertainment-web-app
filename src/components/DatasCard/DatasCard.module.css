@@ -1,4 +1,7 @@
-.year, .diviser, .mediaType, .icon{
+.year,
+.diviser,
+.mediaType,
+.icon {
   display: inline-block;
 }
 
@@ -10,7 +13,7 @@
   color: var(--color07);
 }
 
-.mediaType{
+.mediaType {
   text-transform: capitalize;
 }
 
@@ -23,19 +26,25 @@
   border-radius: 50%;
 }
 
-.container, .wrapper{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+.container,
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
-.container{
-    margin: 0 0 4px 0;
+.container {
+  margin: 0 0 4px 0;
 }
 
-.wrapper{
-    gap: 6px;
+.wrapper {
+  gap: 6px;
 }
 
-
-
+@media screen and (min-width: 500px) {
+  .mediaType,
+  .year {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
