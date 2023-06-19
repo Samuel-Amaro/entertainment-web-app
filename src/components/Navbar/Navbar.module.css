@@ -14,7 +14,8 @@
   height: 20px;
 }
 
-.list, .nav {
+.list,
+.nav {
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -61,4 +62,32 @@
 
 .menuButtonTv:is(:hover, :focus) .iconNav {
   fill: var(--color01);
+}
+
+@media screen and (min-width: 500px) {
+  .logo {
+    width: 32px;
+    height: 25.6px;
+  }
+
+  .iconNav {
+    width: 20px;
+    height: 20px;
+  }
+
+  .list,
+  .nav {
+    gap: 32px;
+  }
+
+  .wrapperProfile {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navbar {
+    padding: 21px 16px 19px 24px;
+    border-radius: 10px;
+    margin: 0 0 33px 0;
+  }
 }

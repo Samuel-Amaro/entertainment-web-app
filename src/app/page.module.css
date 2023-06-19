@@ -1,9 +1,17 @@
 .header {
-  padding: 0 16px 0 16px;
   margin: 0 0 24px 0;
 }
 
 .main {
-  padding: 0 16px 61px 16px;
+  padding: 0 0 61px 0;
 }
 
+.container{
+  padding: 0 16px 0 16px;
+}
+
+@media screen and (min-width: 500px) {
+  .container{
+    padding: 0;
+  }
+}

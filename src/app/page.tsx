@@ -17,7 +17,7 @@ import SectionTopRatedTv from "@/components/SectionTVSeries/TopRated";
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.container}>
       <header className={styles.header}>
         <FormSearch
           placeholder="Search for movies or TV Series"
@@ -60,6 +60,6 @@ export default function Home() {
           <SectionTopRatedTv />
         </Suspense>
       </main>
-    </>
+    </div>
   );
 }

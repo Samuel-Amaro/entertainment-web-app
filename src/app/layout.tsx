@@ -19,7 +19,7 @@ export const metadata = {
     title: "Entertainment web app",
     description:
       "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
-    url: "",
+    url: "/",
     type: "website",
   },
 };
@@ -32,8 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <Navbar />
-        {children}
+        <div className="main-container">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

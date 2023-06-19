@@ -54,3 +54,10 @@
 body {
   background-color: var(--color02);
 }
+
+
+@media screen and (min-width: 500px) {
+  .main-container{
+    padding: 23px 24px 56px 25px;
+  }
+}
