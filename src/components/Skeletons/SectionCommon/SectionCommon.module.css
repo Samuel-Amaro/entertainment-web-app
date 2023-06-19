@@ -1,6 +1,6 @@
 .section {
   margin: 0 0 24px 0;
-  background-color: var(--color04);
+  /*background-color: var(--color04);*/
 }
 
 .title {
@@ -56,6 +56,17 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.description {
+  display: block;
+  content: "";
+  background-color: #f5f8fc;
+  width: 80px;
+  height: 14px;
+  border-radius: 15px;
+  margin: 0 0 24px 0;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 @-webkit-keyframes skeleton-loading {
   0% {
     background-color: #c2cfd6;
@@ -71,5 +82,35 @@
   }
   100% {
     background-color: #f0f3f5;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .list {
+    gap: 29px;
+  }
+
+  .cardImage {
+    width: 170px;
+    height: 230px;
+  }
+
+  .cardInfo {
+    height: 16px;
+  }
+
+  .cardTitle {
+    height: 23px;
+    margin: 0 0 33px 0;
+  }
+
+  .description {
+    width: 40%;
+    height: 16px;
+    margin: 0 0 33px 0;
+  }
+
+  .section {
+    margin: 0 0 33px 0;
   }
 }

@@ -60,6 +60,7 @@ export default function Home() {
           <SectionTopRatedTv />
         </Suspense>
       </main>
+      <SkeletonSectionCommon limitRenderingItems={20} />
     </div>
   );
 }

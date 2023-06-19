@@ -10,6 +10,7 @@ export default function SkeletonSectionCommon({
   return (
     <div className={styles.section}>
       <span className={styles.title}></span>
+      <span className={styles.description}></span>
       <div className={styles.list}>
         {cards.map((card, index) => (
           <Card key={index} />
