@@ -6,7 +6,7 @@
   flex-flow: row nowrap;
 }
 
-.description{
+.description {
   font-size: 13px;
   line-height: 16px;
   font-weight: 300;
@@ -15,7 +15,7 @@
   color: var(--color07);
 }
 
-.headerModifierMg{
+.headerModifierMg {
   margin: 0 0 24px 0;
 }
 
@@ -49,6 +49,17 @@
   color: var(--color01);
 }
 
-.section:not(:last-child){
+.section:not(:last-child) {
   margin: 0 0 24px 0;
+}
+
+@media screen and (min-width: 500px) {
+  .headerContainer {
+    gap: 15px;
+  }
+
+  .header,
+  .description {
+    margin: 0 0 25px 0;
+  }
 }

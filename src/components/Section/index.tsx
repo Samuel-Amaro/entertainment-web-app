@@ -29,7 +29,7 @@ export default function Section({
         }
       >
         <div className={styles.headerContainer}>
-          <h2 className={`headingL ${styles.title}`}>{title}</h2>
+          <h2 className={`headingL`}>{title}</h2>
           <span className={styles.indicator}>{mediaType}</span>
         </div>
         <Link

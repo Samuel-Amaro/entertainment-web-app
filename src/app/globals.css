@@ -55,9 +55,14 @@ body {
   background-color: var(--color02);
 }
 
-
 @media screen and (min-width: 500px) {
-  .main-container{
+  .main-container {
     padding: 23px 24px 56px 25px;
+  }
+
+  .headingL {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.5px;
   }
 }
