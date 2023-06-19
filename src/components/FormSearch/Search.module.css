@@ -61,3 +61,20 @@
 .btn:is(:hover, :focus) {
   background-color: var(--color01);
 }
+
+@media screen and (min-width: 500px) {
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .group,
+  .form {
+    gap: 24px;
+  }
+}
