@@ -1,16 +1,10 @@
 .wrapperImagePoster {
-  /*position: relative;
-  max-width: 300px;
-  max-height: 450px;
-  width: 100%;
-  height: auto;
-  min-height: 300px;
-  margin: 0 auto 24px auto;*/
   margin: 0 0 24px 0;
   border-radius: 8px;
 }
 
-.posterImage {
+.posterImage,
+.wrapperImagePosterEmpty {
   display: block;
   max-width: 330px;
   max-height: 480px;
@@ -18,18 +12,50 @@
   height: auto;
   margin: 0 auto;
   border-radius: 8px;
-  /*object-fit: fill;*/
+}
+
+.wrapperImagePosterEmpty {
+  width: 100%;
+  height: 100%;
+  color: var(--color05);
+  background-color: var(--color03);
+  border-radius: 8px;
+  margin: 0 auto 24px auto;
+}
+
+.wrapperImagePosterEmpty::after {
+  content: "No Poster";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: var(--color02);
+  align-items: center;
+  justify-content: center;
 }
 
 .main {
   padding: 0 16px 16px 16px;
 }
 
-.wrapperProfile {
+.wrapperProfile,
+.wrapperProfileEmpty {
   width: 150px;
   height: 200px;
-  background-color: var(--color07);
   border-radius: 8px 8px 0 0;
+}
+
+.wrapperProfileEmpty {
+  background-color: var(--color03);
+}
+
+.wrapperProfileEmpty::after {
+  content: "No Profile";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: var(--color02);
+  align-items: center;
+  justify-content: center;
 }
 
 .profileImg {
@@ -221,7 +247,7 @@
     margin: 0;
   }
 
-  .sectionInfo{
+  .sectionInfo {
     display: flex;
     flex-flow: row wrap;
     align-items: center;

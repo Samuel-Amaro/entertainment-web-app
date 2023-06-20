@@ -80,27 +80,38 @@ export default async function Page({ params }: Props) {
     <>
       <main className={styles.main}>
         <section className={styles.sectionSummary}>
-          <div className={styles.wrapperImagePoster}>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
-              alt={`poster movie ${detailsMovie.title}`}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimer(240, 140)
-              )}`}
-              width={300}
-              height={300}
-              /*fill={true}*/
-              className={styles.posterImage}
-              title={`poster movie ${detailsMovie.title}`}
-            />
+          <div
+            className={
+              detailsMovie.poster_path
+                ? styles.wrapperImagePoster
+                : styles.wrapperImagePosterEmpty
+            }
+          >
+            {detailsMovie.poster_path && (
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
+                alt={`poster movie ${detailsMovie.title}`}
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimer(240, 140)
+                )}`}
+                width={300}
+                height={300}
+                className={styles.posterImage}
+                title={`poster movie ${detailsMovie.title}`}
+              />
+            )}
           </div>
           <div>
             <h1 className={`headingL ${styles.title}`}>
               <span className={styles.titleText}>{detailsMovie.title}</span>{" "}
-              <span className={styles.titleYear}>{`(${new Date(
-                detailsMovie.release_date
-              ).getFullYear()})`}</span>
+              <span className={styles.titleYear}>{`(${
+                typeof new Date(detailsMovie.release_date).getFullYear() !==
+                  "number" ||
+                isNaN(new Date(detailsMovie.release_date).getFullYear())
+                  ? "No Year"
+                  : new Date(detailsMovie.release_date).getFullYear()
+              })`}</span>
             </h1>
             <p className={styles.metadatas}>
               <span className={styles.metadataDate}>
@@ -169,7 +180,13 @@ export default async function Page({ params }: Props) {
           <ul className={styles.list}>
             {creditsMovie.cast.map((cast) => (
               <li key={cast.id} className={styles.card}>
-                <div className={styles.wrapperProfile}>
+                <div
+                  className={
+                    cast.profile_path
+                      ? styles.wrapperProfile
+                      : styles.wrapperProfileEmpty
+                  }
+                >
                   {cast.profile_path && (
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
