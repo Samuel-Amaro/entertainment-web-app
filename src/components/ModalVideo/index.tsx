@@ -1,6 +1,8 @@
 import styles from "./styles.module.css";
 import { Video } from "@/types";
 
+//TODO: encontrar um tamanho para tablet e desktop do modal de video
+
 export default function ModalVideo({ video }: { video: Video }) {
   return (
     <div

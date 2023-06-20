@@ -29,3 +29,9 @@
   margin: 0 0 8px 16px;
   text-align: left;
 }
+
+@media screen and (min-width: 500px) {
+  .modal {
+    max-width: 800px;
+  }
+}

@@ -15,6 +15,11 @@ import SectionOnTheAirTv from "@/components/SectionTVSeries/OnTheAir";
 import SectionPopularTv from "@/components/SectionTVSeries/Popular";
 import SectionTopRatedTv from "@/components/SectionTVSeries/TopRated";
 
+//TODO: STYLES PARA TABLET FEITO NA PAGE HOME
+//TODO: NOS CARDS E SECTION TRENDING E COMMON
+//TODO: FALTAR ESTILIZAR O DROPDOWM MENU BUTTON PARA TABLET
+//TODO: FALTA AS PAGINAS DE VER UM MOVIE OU TV SERIES EM DETAILS, A PAGE DE GENRES E PAGINAÇÕES E LISTAS
+
 export default function Home() {
   return (
     <div className={styles.container}>

@@ -1,6 +1,5 @@
 .main {
   padding: 24px 16px 16px 16px;
-  background-color: var(--color04);
 }
 
 .sectionSummary,
@@ -20,7 +19,8 @@
 .valueData,
 .link,
 .originalName,
-.character, .wrapperProfile {
+.character,
+.wrapperProfile {
   content: "";
   background-color: var(--color06);
   animation: skeleton-loading 1s linear infinite alternate;
@@ -114,8 +114,8 @@
   padding: 10px 10px 14px 10px;
 }
 
-.originalName{
-    margin: 0 0 5px 0;
+.originalName {
+  margin: 0 0 5px 0;
 }
 
 .originalName,
@@ -139,5 +139,55 @@
   }
   100% {
     background-color: #f0f3f5;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .main {
+    padding: 0;
+  }
+
+  .sectionSummary,
+  .sectionInfo,
+  .containerInfo {
+    margin: 0 0 33px 0;
+  }
+
+  .title {
+    height: 40px;
+    margin: 0 0 4px 0;
+  }
+
+  .metadatas,
+  .tagline,
+  .overview,
+  .data,
+  .originalName {
+    height: 19px;
+  }
+
+  .data:not(:last-child) {
+    margin: 0;
+  }
+
+  .subtitle {
+    height: 30px;
+  }
+
+  .containerInfo {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 33px;
+  }
+
+  .data {
+    flex: 0 0 150px;
+  }
+
+  .sectionSummary {
+    display: grid;
+    grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
+    gap: 40px;
+    align-items: center;
   }
 }

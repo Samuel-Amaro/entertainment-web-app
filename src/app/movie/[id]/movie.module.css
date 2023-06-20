@@ -168,3 +168,64 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+@media screen and (min-width: 500px) {
+  .sectionSummary {
+    display: grid;
+    grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapperImagePoster {
+    margin: 0;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  .metadatas,
+  .tagline,
+  .overview,
+  .valueData,
+  .character {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .data,
+  .originalName {
+    font-size: 18px;
+    line-height: 23px;
+    margin: 0 0 4px 0;
+  }
+
+  .sectionSummary,
+  .sectionInfo,
+  .containerInfo {
+    margin: 0 0 33px 0;
+  }
+
+  .info:not(:last-child) {
+    margin: 0;
+  }
+
+  .containerInfo {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 33px;
+    margin: 0;
+  }
+
+  .sectionInfo{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+  }
+}

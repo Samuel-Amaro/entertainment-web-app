@@ -31,3 +31,10 @@
 .btnPlay:is(:hover, :focus) .iconBtnPlay {
   fill: var(--color01);
 }
+
+@media screen and (min-width: 500px) {
+  .btnPlay {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
