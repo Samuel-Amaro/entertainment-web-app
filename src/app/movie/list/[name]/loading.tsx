@@ -1,5 +1,5 @@
-import SkeletonPageGenresMovies from "@/components/Skeletons/PageGenresMovie";
+import SkeletonPageGenres from "@/components/Skeletons/PageGenres";
 
 export default function Loading() {
-  return <SkeletonPageGenresMovies />;
+  return <SkeletonPageGenres />;
 }

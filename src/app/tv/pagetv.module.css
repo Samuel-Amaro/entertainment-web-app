@@ -48,3 +48,18 @@
 .link:is(:hover, :focus) {
   color: var(--color01);
 }
+
+@media screen and (min-width: 500px) {
+  .main,
+  .header {
+    padding: 0;
+  }
+
+  .header {
+    margin: 0 0 33px 0;
+  }
+
+  .title {
+    margin: 33px 0 0 0;
+  }
+}

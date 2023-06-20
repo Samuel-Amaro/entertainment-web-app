@@ -127,7 +127,6 @@ export default async function Page({ params }: Props) {
         </div>
       </section>
       <section className={styles.sectionInfo}>
-        <h2 className={`headingM ${styles.subtitle}`}>Information</h2>
         <div className={styles.containerInfo}>
           <p className={styles.info}>
             <span className={styles.data}>Status</span>
@@ -223,32 +222,34 @@ export default async function Page({ params }: Props) {
       </section>
       <section>
         <h2 className={`headingM ${styles.subtitle}`}>Casts</h2>
-        <ul className={styles.list}>
-          {creditsTvSeries.cast.map((cast) => (
-            <li key={cast.id} className={styles.card}>
-              <div className={styles.wrapperProfile}>
-                {cast.profile_path && (
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
-                    alt={`Profile ${cast.original_name} with character ${cast.character}`}
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      shimer(240, 140)
-                    )}`}
-                    width={150}
-                    height={150}
-                    title={`Profile ${cast.original_name} with character ${cast.character}`}
-                    className={styles.profileImg}
-                  />
-                )}
-              </div>
-              <div className={styles.datasCard}>
-                <p className={styles.originalName}>{cast.original_name}</p>
-                <p className={styles.character}>{cast.character}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {creditsTvSeries.cast.length > 0 && (
+          <ul className={styles.list}>
+            {creditsTvSeries.cast.map((cast) => (
+              <li key={cast.id} className={styles.card}>
+                <div className={styles.wrapperProfile}>
+                  {cast.profile_path && (
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
+                      alt={`Profile ${cast.original_name} with character ${cast.character}`}
+                      placeholder="blur"
+                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimer(240, 140)
+                      )}`}
+                      width={150}
+                      height={150}
+                      title={`Profile ${cast.original_name} with character ${cast.character}`}
+                      className={styles.profileImg}
+                    />
+                  )}
+                </div>
+                <div className={styles.datasCard}>
+                  <p className={styles.originalName}>{cast.original_name}</p>
+                  <p className={styles.character}>{cast.character}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </main>
   );
