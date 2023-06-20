@@ -1,6 +1,5 @@
 .main {
   padding: 16px;
-  background-color: var(--color04);
 }
 
 .containerButtons {
@@ -42,5 +41,11 @@
   }
   100% {
     background-color: #f0f3f5;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .main {
+    padding: 0;
   }
 }

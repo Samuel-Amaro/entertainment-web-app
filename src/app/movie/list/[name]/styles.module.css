@@ -14,3 +14,17 @@
 .wrapperList {
   margin: 0 0 24px 0;
 }
+
+@media screen and (min-width: 500px) {
+  .container {
+    padding: 0;
+  }
+
+  .header {
+    margin: 0 0 33px 0;
+  }
+
+  .title {
+    padding: 33px 0 0 0;
+  }
+}

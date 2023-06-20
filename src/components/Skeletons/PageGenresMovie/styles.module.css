@@ -1,6 +1,5 @@
 .container {
   padding: 24px 16px 16px 16px;
-  background-color: var(--color04);
 }
 
 .title {
@@ -46,5 +45,11 @@
   }
   100% {
     background-color: #f0f3f5;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    padding: 0;
   }
 }

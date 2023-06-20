@@ -18,7 +18,6 @@ import styles from "./movie.module.css";
 import { Metadata, ResolvingMetadata } from "next";
 import IconLink from "@/components/Icons/IconLink";
 import PlayerVideo from "@/components/PlayerVideo";
-import Loader from "@/components/Skeletons/Loader";
 
 type Props = {
   params: { id: number };
