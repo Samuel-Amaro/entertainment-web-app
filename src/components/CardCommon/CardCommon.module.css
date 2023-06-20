@@ -3,11 +3,29 @@
   max-width: 164px;
 }
 
-.wrapperImage {
+.wrapperImage,
+.wrapperImageEmpty {
   position: relative;
   width: 164px;
   height: 164px;
   margin: 0 0 8px 0;
+}
+
+.wrapperImageEmpty {
+  color: var(--color05);
+  background-color: var(--color03);
+  border-radius: 8px;
+}
+
+.wrapperImageEmpty::after {
+  content: "No Poster";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: var(--color02);
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapperImage:is(:hover, :focus) .hoverPoster {
@@ -30,7 +48,8 @@
     max-width: 170px;
   }
 
-  .wrapperImage {
+  .wrapperImage,
+  .wrapperImageEmpty {
     width: 170px;
     height: 230px;
   }

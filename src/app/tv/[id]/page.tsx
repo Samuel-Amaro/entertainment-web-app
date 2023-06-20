@@ -72,7 +72,13 @@ export default async function Page({ params }: Props) {
   return (
     <main className={styles.main}>
       <section className={styles.sectionSummary}>
-        <div className={styles.wrapperImagePoster}>
+        <div
+          className={
+            detailsTvSeries.poster_path
+              ? styles.wrapperImagePoster
+              : styles.wrapperImagePosterEmpty
+          }
+        >
           {detailsTvSeries.poster_path && (
             <Image
               src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsTvSeries.poster_path}`}
@@ -91,9 +97,13 @@ export default async function Page({ params }: Props) {
         <div>
           <h1 className={`headingL ${styles.title}`}>
             <span>{detailsTvSeries.original_name}</span>{" "}
-            <span>{`(${new Date(
-              detailsTvSeries.first_air_date
-            ).getFullYear()})`}</span>
+            <span>{`(${
+              typeof new Date(detailsTvSeries.first_air_date).getFullYear() !==
+                "number" ||
+              isNaN(new Date(detailsTvSeries.first_air_date).getFullYear())
+                ? "No Year"
+                : new Date(detailsTvSeries.first_air_date).getFullYear()
+            })`}</span>
           </h1>
           <p className={styles.metadatas}>
             <span className={styles.metadataGenres}>
@@ -186,7 +196,13 @@ export default async function Page({ params }: Props) {
             }).format(date);
             return (
               <div key={season.id} className={styles.cardSeason}>
-                <div>
+                <div
+                  className={
+                    season.poster_path
+                      ? undefined
+                      : styles.wrapperPosterSeasonEmpty
+                  }
+                >
                   {season.poster_path && (
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
@@ -226,7 +242,13 @@ export default async function Page({ params }: Props) {
           <ul className={styles.list}>
             {creditsTvSeries.cast.map((cast) => (
               <li key={cast.id} className={styles.card}>
-                <div className={styles.wrapperProfile}>
+                <div
+                  className={
+                    cast.profile_path
+                      ? styles.wrapperProfile
+                      : styles.wrapperProfileEmpty
+                  }
+                >
                   {cast.profile_path && (
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}

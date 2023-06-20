@@ -1,9 +1,7 @@
-import styles from "./loading.module.css";
+import Loader from "@/components/Skeletons/Loader";
 
 export default function Loading() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.lsDualRing}></div>
-    </div>
+    <Loader />
   );
 }

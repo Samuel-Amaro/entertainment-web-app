@@ -19,7 +19,7 @@ export default function CardCommon({
 }: PropsCardCommon) {
   return (
     <div className={styles.card}>
-      <div className={styles.wrapperImage}>
+      <div className={posterPath ? styles.wrapperImage : styles.wrapperImageEmpty}>
         {posterPath && (
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}

@@ -18,7 +18,12 @@ export default function DatasCard({
   return (
     <div className={className ? className : undefined}>
       <p className={styles.container}>
-        <span className={styles.year}>{new Date(date).getFullYear()}</span>
+        <span className={styles.year}>
+          {typeof new Date(date).getFullYear() !== "number" ||
+          isNaN(new Date(date).getFullYear())
+            ? "No Year"
+            : new Date(date).getFullYear()}
+        </span>
         <span className={styles.diviser}></span>
         <span className={styles.wrapper}>
           {mediaType === "movie" ? (
