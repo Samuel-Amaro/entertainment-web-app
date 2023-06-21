@@ -1,4 +1,5 @@
 import {
+  getContentRatingsTvSeries,
   getCreditsTvSeries,
   getDetailsTvSeries,
   getListOfLanguages,
@@ -6,7 +7,13 @@ import {
 } from "@/api/tmdb";
 import IconLink from "@/components/Icons/IconLink";
 import PlayerVideo from "@/components/PlayerVideo";
-import { getLanguage, getVideoTrailer, shimer, toBase64 } from "@/utils";
+import {
+  getContentRatingTvSerie,
+  getLanguage,
+  getVideoTrailer,
+  shimer,
+  toBase64,
+} from "@/utils";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -67,7 +74,12 @@ export default async function Page({ params }: Props) {
   const listOfLanguages = await getListOfLanguages();
   const creditsTvSeries = await getCreditsTvSeries(params.id);
   const listOfVideos = await getVideosTvSeries(params.id);
+  const contentRatingList = await getContentRatingsTvSeries(params.id);
   const trailer = getVideoTrailer(listOfVideos.results);
+  const contentRating = getContentRatingTvSerie(
+    contentRatingList.results,
+    "US"
+  );
 
   return (
     <main className={styles.main}>
@@ -105,11 +117,23 @@ export default async function Page({ params }: Props) {
                 : new Date(detailsTvSeries.first_air_date).getFullYear()
             })`}</span>
           </h1>
-          <p className={styles.metadatas}>
-            <span className={styles.metadataGenres}>
-              {detailsTvSeries.genres.map((genre) => genre.name).join(",")}
-            </span>
-          </p>
+          <div className={styles.metadatas}>
+            {contentRating && (
+              <p
+                className={styles.ratingContent}
+                title={contentRating.descriptors}
+              >
+                {contentRating.rating}
+              </p>
+            )}
+            <ul className={styles.metadataGenres}>
+              {detailsTvSeries.genres.map((genre) => (
+                <li key={genre.id} className={styles.genre}>
+                  {genre.name}
+                </li>
+              ))}
+            </ul>
+          </div>
           {trailer && <PlayerVideo video={trailer} />}
           <div className={styles.summary}>
             {detailsTvSeries.tagline && (

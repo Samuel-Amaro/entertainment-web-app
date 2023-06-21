@@ -143,3 +143,22 @@ export function getCertificationMovie(
       ].descriptors.join(", "),
   };
 }
+
+export function getContentRatingTvSerie(
+  results: {
+    descriptors: string[];
+    iso_3166_1: string;
+    rating: string;
+  }[]
+  ,
+  iso31661: string
+) {
+  const rating = results.find((cr) => cr.iso_3166_1 === iso31661);
+  if(!rating) {
+    return null;
+  }
+  return {
+    rating: rating.rating,
+    descriptors: rating.descriptors.join(", ")
+  };
+}

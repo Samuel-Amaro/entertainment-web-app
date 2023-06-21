@@ -123,7 +123,10 @@ export default async function Page({ params }: Props) {
             </h1>
             <div className={styles.metadatas}>
               {certification && (
-                <p title={certification.descriptors} className={styles.certification}>
+                <p
+                  title={certification.descriptors}
+                  className={styles.certification}
+                >
                   {certification.certification}
                 </p>
               )}

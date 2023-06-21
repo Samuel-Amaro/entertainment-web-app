@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre, DataResponseSearchMulti, ResponseReleaseDateAndCertificationMovie } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre, DataResponseSearchMulti, ResponseReleaseDateAndCertificationMovie, ResponseContentRatings } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -118,4 +118,8 @@ export async function searchMulti(query: string, indexPage: number) {
 
 export async function getReleaseDateAndCertificationMovie(idMovie: number) {
   return await fetcher<ResponseReleaseDateAndCertificationMovie>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/${idMovie}/release_dates?api_key=${process.env.KEY_API}`, "Failed to fetch datas from release dates and certification by movie.");
+}
+
+export async function getContentRatingsTvSeries(idTvSerie: number) {
+  return await fetcher<ResponseContentRatings>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}tv/${idTvSerie}/content_ratings?api_key=${process.env.KEY_API}`, "Failed to fetch datas from content ratings by tv serie.");
 }

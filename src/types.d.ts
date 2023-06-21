@@ -300,3 +300,12 @@ export type ResponseReleaseDateAndCertificationMovie = {
         }[];
     }[];
 };
+
+export type ResponseContentRatings = {
+    results: {
+        descriptors: string[];
+        iso_3166_1: string;
+        rating: string;
+    }[];
+    id: number;
+};
