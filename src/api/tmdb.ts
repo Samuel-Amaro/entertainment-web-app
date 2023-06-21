@@ -1,4 +1,4 @@
-import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre, DataResponseSearchMulti } from "@/types";
+import { DataResponseNowPlayingMoviesOrUpcoming, DataResponseMovies, DataResponseTV, DatasDetailsMovie, ResponseCredits, ResponseLanguages, ResponseVideo, ResponseGenres, ResponsePaginationMoviesByGenre, DetailsTvSeries, ResponsePaginationTVSeriesByGenre, DataResponseSearchMulti, ResponseReleaseDateAndCertificationMovie } from "@/types";
 
 async function fetcher<TypeResponse>(url: string, messageError: string) {
   const response = await fetch(url, {
@@ -114,4 +114,8 @@ export async function searchFromTv(query: string, indexPage: number) {
 
 export async function searchMulti(query: string, indexPage: number) {
   return await fetcher<DataResponseSearchMulti>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}search/multi?api_key=${process.env.KEY_API}&query=${query}&page=${indexPage}`, "Failed to fetch datas from search multipla from tv series and movies.");
+}
+
+export async function getReleaseDateAndCertificationMovie(idMovie: number) {
+  return await fetcher<ResponseReleaseDateAndCertificationMovie>(`${process.env.NEXT_PUBLIC_ENDPOINT_API}movie/${idMovie}/release_dates?api_key=${process.env.KEY_API}`, "Failed to fetch datas from release dates and certification by movie.");
 }

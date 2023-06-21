@@ -15,10 +15,12 @@ import SectionOnTheAirTv from "@/components/SectionTVSeries/OnTheAir";
 import SectionPopularTv from "@/components/SectionTVSeries/Popular";
 import SectionTopRatedTv from "@/components/SectionTVSeries/TopRated";
 
-//TODO: STYLES PARA TABLET FEITO NA PAGE HOME
-//TODO: NOS CARDS E SECTION TRENDING E COMMON
-//TODO: FALTAR ESTILIZAR O DROPDOWM MENU BUTTON PARA TABLET
-//TODO: FALTA AS PAGINAS DE VER UM MOVIE OU TV SERIES EM DETAILS, A PAGE DE GENRES E PAGINAÇÕES E LISTAS
+//TODO: ADD STYLES PARA DESKTOP para todo o APP
+//TODO: ver se a API DO TMDB voltou a estar disponivel
+//TODO: add produtores e escritores de um movie, na page de details, para colocar mais informações,
+//TODO: onde achar que precisar fazer refatoração pode ir em frente
+//TODO: add mais detalhes a page de details, como certifications, ver poque não conseguimos add todos atores que participaram de uma serie, ver como fazer isso
+//TODO: add a causa do error nas mensagens de erro, de cada consumo de api para entender oque esta acontecendo
 
 export default function Home() {
   return (

@@ -111,3 +111,35 @@ export function nextFocusable(elements: HTMLElement[], forward = true) {
 
   elements[nextIndex]?.focus();
 }
+
+export function getCertificationMovie(
+  results: {
+    iso_3166_1: string;
+    release_dates: {
+      certification: string;
+      descriptors: string[];
+      iso_639_1: string;
+      note: string;
+      release_date: string;
+      type: number;
+    }[];
+  }[],
+  iso31661: string
+) {
+  const certificationAndReleaseDate = results.find(
+    (result) => result.iso_3166_1 === iso31661
+  );
+  if (!certificationAndReleaseDate) {
+    return null;
+  }
+  return {
+    certification:
+      certificationAndReleaseDate.release_dates[
+        certificationAndReleaseDate.release_dates.length - 1
+      ].certification,
+    descriptors:
+      certificationAndReleaseDate.release_dates[
+        certificationAndReleaseDate.release_dates.length - 1
+      ].descriptors.join(", "),
+  };
+}

@@ -2,11 +2,13 @@ import {
   getCreditsMovie,
   getDetailsMovie,
   getListOfLanguages,
+  getReleaseDateAndCertificationMovie,
   getVideosMovie,
 } from "@/api/tmdb";
 import {
   convertMinutesInHours,
   formatNumber,
+  getCertificationMovie,
   getLanguage,
   getVideoTrailer,
   shimer,
@@ -74,7 +76,13 @@ export default async function Page({ params }: Props) {
   const creditsMovie = await getCreditsMovie(params.id);
   const listOfLanguages = await getListOfLanguages();
   const listOfVideos = await getVideosMovie(params.id);
+  const certificationAndReleaseDates =
+    await getReleaseDateAndCertificationMovie(params.id);
   const trailer = getVideoTrailer(listOfVideos.results);
+  const certification = getCertificationMovie(
+    certificationAndReleaseDates.results,
+    "US"
+  );
 
   return (
     <>
@@ -113,19 +121,26 @@ export default async function Page({ params }: Props) {
                   : new Date(detailsMovie.release_date).getFullYear()
               })`}</span>
             </h1>
-            <p className={styles.metadatas}>
-              <span className={styles.metadataDate}>
-                {detailsMovie.release_date}
-              </span>
+            <div className={styles.metadatas}>
+              {certification && (
+                <p title={certification.descriptors} className={styles.certification}>
+                  {certification.certification}
+                </p>
+              )}
+              <p className={styles.metadataDate}>{detailsMovie.release_date}</p>
               <span className={styles.diviser}></span>
-              <span className={styles.metadataGenres}>
-                {detailsMovie.genres.map((genre) => genre.name).join(",")}
-              </span>
+              <ul className={styles.metadataGenres}>
+                {detailsMovie.genres.map((genre) => (
+                  <li key={genre.id} className={styles.genre}>
+                    {genre.name}
+                  </li>
+                ))}
+              </ul>
               <span className={styles.diviser}></span>
-              <span className={styles.metadataRuntime}>
+              <p className={styles.metadataRuntime}>
                 {convertMinutesInHours(detailsMovie.runtime)}
-              </span>
-            </p>
+              </p>
+            </div>
             {trailer && <PlayerVideo video={trailer} />}
             <div>
               <em className={styles.tagline}>{detailsMovie.tagline}</em>

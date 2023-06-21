@@ -74,7 +74,8 @@
 .titleYear,
 .metadataDate,
 .metadataGenres,
-.metadataRuntime {
+.metadataRuntime,
+.certification {
   display: inline-block;
 }
 
@@ -87,6 +88,26 @@
   font-size: 13px;
   line-height: 16px;
   margin: 0 0 24px 0;
+}
+
+.certification {
+  border: 1px solid var(--color06);
+  padding: 2px;
+  border-radius: 3px;
+  margin: 0 8px 0 0;
+}
+
+.metadataGenres {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.genre:not(:last-child)::after {
+  content: ",";
+  display: inline-block;
 }
 
 .diviser {
