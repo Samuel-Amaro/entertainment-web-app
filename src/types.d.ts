@@ -228,10 +228,24 @@ export type Cast = {
     order: number;
 };
 
+export type Crew = {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string;
+    credit_id: string;
+    department: string;
+    job: string;
+};
+
 export type ResponseCredits = {
     id: number;
     cast: Cast[];
-    crew: [];
+    crew: Crew[];
 };
 
 export type Language = {

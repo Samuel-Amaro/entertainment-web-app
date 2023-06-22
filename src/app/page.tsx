@@ -15,13 +15,6 @@ import SectionOnTheAirTv from "@/components/SectionTVSeries/OnTheAir";
 import SectionPopularTv from "@/components/SectionTVSeries/Popular";
 import SectionTopRatedTv from "@/components/SectionTVSeries/TopRated";
 
-//TODO: ADD STYLES PARA DESKTOP para todo o APP
-//TODO: ver se a API DO TMDB voltou a estar disponivel
-//TODO: add produtores e escritores de um movie, na page de details, para colocar mais informações,
-//TODO: onde achar que precisar fazer refatoração pode ir em frente
-//TODO: add mais detalhes a page de details, como certifications, ver poque não conseguimos add todos atores que participaram de uma serie, ver como fazer isso
-//TODO: add a causa do error nas mensagens de erro, de cada consumo de api para entender oque esta acontecendo
-
 export default function Home() {
   return (
     <div className={styles.container}>

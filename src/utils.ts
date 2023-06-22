@@ -1,4 +1,4 @@
-import { Language, ResponseLanguages, Video } from "./types";
+import { Crew, Language, ResponseLanguages, Video } from "./types";
 
 export function shimer(w: number, h: number) {
   return `
@@ -132,15 +132,18 @@ export function getCertificationMovie(
   if (!certificationAndReleaseDate) {
     return null;
   }
+  const filterCertificationAndReleseDate = certificationAndReleaseDate.release_dates.find((crd) => crd.certification !== '');
+  if(filterCertificationAndReleseDate) {
+    return {
+      certification:
+        filterCertificationAndReleseDate.certification,
+      descriptors:
+        filterCertificationAndReleseDate.descriptors.join(", "),
+    };
+  }
   return {
-    certification:
-      certificationAndReleaseDate.release_dates[
-        certificationAndReleaseDate.release_dates.length - 1
-      ].certification,
-    descriptors:
-      certificationAndReleaseDate.release_dates[
-        certificationAndReleaseDate.release_dates.length - 1
-      ].descriptors.join(", "),
+    certification: "Not certification",
+    descriptors: undefined
   };
 }
 
@@ -161,4 +164,26 @@ export function getContentRatingTvSerie(
     rating: rating.rating,
     descriptors: rating.descriptors.join(", ")
   };
+}
+
+export function getWritersMovie(listCrew: Crew[]) {
+  const writersMovie = listCrew.filter((crew) => crew.department === "Writing");
+  const writersMovieUniques = writersMovie.filter(
+    (w, index) => {
+      const idx = writersMovie.findIndex(
+        (wp) =>
+          wp.original_name === w.original_name
+      );
+      if(idx !== index) {
+        writersMovie[idx].job = writersMovie[idx].job + ", " + writersMovie[index].job;
+      }
+      return idx === index;
+    }
+  );
+  return writersMovieUniques;
+}
+
+export function getDirectorMovie(listCrew: Crew[]) {
+  const directorMovie = listCrew.find((c) => c.department === "Directing" && c.job === "Director");
+  return directorMovie;
 }

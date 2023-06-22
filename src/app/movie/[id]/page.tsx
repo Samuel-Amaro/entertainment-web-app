@@ -9,8 +9,10 @@ import {
   convertMinutesInHours,
   formatNumber,
   getCertificationMovie,
+  getDirectorMovie,
   getLanguage,
   getVideoTrailer,
+  getWritersMovie,
   shimer,
   toBase64,
 } from "@/utils";
@@ -74,6 +76,8 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
   const detailsMovie = await getDetailsMovie(params.id);
   const creditsMovie = await getCreditsMovie(params.id);
+  const writersMovie = getWritersMovie(creditsMovie.crew);
+  const directorMovie = getDirectorMovie(creditsMovie.crew);
   const listOfLanguages = await getListOfLanguages();
   const listOfVideos = await getVideosMovie(params.id);
   const certificationAndReleaseDates =
@@ -145,11 +149,29 @@ export default async function Page({ params }: Props) {
               </p>
             </div>
             {trailer && <PlayerVideo video={trailer} />}
-            <div>
+            <div className={styles.summaryInfo}>
               <em className={styles.tagline}>{detailsMovie.tagline}</em>
               <h2 className={`headingM ${styles.subtitle}`}>Overview</h2>
               <p className={styles.overview}>{detailsMovie.overview}</p>
             </div>
+            <ul className={styles.peoples}>
+              {writersMovie.map((crew) => (
+                <li key={crew.id} className={styles.itemPeople}>
+                  <span className={`headingXS ${styles.namePeople}`}>
+                    {crew.original_name}
+                  </span>
+                  <span className={styles.jobPeople}>{crew.job}</span>
+                </li>
+              ))}
+              {directorMovie && (
+                <li className={styles.itemPeople}>
+                  <span className={`headingXS ${styles.namePeople}`}>
+                    {directorMovie.original_name}
+                  </span>
+                  <span className={styles.jobPeople}>{directorMovie.job}</span>
+                </li>
+              )}
+            </ul>
           </div>
         </section>
         <section className={styles.sectionInfo}>
