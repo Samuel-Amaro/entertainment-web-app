@@ -91,3 +91,25 @@
     margin: 0 0 33px 0;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .navbar {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    height: calc(100% - 64px);
+    flex-flow: column nowrap;
+    padding: 35.4px 28px 32px 28px;
+    margin: 0;
+  }
+
+  .nav {
+    flex-flow: column nowrap;
+    gap: 40px;
+  }
+
+  .wrapperProfile {
+    width: 40px;
+    height: 40px;
+  }
+}

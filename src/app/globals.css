@@ -118,3 +118,9 @@ body {
     line-height: 23px;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .main-container {
+    padding: 32px 36px 52px 164px;
+  }
+}
