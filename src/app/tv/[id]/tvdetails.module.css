@@ -382,3 +382,9 @@
     align-items: center;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .main {
+    padding: 32px 0 0 0;
+  }
+}
