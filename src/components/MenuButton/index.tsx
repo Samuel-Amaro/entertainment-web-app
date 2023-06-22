@@ -78,10 +78,7 @@ export default function MenuButton({
 
   return (
     <StrictMode>
-      <div
-        className={styles.container}
-        ref={containerRef}
-      >
+      <div className={styles.container} ref={containerRef}>
         <button
           ref={buttonRef}
           type="button"

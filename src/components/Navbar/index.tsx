@@ -12,12 +12,12 @@ import MenuButton from "../MenuButton";
 
 const navLinksMovies: { label: string; url: Url; hrefText: string }[] = [
   {
-    label: "Movies Genres",
+    label: "Genres",
     url: { pathname: "/movie" },
     hrefText: "/movie",
   },
   {
-    label: "Trending Movies",
+    label: "Trending",
     url: {
       pathname: "/movie/trending/1",
     },
@@ -59,12 +59,12 @@ const navLinksMovies: { label: string; url: Url; hrefText: string }[] = [
 
 const navLinksTvSeries: { label: string; url: Url; hrefText: string }[] = [
   {
-    label: "Tv Series Genres",
+    label: "Genres",
     url: { pathname: "/tv" },
     hrefText: "/tv",
   },
   {
-    label: "Trending Tv Series",
+    label: "Trending",
     url: {
       pathname: "/tv/trending/1",
     },

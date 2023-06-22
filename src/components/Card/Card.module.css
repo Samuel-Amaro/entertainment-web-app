@@ -3,3 +3,9 @@
   text-decoration: none;
   position: relative;
 }
+
+@media screen and (min-width: 900px) {
+  .cardLink {
+    position: static;
+  }
+}

@@ -28,3 +28,9 @@
     padding: 33px 0 0 0;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .container {
+    margin: 32px 0 0 0;
+  }
+}

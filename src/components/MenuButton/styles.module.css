@@ -15,8 +15,8 @@
   list-style: none;
   background-color: var(--color05);
   position: absolute;
+  z-index: 1003;
   left: -15px;
-  z-index: 1000;
   top: 18px;
   padding: 7px 4px;
   border: 2px solid var(--color03);
@@ -57,5 +57,23 @@
   .menu {
     left: -20px;
     top: 22px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .menu {
+    left: -55px;
+  }
+
+  .link {
+    display: block;
+    text-decoration: none;
+    width: 125px;
+    color: var(--color03);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px;
+    border-radius: 5px;
   }
 }
