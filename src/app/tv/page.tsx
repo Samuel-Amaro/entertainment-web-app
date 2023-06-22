@@ -26,7 +26,7 @@ export const metadata = {
     title: "Entertainment web app",
     description:
       "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
-    url: "/movie",
+    url: "/tv",
     type: "website",
     siteName: "Entertainment web app",
   },

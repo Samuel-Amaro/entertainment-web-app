@@ -1,5 +1,4 @@
 "use client";
-import { getPageTvSeriesByGenre } from "@/api/tmdb";
 import Link from "next/link";
 import List from "../List";
 import styles from "./styles.module.css";
@@ -28,13 +27,11 @@ async function fetcher(url: string) {
   return datas;
 }
 
-export default /*async*/ function PaginationTvSeriesByGenre({
+export default function PaginationTvSeriesByGenre({
   idGenre,
   pageIndex,
   nameGenre,
 }: Props) {
-  //const datasPagination = await getPageTvSeriesByGenre(idGenre, pageIndex);
-
   const { data, error, isLoading } = useSWR(
     `/api/tv/genre/${idGenre}?page=${pageIndex}`,
     fetcher
@@ -52,7 +49,7 @@ export default /*async*/ function PaginationTvSeriesByGenre({
       <div className={styles.wrapperList} aria-live="polite" aria-atomic="true">
         <List
           mediaType="tv"
-          items={data.results /*datasPagination.results*/}
+          items={data.results}
           limitRenderingItems={20}
           type="common"
           renderItem={renderCardTv}
@@ -73,10 +70,10 @@ export default /*async*/ function PaginationTvSeriesByGenre({
           </Link>
         )}
         <p className={styles.indicator} aria-live="polite" aria-atomic="true">
-          {data.page /*datasPagination.page*/} of{" "}
-          {data.total_pages /*datasPagination.total_pages*/}
+          {data.page} of{" "}
+          {data.total_pages}
         </p>
-        {pageIndex < data.total_pages /*datasPagination.total_pages*/ && (
+        {pageIndex < data.total_pages && (
           <Link
             href={{
               pathname: `/tv/genre/${idGenre}`,

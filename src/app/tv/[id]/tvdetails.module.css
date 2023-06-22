@@ -218,10 +218,6 @@
   justify-content: center;
 }
 
-/*.cardContent {
-  max-width: 330px;
-}*/
-
 .cardSeason {
   background-color: var(--color04);
   border-radius: 8px;
