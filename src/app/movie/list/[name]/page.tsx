@@ -40,9 +40,9 @@ export async function generateMetadata(
       "Upcoming Movies",
     ],
     icons: {
-      icon: "/favicon.png",
-      shortcut: "/favicon.png",
-      apple: "/favicon.png",
+      icon: "/assets/logo.svg",
+      shortcut: "/assets/logo.svg",
+      apple: "/assets/logo.svg",
     },
     openGraph: {
       title: `${params.name

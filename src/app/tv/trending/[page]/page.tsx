@@ -10,6 +10,35 @@ type Props = {
   params: { page: number };
 };
 
+export const metadata = {
+  title: "Trending Tv Series - Entertainment web app",
+  description:
+    "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+  keywords: [
+    "Movies",
+    "Series",
+    "TV",
+    "entertainment",
+    "Genres",
+    "Genres Tv Series",
+    "Trending Tv Series",
+    "Trending",
+  ],
+  icons: {
+    icon: "/assets/logo.svg",
+    shortcut: "/assets/logo.svg",
+    apple: "/assets/logo.svg",
+  },
+  openGraph: {
+    title: "Trending Tv Series - Entertainment web app",
+    description:
+      "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
+    url: "/tv/trending?page=1",
+    type: "video.tv_show",
+    siteName: "Entertainment web app",
+  },
+};
+
 export default async function Page({ params }: Props) {
   let pageIndex = 1;
 

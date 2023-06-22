@@ -38,9 +38,9 @@ export async function generateMetadata(
       "Top Rated TV",
     ],
     icons: {
-      icon: "/favicon.png",
-      shortcut: "/favicon.png",
-      apple: "/favicon.png",
+      icon: "/assets/logo.svg",
+      shortcut: "/assets/logo.svg",
+      apple: "/assets/logo.svg",
     },
     openGraph: {
       title: `${params.name

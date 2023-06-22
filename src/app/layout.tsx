@@ -11,9 +11,9 @@ export const metadata = {
     "entertainment web application, which shows the most popular movies, series and favorite television programs, allowing you to obtain information.",
   keywords: ["Movies", "Series", "TV", "entertainment"],
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/assets/logo.svg",
+    shortcut: "/assets/logo.svg",
+    apple: "/assets/logo.svg",
   },
   openGraph: {
     title: "Entertainment web app",
