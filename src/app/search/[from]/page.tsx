@@ -1,7 +1,7 @@
 import Search from "@/components/Search";
 import { TypeSearchFor } from "@/types";
 import styles from "./styles.module.css";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata} from "next";
 
 type Props = {
   params: { from: TypeSearchFor };
@@ -11,8 +11,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent?: ResolvingMetadata
+  { params, searchParams }: Props
 ): Promise<Metadata> {
   return {
     title: `${searchParams["query"]} - Entertainment web app`,

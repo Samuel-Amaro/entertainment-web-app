@@ -19,7 +19,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./movie.module.css";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata} from "next";
 import IconLink from "@/components/Icons/IconLink";
 import PlayerVideo from "@/components/PlayerVideo";
 
@@ -27,10 +27,7 @@ type Props = {
   params: { id: number };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const detailsMovie = await getDetailsMovie(params.id);
 
   return {

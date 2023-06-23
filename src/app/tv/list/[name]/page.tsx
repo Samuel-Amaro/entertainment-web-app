@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import FormSearch from "@/components/FormSearch";
 import { Suspense } from "react";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import PaginationListTvSeries from "@/components/PaginationListTvSeries";
 
 type Props = {
@@ -12,10 +12,10 @@ type Props = {
   };
 };
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   return {
     title: `${params.name
       .split("-")

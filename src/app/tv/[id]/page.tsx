@@ -14,7 +14,7 @@ import {
   shimer,
   toBase64,
 } from "@/utils";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata} from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./tvdetails.module.css";
@@ -24,8 +24,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  { params }: Props,
-  parent?: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const detailsTvSeries = await getDetailsTvSeries(params.id);
 

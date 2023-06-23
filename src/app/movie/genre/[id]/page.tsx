@@ -2,7 +2,7 @@ import PaginationMoviesByGenre from "@/components/PaginationMoviesByGenre";
 import { Suspense } from "react";
 import styles from "./styles.module.css";
 import SkeletonPagination from "@/components/Skeletons/Pagination";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata} from "next";
 import FormSearch from "@/components/FormSearch";
 
 type Props = {
@@ -13,8 +13,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent?: ResolvingMetadata
+  { params, searchParams }: Props
 ): Promise<Metadata> {
   let nameGenre = "";
   if (
