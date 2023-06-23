@@ -11,6 +11,7 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
+- [Getting Started](#getting-started)
 
 ## Overview
 
@@ -79,15 +80,16 @@ Users should be able to:
   - Fetch datas with client components with useSWR hook consumed endpoint API
 - [CSS Modules](https://github.com/css-modules/css-modules) - For styles
 - [SWR](https://swr.vercel.app/pt-BR/docs/getting-started) - Fetch Datas Client
+- [API TMDB](https://developer.themoviedb.org/docs) - API TMDB
 
 ## Author
 
 - Website - [Portfolio Web](https://samuel-amaro.github.io/portfolio-web/)
 - Frontend Mentor - [@samuel-amaro](https://www.frontendmentor.io/profile/Samuel-Amaro)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
