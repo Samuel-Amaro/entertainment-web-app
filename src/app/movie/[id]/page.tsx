@@ -12,11 +12,8 @@ import {
   getDirectorMovie,
   getLanguage,
   getVideoTrailer,
-  getWritersMovie,
-  shimer,
-  toBase64,
+  getWritersMovie
 } from "@/utils";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./movie.module.css";
 import { Metadata} from "next";
@@ -97,13 +94,10 @@ export default async function Page({ params }: Props) {
             }
           >
             {detailsMovie.poster_path && (
-              <Image
+              <img
                 src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsMovie.poster_path}`}
                 alt={`poster movie ${detailsMovie.title}`}
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  shimer(240, 140)
-                )}`}
+                decoding="async"
                 width={300}
                 height={300}
                 className={styles.posterImage}
@@ -225,13 +219,10 @@ export default async function Page({ params }: Props) {
                   }
                 >
                   {cast.profile_path && (
-                    <Image
+                    <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
                       alt={`Profile ${cast.original_name} with character ${cast.character}`}
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimer(240, 140)
-                      )}`}
+                      decoding="async"
                       width={150}
                       height={150}
                       title={`Profile ${cast.original_name} with character ${cast.character}`}

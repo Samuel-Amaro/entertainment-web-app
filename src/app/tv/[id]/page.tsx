@@ -10,12 +10,9 @@ import PlayerVideo from "@/components/PlayerVideo";
 import {
   getContentRatingTvSerie,
   getLanguage,
-  getVideoTrailer,
-  shimer,
-  toBase64,
+  getVideoTrailer
 } from "@/utils";
 import { Metadata} from "next";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./tvdetails.module.css";
 
@@ -91,13 +88,10 @@ export default async function Page({ params }: Props) {
           }
         >
           {detailsTvSeries.poster_path && (
-            <Image
+            <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${detailsTvSeries.poster_path}`}
               alt={`poster tv series ${detailsTvSeries.original_name}`}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimer(240, 140)
-              )}`}
+              decoding="async"
               width={300}
               height={300}
               title={`poster tv series ${detailsTvSeries.original_name}`}
@@ -182,13 +176,10 @@ export default async function Page({ params }: Props) {
             {detailsTvSeries.networks.map((network) => (
               <li key={network.id} className={styles.itemNetwork}>
                 {network.logo_path && (
-                  <Image
+                  <img
                     src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${network.logo_path}`}
                     alt={`logo nextwork ${network.name}`}
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      shimer(240, 140)
-                    )}`}
+                    decoding="async"
                     width={80}
                     height={30}
                     title={`logo nextwork ${network.name}`}
@@ -227,13 +218,10 @@ export default async function Page({ params }: Props) {
                   }
                 >
                   {season.poster_path && (
-                    <Image
+                    <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${season.poster_path}`}
                       alt={`poster season ${season.name}`}
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimer(240, 140)
-                      )}`}
+                      decoding="async"
                       width={130}
                       height={195}
                       title={`poster season ${season.name}`}
@@ -273,13 +261,10 @@ export default async function Page({ params }: Props) {
                   }
                 >
                   {cast.profile_path && (
-                    <Image
+                    <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE}${cast.profile_path}`}
                       alt={`Profile ${cast.original_name} with character ${cast.character}`}
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        shimer(240, 140)
-                      )}`}
+                      decoding="async"
                       width={150}
                       height={150}
                       title={`Profile ${cast.original_name} with character ${cast.character}`}

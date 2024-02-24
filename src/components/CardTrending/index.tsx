@@ -1,6 +1,4 @@
-import Image from "next/image";
 import DatasCard from "../DatasCard";
-import { shimer, toBase64 } from "@/utils";
 import styles from "./CardMovieTrending.module.css";
 import ViewCard from "../ViewCard";
 
@@ -21,17 +19,14 @@ export default function CardMovieTrending({
     <div className={styles.card}>
       <div className={styles.wrapperImage}>
         {posterPath && (
-          <Image
+          <img
             src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGE + posterPath}`}
             alt={`poster ${mediaType} ${titleOrName}`}
+            title={`poster ${mediaType} ${titleOrName}`}
             width={240}
             height={140}
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${toBase64(
-              shimer(240, 140)
-            )}`}
+            decoding="async"
             className={styles.image}
-            /*fill={true}*/
           />
         )}
         <ViewCard className={styles.hoverPoster} />
