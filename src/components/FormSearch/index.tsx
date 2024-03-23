@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./Search.module.css";
 import { useRouter } from "next/navigation";
@@ -29,7 +28,7 @@ export default function FormSearch({
   return (
     <form onSubmit={handleSubmitFormSearch} className={styles.form}>
       <div className={styles.group}>
-        <Image
+        <img
           src="/assets/icon-search.svg"
           alt="Icon search"
           width={32}

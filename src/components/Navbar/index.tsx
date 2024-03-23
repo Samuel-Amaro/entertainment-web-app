@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import IconNavHome from "../Icons/IconNavHome";
 import IconNavMovies from "../Icons/IconNavMovies";
@@ -116,7 +115,7 @@ export default function Navbar() {
   return (
     <aside className={styles.navbar}>
       <div>
-        <Image
+        <img
           src="/assets/logo.svg"
           alt="logo"
           width={33}
@@ -174,7 +173,7 @@ export default function Navbar() {
         }
       </nav>
       <div className={styles.wrapperProfile}>
-        <Image
+        <img
           src="/assets/image-avatar.png"
           alt="Image Profile"
           width={80}
