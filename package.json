@@ -1,12 +1,16 @@
 {
-  "name": "entertainment-web-app",
+  "name": "test-verzel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "prettier --check . && next lint",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint:check": "eslint .",
+		"lint:eslint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@types/node": "20.2.1",
@@ -21,6 +25,7 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
+    "prettier": "3.3.3",
     "typescript": "^5.1.3"
   }
 }
