@@ -1,5 +1,5 @@
-import SkeletonPageGenres from "@/components/Skeletons/PageGenres";
+import SkeletonPageGenres from '@/components/Skeletons/PageGenres';
 
 export default function Loading() {
-  return <SkeletonPageGenres />;
+	return <SkeletonPageGenres />;
 }

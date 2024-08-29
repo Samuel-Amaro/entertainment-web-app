@@ -1,126 +1,126 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
-  --color01: #fc4747;
-  --color02: #10141e;
-  --color03: #5a698f;
-  --color04: #161d2f;
-  --color05: #ffffff;
-  --color06: rgba(255, 255, 255, 0.5);
-  --color07: rgba(255, 255, 255, 0.75);
-  --color08: rgba(252, 71, 71, 0.6);
+	--color01: #fc4747;
+	--color02: #10141e;
+	--color03: #5a698f;
+	--color04: #161d2f;
+	--color05: #ffffff;
+	--color06: rgba(255, 255, 255, 0.5);
+	--color07: rgba(255, 255, 255, 0.75);
+	--color08: rgba(252, 71, 71, 0.6);
 }
 
 .headingL {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 25px;
-  letter-spacing: -0.3125px;
-  color: var(--color05);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 25px;
+	letter-spacing: -0.3125px;
+	color: var(--color05);
 }
 
 .headingM {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--color05);
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 20px;
+	color: var(--color05);
 }
 
 .headingS {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 19px;
-  color: var(--color05);
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 19px;
+	color: var(--color05);
 }
 
 .headingXS {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  color: #ffffff;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
 }
 
 .has-dialog {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 body {
-  background-color: var(--color02);
+	background-color: var(--color02);
 }
 
 /* Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #5a698f #dfe9eb;
+	scrollbar-width: thin;
+	scrollbar-color: #5a698f #dfe9eb;
 }
 
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
-  width: 10px;
-  width: 10px;
+	width: 10px;
+	width: 10px;
 }
 *::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background-color: #dfe9eb;
+	border-radius: 5px;
+	background-color: #dfe9eb;
 }
 
 *::-webkit-scrollbar-track:hover {
-  background-color: #b8c0c2;
+	background-color: #b8c0c2;
 }
 
 *::-webkit-scrollbar-track:active {
-  background-color: #b8c0c2;
+	background-color: #b8c0c2;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #5a698f;
+	border-radius: 5px;
+	background-color: #5a698f;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #414c68;
+	background-color: #414c68;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #fc4747;
+	background-color: #fc4747;
 }
 
 @media screen and (min-width: 500px) {
-  .main-container {
-    padding: 23px 24px 56px 25px;
-  }
+	.main-container {
+		padding: 23px 24px 56px 25px;
+	}
 
-  .headingL {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -0.5px;
-  }
+	.headingL {
+		font-size: 32px;
+		line-height: 40px;
+		letter-spacing: -0.5px;
+	}
 
-  .headingS {
-    font-size: 24px;
-    line-height: 30px;
-  }
+	.headingS {
+		font-size: 24px;
+		line-height: 30px;
+	}
 
-  .headingM {
-    font-size: 24px;
-    line-height: 30px;
-  }
+	.headingM {
+		font-size: 24px;
+		line-height: 30px;
+	}
 
-  .headingXS {
-    font-size: 18px;
-    line-height: 23px;
-  }
+	.headingXS {
+		font-size: 18px;
+		line-height: 23px;
+	}
 }
 
 @media screen and (min-width: 900px) {
-  .main-container {
-    padding: 32px 36px 52px 164px;
-  }
+	.main-container {
+		padding: 32px 36px 52px 164px;
+	}
 }

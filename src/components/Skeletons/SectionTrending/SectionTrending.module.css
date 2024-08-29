@@ -1,65 +1,65 @@
 .section {
-  margin: 0 0 24px 0;
+	margin: 0 0 24px 0;
 }
 
 .title {
-  content: "";
-  display: block;
-  width: 200px;
-  height: 25px;
-  background-color: var(--color06);
-  border-radius: 15px;
-  margin: 0 0 24px 0;
-  animation: skeleton-loading 1s linear infinite alternate;
+	content: '';
+	display: block;
+	width: 200px;
+	height: 25px;
+	background-color: var(--color06);
+	border-radius: 15px;
+	margin: 0 0 24px 0;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .cardImage {
-  content: "";
-  width: 240px;
-  height: 240px;
-  margin: 0 0 8px 0;
-  border-radius: 8px;
-  background-color: var(--color06);
-  animation: skeleton-loading 1s linear infinite alternate;
+	content: '';
+	width: 240px;
+	height: 240px;
+	margin: 0 0 8px 0;
+	border-radius: 8px;
+	background-color: var(--color06);
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .cardInfo {
-  content: "";
-  width: 150px;
-  height: 14px;
-  margin: 0 0 4px 0;
-  background-color: var(--color06);
-  border-radius: 15px;
-  animation: skeleton-loading 1s linear infinite alternate;
+	content: '';
+	width: 150px;
+	height: 14px;
+	margin: 0 0 4px 0;
+	background-color: var(--color06);
+	border-radius: 15px;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .cardTitle {
-  content: "";
-  width: 100px;
-  height: 18px;
-  background-color: var(--color06);
-  border-radius: 15px;
-  animation: skeleton-loading 1s linear infinite alternate;
+	content: '';
+	width: 100px;
+	height: 18px;
+	background-color: var(--color06);
+	border-radius: 15px;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .list {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-start;
-  gap: 16px;
-  /*background-color: var(--color04);*/
-  overflow-x: scroll;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	gap: 16px;
+	/*background-color: var(--color04);*/
+	overflow-x: scroll;
 }
 
 .description {
-  display: block;
-  content: "";
-  background-color: #f5f8fc;
-  width: 80px;
-  height: 14px;
-  border-radius: 15px;
-  margin: 0 0 24px 0;
-  animation: skeleton-loading 1s linear infinite alternate;
+	display: block;
+	content: '';
+	background-color: #f5f8fc;
+	width: 80px;
+	height: 14px;
+	border-radius: 15px;
+	margin: 0 0 24px 0;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 /*.card {
@@ -76,54 +76,54 @@
 }*/
 
 .skeleton {
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
+	-webkit-animation: skeleton-loading 1s linear infinite alternate;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 @-webkit-keyframes skeleton-loading {
-  0% {
-    background-color: #c2cfd6;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
+	0% {
+		background-color: #c2cfd6;
+	}
+	100% {
+		background-color: #f0f3f5;
+	}
 }
 
 @keyframes skeleton-loading {
-  0% {
-    background-color: #c2cfd6;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
+	0% {
+		background-color: #c2cfd6;
+	}
+	100% {
+		background-color: #f0f3f5;
+	}
 }
 
 @media screen and (min-width: 500px) {
-  .list {
-    gap: 40px;
-  }
+	.list {
+		gap: 40px;
+	}
 
-  .cardImage {
-    width: 160px;
-    height: 230px;
-  }
+	.cardImage {
+		width: 160px;
+		height: 230px;
+	}
 
-  .title {
-    height: 40px;
-    margin: 0 0 33px 0;
-  }
+	.title {
+		height: 40px;
+		margin: 0 0 33px 0;
+	}
 
-  .cardInfo {
-    height: 16px;
-  }
+	.cardInfo {
+		height: 16px;
+	}
 
-  .description {
-    width: 40%;
-    height: 16px;
-    margin: 0 0 33px 0;
-  }
+	.description {
+		width: 40%;
+		height: 16px;
+		margin: 0 0 33px 0;
+	}
 
-  .section {
-    margin: 0 0 33px 0;
-  }
+	.section {
+		margin: 0 0 33px 0;
+	}
 }

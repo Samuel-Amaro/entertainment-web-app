@@ -1,11 +1,11 @@
 .main {
-  padding: 24px 16px 16px 16px;
+	padding: 24px 16px 16px 16px;
 }
 
 .sectionSummary,
 .sectionInfo,
 .containerInfo {
-  margin: 0 0 24px 0;
+	margin: 0 0 24px 0;
 }
 
 .poster,
@@ -21,173 +21,173 @@
 .originalName,
 .character,
 .wrapperProfile {
-  content: "";
-  background-color: var(--color06);
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 8px;
+	content: '';
+	background-color: var(--color06);
+	animation: skeleton-loading 1s linear infinite alternate;
+	border-radius: 8px;
 }
 
 .poster {
-  display: block;
-  max-width: 330px;
-  max-height: 480px;
-  min-height: 300px;
-  width: 100%;
-  height: auto;
-  margin: 0 auto 24px auto;
+	display: block;
+	max-width: 330px;
+	max-height: 480px;
+	min-height: 300px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto 24px auto;
 }
 
 .title {
-  height: 25px;
-  width: 60%;
-  margin: 0 0 2px 0;
+	height: 25px;
+	width: 60%;
+	margin: 0 0 2px 0;
 }
 
 .metadatas {
-  height: 16px;
-  width: 70%;
-  margin: 0 0 24px 0;
+	height: 16px;
+	width: 70%;
+	margin: 0 0 24px 0;
 }
 
 .playerVideo {
-  height: 30px;
-  width: 35%;
-  margin: 0 0 24px 0;
+	height: 30px;
+	width: 35%;
+	margin: 0 0 24px 0;
 }
 
 .skeleton {
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-  animation: skeleton-loading 1s linear infinite alternate;
+	-webkit-animation: skeleton-loading 1s linear infinite alternate;
+	animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .tagline {
-  height: 16px;
-  margin: 0 0 24px 0;
-  width: 55%;
+	height: 16px;
+	margin: 0 0 24px 0;
+	width: 55%;
 }
 
 .subtitle {
-  height: 20px;
-  margin: 0 0 16px 0;
-  width: 55%;
+	height: 20px;
+	margin: 0 0 16px 0;
+	width: 55%;
 }
 
 .overview {
-  height: 16px;
-  width: 80%;
+	height: 16px;
+	width: 80%;
 }
 
 .data {
-  height: 16px;
-  width: 50%;
+	height: 16px;
+	width: 50%;
 }
 
 .data:not(:last-child) {
-  margin: 0 0 16px 0;
+	margin: 0 0 16px 0;
 }
 
 .link {
-  width: 40px;
-  height: 40px;
+	width: 40px;
+	height: 40px;
 }
 
 .list {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 10px;
-  flex: 0 0 150px;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+	flex: 0 0 150px;
 }
 
 .card {
-  border-radius: 8px;
-  border: 1px solid var(--color06);
+	border-radius: 8px;
+	border: 1px solid var(--color06);
 }
 
 .wrapperProfile {
-  width: 150px;
-  height: 200px;
-  border-radius: 8px 8px 0 0;
+	width: 150px;
+	height: 200px;
+	border-radius: 8px 8px 0 0;
 }
 
 .datasCard {
-  padding: 10px 10px 14px 10px;
+	padding: 10px 10px 14px 10px;
 }
 
 .originalName {
-  margin: 0 0 5px 0;
+	margin: 0 0 5px 0;
 }
 
 .originalName,
 .character {
-  width: 100%;
-  height: 16px;
+	width: 100%;
+	height: 16px;
 }
 
 @-webkit-keyframes skeleton-loading {
-  0% {
-    background-color: #c2cfd6;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
+	0% {
+		background-color: #c2cfd6;
+	}
+	100% {
+		background-color: #f0f3f5;
+	}
 }
 
 @keyframes skeleton-loading {
-  0% {
-    background-color: #c2cfd6;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
+	0% {
+		background-color: #c2cfd6;
+	}
+	100% {
+		background-color: #f0f3f5;
+	}
 }
 
 @media screen and (min-width: 500px) {
-  .main {
-    padding: 0;
-  }
+	.main {
+		padding: 0;
+	}
 
-  .sectionSummary,
-  .sectionInfo,
-  .containerInfo {
-    margin: 0 0 33px 0;
-  }
+	.sectionSummary,
+	.sectionInfo,
+	.containerInfo {
+		margin: 0 0 33px 0;
+	}
 
-  .title {
-    height: 40px;
-    margin: 0 0 4px 0;
-  }
+	.title {
+		height: 40px;
+		margin: 0 0 4px 0;
+	}
 
-  .metadatas,
-  .tagline,
-  .overview,
-  .data,
-  .originalName {
-    height: 19px;
-  }
+	.metadatas,
+	.tagline,
+	.overview,
+	.data,
+	.originalName {
+		height: 19px;
+	}
 
-  .data:not(:last-child) {
-    margin: 0;
-  }
+	.data:not(:last-child) {
+		margin: 0;
+	}
 
-  .subtitle {
-    height: 30px;
-  }
+	.subtitle {
+		height: 30px;
+	}
 
-  .containerInfo {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 33px;
-  }
+	.containerInfo {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 33px;
+	}
 
-  .data {
-    flex: 0 0 150px;
-  }
+	.data {
+		flex: 0 0 150px;
+	}
 
-  .sectionSummary {
-    display: grid;
-    grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
-    gap: 40px;
-    align-items: center;
-  }
+	.sectionSummary {
+		display: grid;
+		grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
+		gap: 40px;
+		align-items: center;
+	}
 }

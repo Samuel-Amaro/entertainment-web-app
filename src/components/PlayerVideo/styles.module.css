@@ -1,40 +1,40 @@
 .btnPlay {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  gap: 10px;
-  appearance: none;
-  font-family: inherit;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-  color: var(--color05);
-  margin: 0 0 24px 0;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: 10px;
+	appearance: none;
+	font-family: inherit;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 500;
+	color: var(--color05);
+	margin: 0 0 24px 0;
 }
 
 .textBtn,
 .iconBtnPlay {
-  display: inline-block;
+	display: inline-block;
 }
 
 .iconBtnPlay {
-  fill: var(--color05);
+	fill: var(--color05);
 }
 
 .btnPlay:is(:hover, :focus) {
-  color: var(--color01);
+	color: var(--color01);
 }
 
 .btnPlay:is(:hover, :focus) .iconBtnPlay {
-  fill: var(--color01);
+	fill: var(--color01);
 }
 
 @media screen and (min-width: 500px) {
-  .btnPlay {
-    font-size: 15px;
-    line-height: 19px;
-  }
+	.btnPlay {
+		font-size: 15px;
+		line-height: 19px;
+	}
 }

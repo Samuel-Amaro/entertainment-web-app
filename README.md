@@ -74,7 +74,7 @@ Users should be able to:
   - Client Components
   - Metadatas Static, and dinamic
   - Loading UI, and UI Optimist
-  - Route Handles 
+  - Route Handles
   - Page Error Handling
   - Fetch data on the server using Server Components.
   - Fetch datas with client components with useSWR hook consumed endpoint API

@@ -1,79 +1,79 @@
 .container {
-  position: relative;
+	position: relative;
 }
 
 .menuButton {
-  display: block;
-  appearance: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+	display: block;
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 .menu {
-  display: none;
-  list-style: none;
-  background-color: var(--color05);
-  position: absolute;
-  z-index: 1003;
-  left: -15px;
-  top: 18px;
-  padding: 7px 4px;
-  border: 2px solid var(--color03);
-  border-radius: 5px;
+	display: none;
+	list-style: none;
+	background-color: var(--color05);
+	position: absolute;
+	z-index: 1003;
+	left: -15px;
+	top: 18px;
+	padding: 7px 4px;
+	border: 2px solid var(--color03);
+	border-radius: 5px;
 }
 
 .container:is(:hover, :focus) .menu {
-  display: block;
+	display: block;
 }
 
 .menuOpen {
-  display: block;
+	display: block;
 }
 
 .link {
-  display: block;
-  text-decoration: none;
-  width: 150px;
-  color: var(--color03);
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 6px;
-  border-radius: 5px;
+	display: block;
+	text-decoration: none;
+	width: 150px;
+	color: var(--color03);
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 6px;
+	border-radius: 5px;
 }
 
 .link:is(:hover, :focus) {
-  color: var(--color01);
-  background-color: var(--color02);
+	color: var(--color01);
+	background-color: var(--color02);
 }
 
 .item:not(:last-child) {
-  margin: 0 0 5px 0;
-  width: 100%;
+	margin: 0 0 5px 0;
+	width: 100%;
 }
 
 @media screen and (min-width: 500px) {
-  .menu {
-    left: -20px;
-    top: 22px;
-  }
+	.menu {
+		left: -20px;
+		top: 22px;
+	}
 }
 
 @media screen and (min-width: 900px) {
-  .menu {
-    left: -55px;
-  }
+	.menu {
+		left: -55px;
+	}
 
-  .link {
-    display: block;
-    text-decoration: none;
-    width: 125px;
-    color: var(--color03);
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 6px;
-    border-radius: 5px;
-  }
+	.link {
+		display: block;
+		text-decoration: none;
+		width: 125px;
+		color: var(--color03);
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		padding: 6px;
+		border-radius: 5px;
+	}
 }

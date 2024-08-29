@@ -1,386 +1,386 @@
 .main {
-  padding: 0 16px 16px 16px;
+	padding: 0 16px 16px 16px;
 }
 
 .sectionSummary,
 .sectionInfo,
 .containerInfo,
 .sectionSeasons {
-  margin: 0 0 24px 0;
+	margin: 0 0 24px 0;
 }
 
 .wrapperImagePoster {
-  margin: 0 0 24px 0;
-  border-radius: 8px;
+	margin: 0 0 24px 0;
+	border-radius: 8px;
 }
 
 .posterImage,
 .wrapperImagePosterEmpty {
-  display: block;
-  max-width: 330px;
-  max-height: 480px;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
+	display: block;
+	max-width: 330px;
+	max-height: 480px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 8px;
 }
 
 .wrapperImagePosterEmpty {
-  width: 100%;
-  height: 100%;
-  color: var(--color05);
-  background-color: var(--color03);
-  border-radius: 8px;
-  margin: 0 auto 24px auto;
+	width: 100%;
+	height: 100%;
+	color: var(--color05);
+	background-color: var(--color03);
+	border-radius: 8px;
+	margin: 0 auto 24px auto;
 }
 
 .wrapperImagePosterEmpty::after {
-  content: "No Poster";
-  width: 100%;
-  height: 100%;
-  display: flex;
-  color: var(--color02);
-  align-items: center;
-  justify-content: center;
+	content: 'No Poster';
+	width: 100%;
+	height: 100%;
+	display: flex;
+	color: var(--color02);
+	align-items: center;
+	justify-content: center;
 }
 
 .title {
-  margin: 0 0 2px 0;
+	margin: 0 0 2px 0;
 }
 
 .metadatas {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  font-weight: 300;
-  color: var(--color05);
-  font-size: 13px;
-  line-height: 16px;
-  margin: 0 0 24px 0;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	font-weight: 300;
+	color: var(--color05);
+	font-size: 13px;
+	line-height: 16px;
+	margin: 0 0 24px 0;
 }
 
 .summary {
-  margin: 0 0 24px 0;
+	margin: 0 0 24px 0;
 }
 
 .ratingContent {
-  display: inline-block;
-  border: 1px solid var(--color06);
-  padding: 2px;
-  border-radius: 3px;
-  margin: 0 8px 0 0;
+	display: inline-block;
+	border: 1px solid var(--color06);
+	padding: 2px;
+	border-radius: 3px;
+	margin: 0 8px 0 0;
 }
 
 .metadataGenres {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 4px;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	gap: 4px;
 }
 
 .genre:not(:last-child)::after {
-  content: ",";
-  display: inline-block;
+	content: ',';
+	display: inline-block;
 }
 
 .tagline {
-  display: block;
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--color06);
-  text-align: left;
-  margin: 0 0 24px 0;
+	display: block;
+	font-weight: 300;
+	font-size: 13px;
+	line-height: 16px;
+	color: var(--color06);
+	text-align: left;
+	margin: 0 0 24px 0;
 }
 
 .overview {
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--color05);
-  text-align: left;
+	font-weight: 300;
+	font-size: 13px;
+	line-height: 16px;
+	color: var(--color05);
+	text-align: left;
 }
 
 .subtitle {
-  margin: 0 0 16px 0;
+	margin: 0 0 16px 0;
 }
 
 .listCreators {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 20px;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	gap: 20px;
 }
 
 .namePeople,
 .indicator {
-  display: block;
+	display: block;
 }
 
 .namePeople {
-  margin: 0;
+	margin: 0;
 }
 
 .indicator {
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 16px;
-  text-align: left;
-  color: var(--color06);
+	font-weight: 300;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: left;
+	color: var(--color06);
 }
 
 .info:not(:last-child) {
-  margin: 0 0 16px 0;
+	margin: 0 0 16px 0;
 }
 
 .data,
 .originalName {
-  display: block;
-  font-style: normal;
-  font-weight: 500;
-  color: var(--color05);
-  font-size: 16px;
-  line-height: 16px;
-  margin: 0 0 3px 0;
+	display: block;
+	font-style: normal;
+	font-weight: 500;
+	color: var(--color05);
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0 0 3px 0;
 }
 
 .valueData,
 .character {
-  display: block;
-  font-style: normal;
-  font-weight: 300;
-  color: var(--color05);
-  font-size: 13px;
-  line-height: 16px;
+	display: block;
+	font-style: normal;
+	font-weight: 300;
+	color: var(--color05);
+	font-size: 13px;
+	line-height: 16px;
 }
 
 .listNetworks {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 20px;
-  align-items: flex-start;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 20px;
+	align-items: flex-start;
 }
 
 .logoNetwork {
-  display: block;
-  max-width: 80px;
-  max-height: 45px;
-  height: 100%;
-  width: 100%;
+	display: block;
+	max-width: 80px;
+	max-height: 45px;
+	height: 100%;
+	width: 100%;
 }
 
 .linkHomePage {
-  display: block;
-  text-decoration: none;
-  width: 40px;
-  height: 40px;
+	display: block;
+	text-decoration: none;
+	width: 40px;
+	height: 40px;
 }
 
 .iconLink {
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: var(--color05);
+	display: block;
+	width: 100%;
+	height: 100%;
+	fill: var(--color05);
 }
 
 .linkHomePage:is(:hover, :focus) .iconLink {
-  fill: var(--color01);
+	fill: var(--color01);
 }
 
 .posterSeason,
 .wrapperPosterSeasonEmpty {
-  display: block;
-  max-width: 130px;
-  max-height: 195px;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
+	display: block;
+	max-width: 130px;
+	max-height: 195px;
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
 }
 
 .wrapperPosterSeasonEmpty {
-  width: 100%;
-  height: 100%;
-  color: var(--color05);
-  background-color: var(--color03);
-  border-radius: 8px;
+	width: 100%;
+	height: 100%;
+	color: var(--color05);
+	background-color: var(--color03);
+	border-radius: 8px;
 }
 
 .wrapperPosterSeasonEmpty::after {
-  content: "No Poster Season";
-  width: 100%;
-  height: 100%;
-  display: flex;
-  color: var(--color02);
-  align-items: center;
-  justify-content: center;
+	content: 'No Poster Season';
+	width: 100%;
+	height: 100%;
+	display: flex;
+	color: var(--color02);
+	align-items: center;
+	justify-content: center;
 }
 
 .cardSeason {
-  background-color: var(--color04);
-  border-radius: 8px;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 16px;
+	background-color: var(--color04);
+	border-radius: 8px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding: 16px;
 }
 
 .nameSeason {
-  margin: 0 0 8px 0;
+	margin: 0 0 8px 0;
 }
 
 .metadatasSeason {
-  margin: 0 0 16px 0;
+	margin: 0 0 16px 0;
 }
 
 .presentation {
-  margin: 0 0 8px 0;
+	margin: 0 0 8px 0;
 }
 
 .presentation,
 .overviewSeason {
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--color06);
+	font-weight: 300;
+	font-size: 13px;
+	line-height: 16px;
+	color: var(--color06);
 }
 
 .listSeasons {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  gap: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	gap: 20px;
 }
 
 .list {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 10px;
-  flex: 0 0 150px;
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+	flex: 0 0 150px;
 }
 
 .card {
-  border-radius: 8px;
-  border: 1px solid var(--color06);
+	border-radius: 8px;
+	border: 1px solid var(--color06);
 }
 
 .wrapperProfile,
 .wrapperProfileEmpty {
-  width: 150px;
-  height: 200px;
-  border-radius: 8px 8px 0 0;
+	width: 150px;
+	height: 200px;
+	border-radius: 8px 8px 0 0;
 }
 
 .wrapperProfileEmpty {
-  background-color: var(--color03);
+	background-color: var(--color03);
 }
 
 .wrapperProfileEmpty::after {
-  content: "No Profile";
-  width: 100%;
-  height: 100%;
-  display: flex;
-  color: var(--color02);
-  align-items: center;
-  justify-content: center;
+	content: 'No Profile';
+	width: 100%;
+	height: 100%;
+	display: flex;
+	color: var(--color02);
+	align-items: center;
+	justify-content: center;
 }
 
 .profileImg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  border-radius: 8px 8px 0 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	border-radius: 8px 8px 0 0;
 }
 
 .datasCard {
-  padding: 10px 10px 14px 10px;
+	padding: 10px 10px 14px 10px;
 }
 
 .originalName,
 .character {
-  max-width: 130px;
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
+	max-width: 130px;
+	width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 @media screen and (min-width: 500px) {
-  .sectionSummary {
-    display: grid;
-    grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
-    gap: 40px;
-    justify-content: center;
-    align-items: center;
-  }
+	.sectionSummary {
+		display: grid;
+		grid-template-columns: minmax(min-content, 330px) minmax(230px, 1fr);
+		gap: 40px;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .wrapperImagePoster,
-  .wrapperImagePosterEmpty {
-    margin: 0;
-  }
+	.wrapperImagePoster,
+	.wrapperImagePosterEmpty {
+		margin: 0;
+	}
 
-  .main {
-    padding: 0;
-  }
+	.main {
+		padding: 0;
+	}
 
-  .metadatas,
-  .tagline,
-  .overview,
-  .valueData,
-  .character,
-  .presentation {
-    font-size: 15px;
-    line-height: 19px;
-  }
+	.metadatas,
+	.tagline,
+	.overview,
+	.valueData,
+	.character,
+	.presentation {
+		font-size: 15px;
+		line-height: 19px;
+	}
 
-  .data,
-  .originalName {
-    font-size: 18px;
-    line-height: 23px;
-    margin: 0 0 4px 0;
-  }
+	.data,
+	.originalName {
+		font-size: 18px;
+		line-height: 23px;
+		margin: 0 0 4px 0;
+	}
 
-  .sectionSummary,
-  .sectionInfo,
-  .containerInfo {
-    margin: 0 0 33px 0;
-  }
+	.sectionSummary,
+	.sectionInfo,
+	.containerInfo {
+		margin: 0 0 33px 0;
+	}
 
-  .info:not(:last-child) {
-    margin: 0;
-  }
+	.info:not(:last-child) {
+		margin: 0;
+	}
 
-  .containerInfo {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 33px;
-    margin: 0;
-  }
+	.containerInfo {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 33px;
+		margin: 0;
+	}
 
-  .sectionInfo {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 50px;
-  }
+	.sectionInfo {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 50px;
+	}
 
-  .cardSeason {
-    display: grid;
-    grid-template-columns: minmax(min-content, 130px) minmax(min-content, 400px);
-    align-items: center;
-  }
+	.cardSeason {
+		display: grid;
+		grid-template-columns: minmax(min-content, 130px) minmax(min-content, 400px);
+		align-items: center;
+	}
 }
 
 @media screen and (min-width: 900px) {
-  .main {
-    padding: 32px 0 0 0;
-  }
+	.main {
+		padding: 32px 0 0 0;
+	}
 }

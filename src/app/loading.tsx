@@ -1,7 +1,5 @@
-import Loader from "@/components/Skeletons/Loader";
+import Loader from '@/components/Skeletons/Loader';
 
 export default function Loading() {
-  return (
-    <Loader />
-  );
+	return <Loader />;
 }

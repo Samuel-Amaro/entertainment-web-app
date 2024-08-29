@@ -1,21 +1,21 @@
 .message {
-  text-align: left;
-  font-weight: 500;
-  color: var(--color05);
-  line-height: 16px;
-  font-size: 16px;
-  margin: 0 0 16px 0;
+	text-align: left;
+	font-weight: 500;
+	color: var(--color05);
+	line-height: 16px;
+	font-size: 16px;
+	margin: 0 0 16px 0;
 }
 
 .icon {
-  animation: loading 2s linear infinite;
+	animation: loading 2s linear infinite;
 }
 
 @keyframes loading {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
